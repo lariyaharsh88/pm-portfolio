@@ -1,5 +1,6 @@
 "use client"
 
+import "lenis/dist/lenis.css"
 import { ReactLenis } from "lenis/react"
 import type { ReactNode } from "react"
 import { useFinePointer } from "@/hooks/useFinePointer"
@@ -15,8 +16,8 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       root
       options={
         enabled
-          ? { duration: 0.65, autoRaf: true, smoothWheel: true, anchors: true }
-          : { autoRaf: false, smoothWheel: false }
+          ? { lerp: 0.12, autoRaf: true, smoothWheel: true, anchors: true }
+          : { autoRaf: false, smoothWheel: false, anchors: true }
       }
     >
       {children}
