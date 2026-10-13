@@ -4,7 +4,7 @@ slug: "lead-management-platform"
 summary: "As sole PM, I turned a manual, spreadsheet-driven lead operation into a configuration-led platform that cut delivery time from 1–2 hours to under 5 minutes, reduced the ops team by ~75%, and scaled to 600+ clients and 78M+ distribution records."
 role: "Sole Product Manager / Product Owner"
 company: "KollegeApply"
-timeline: "[TODO: e.g. Jan 2025 – Present]"
+timeline: "Sep 2025 – present (core shipped Mar 2026)"
 team: "Up to 4 engineers, QA, Operations, Sales"
 tags: ["B2B Platform", "Automation", "Data Systems", "0→1"]
 accent: "#5B5BF7"
@@ -53,8 +53,7 @@ The spreadsheet was a symptom. The real problem was that **operational knowledge
     Cheapest and fastest to start. But it kept humans in the loop for every delivery, did nothing for data security, and Sheets was already freezing at our volumes. Rejected: it would buy months, not years.
   </Option>
   <Option title="Buy an off-the-shelf CRM / lead-distribution tool">
-    {/* TODO: confirm you actually evaluated this; otherwise phrase as "I ruled it out because…" */}
-    Our per-client course mappings, campaign caps and Sheets-based delivery for smaller colleges didn't fit standard tools without heavy customization, and per-seat/per-lead pricing scaled badly at our volume. Rejected.
+    I evaluated ready-made CRM and lead-distribution tools first. Our per-client course mappings, campaign caps and Sheets-based delivery for smaller colleges didn't fit standard tools without heavy customization, and per-seat/per-lead pricing scaled badly at our volume. Rejected.
   </Option>
   <Option title="Build a configuration-led internal platform" chosen>
     Higher upfront cost with a 4-engineer team, but it encoded our specific rules, let us own the data and security model, and made the marginal cost of a new client close to zero. Chosen.
@@ -94,7 +93,7 @@ I owned problem discovery, requirements, prioritization, workflow design, QA sig
 ## Trade-offs
 
 <Callout type="tradeoff">
-**Masking vs. ops speed.** Some ops tasks occasionally need full contact details. We accepted that small amount of friction because exposing PII across 40+ users was the bigger risk. [TODO: describe how unmasked access is granted, e.g. role-based, and whether it is logged.]
+**Masking vs. ops speed.** Some ops tasks occasionally need full contact details. We accepted that small amount of friction because exposing PII across 40+ users was the bigger risk. Access is role-based: only admins and the ops head can see unmasked data.
 </Callout>
 
 <Callout type="tradeoff">
@@ -108,12 +107,12 @@ I owned problem discovery, requirements, prioritization, workflow design, QA sig
 ## Execution
 
 <Timeline items={[
-  { date: "[TODO]", title: "Discovery", text: "Mapped the 7-step manual workflow, sized the problem (≈5 clients per person, 1–2h per delivery)." },
-  { date: "[TODO]", title: "MVP: centralized distribution", text: "Sources in, API and Sheets delivery out, configurable client mapping." },
-  { date: "[TODO]", title: "Trust layer", text: "PII masking, status history, user-level audit logs." },
-  { date: "[TODO]", title: "Exception management", text: "10 status types, duplicate detection, email error alerts." },
-  { date: "[TODO]", title: "Peak season (Apr–May)", text: "12.4M+ distribution records in May alone, across 39K+ batches." },
-  { date: "[TODO]", title: "Self-serve CMS inventory", text: "Banners and listings moved off the engineering queue." }
+  { date: "Sep 2025", title: "Discovery", text: "Mapped the 7-step manual workflow, sized the problem (≈5 clients per person, 1–2h per delivery), and evaluated ready-made tools." },
+  { date: "Sep 2025 – Jan 2026", title: "Core platform", text: "Centralized distribution (sources in, API and Sheets out), configurable client mapping, PII masking, status history and audit logs." },
+  { date: "By Jan 2026", title: "Exception management", text: "10 status types, duplicate detection, email error alerts." },
+  { date: "Feb – Mar 2026", title: "Full rollout", text: "Remaining workflows, reporting and self-serve CMS inventory; the platform was largely complete by March." },
+  { date: "Apr – May 2026", title: "Peak season", text: "12.4M+ distribution records in May alone, across 39K+ batches, with no added headcount." },
+  { date: "Ongoing", title: "Advanced features", text: "Enhancements and advanced functionality on top of the core platform." }
 ]} />
 
 The engineering org had about 12 developers spread across 7 products (website, CMS, LMS, FMS, EnrollBee, B2B systems, DevOps). The LMS had at most 4 of them at a time, so most of my work was ruthless sequencing and aligning sales and ops on what would ship *this* season versus next.
@@ -130,11 +129,9 @@ The engineering org had about 12 developers spread across 7 products (website, C
 - **23M+** duplicate distributions caught and blocked, so clients never paid for or chased repeat leads.
 - **12.4M+** records in May, the peak admission month, with no added headcount.
 - Reporting moved from manual spreadsheet work to system records, and manual report-building effort for the automated reports dropped to near zero.
-- Clients returned for subsequent admission cycles. [TODO: add a retention %, if one can be measured.]
+- **~80% of clients retained** across admission cycles.
 
 ## What I'd do differently
-
-{/* TODO: these are suggested reflections. Keep only the ones that are true for you, and rewrite them in your own words. */}
 
 - **Define success metrics on day one.** I had volume and time metrics, but no baseline for *lead quality* (contact rate and conversion at the client). That would have let me prove value to clients, not just to ops.
 - **Investigate "unknown" and "pending" earlier.** About 3.7M records sat in these ambiguous states. Every unexplained state is a support ticket waiting to happen.

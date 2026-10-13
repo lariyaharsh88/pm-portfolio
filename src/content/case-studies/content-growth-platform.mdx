@@ -4,8 +4,8 @@ slug: "content-growth-platform"
 summary: "I led a 0→1 education platform (website, CMS, structured data, student tools and technical SEO) that doubled indexed pages to 300K+, cut content processing from 4 hours to 10 minutes, and grew monthly sessions to a peak of 339K."
 role: "Product Manager / Product Owner"
 company: "KollegeApply"
-timeline: "[TODO: e.g. Jan 2025 – Present]"
-team: "[TODO: e.g. 6 engineers, content, SEO, ops]"
+timeline: "Jan 2025 – present"
+team: "4–6 engineers (backend, frontend, DevOps), content, SEO"
 tags: ["0→1", "CMS", "Growth / SEO", "Structured Data"]
 accent: "#10B981"
 cover: "/case-studies/content-cover.svg"
@@ -16,10 +16,6 @@ metrics:
   - { value: "4h → 10m", label: "content processing time" }
   - { value: "75+ / 90+", label: "PageSpeed mobile / desktop" }
 ---
-
-{/* TODO before publishing:
-   1. Pick ONE total-sessions number. The monthly figures sum to 1,700,353, not 1,912,652. Use the exact GA4 date range, or drop the total.
-   2. Add the year to the monthly data and, if you can, a year-over-year comparison for Jul–Sep. */}
 
 ## TL;DR
 
@@ -49,7 +45,7 @@ For an education site, **the structured data *is* the product**. Articles attrac
     Quick win, but publishing would still depend on people and bad data would still reach the site. Rejected: it optimizes the wrong process.
   </Option>
   <Option title="Adopt an off-the-shelf headless CMS">
-    Fine for articles, but weak for relational education data (college ↔ course ↔ exam ↔ cutoff) and bulk validation. We'd have ended up building the hard part anyway. {/* TODO: confirm this was actually considered */}
+    Fine for articles, but weak for relational education data (college ↔ course ↔ exam ↔ cutoff) and bulk validation. We'd have ended up building the hard part anyway.
   </Option>
   <Option title="Build a CMS + structured-data layer designed for templates and SEO" chosen>
     Higher upfront investment, but one data layer could feed every page type, tool and schema markup, and validation could happen before anything went live.
@@ -94,7 +90,7 @@ I owned discovery, competitor analysis, information architecture, CMS design, pr
 </Callout>
 
 <Callout type="tradeoff">
-**Richness vs. speed.** Data-dense pages (tables, comparisons, cutoffs) are heavy. We held a performance budget of 75+ mobile / 90+ desktop on PageSpeed Insights even when that meant cutting UI elements. [TODO: give one concrete example of something you cut or deferred.]
+**Richness vs. speed.** Data-dense pages (tables, comparisons, cutoffs) are heavy. We held a performance budget of 75+ mobile / 90+ desktop on PageSpeed Insights so heavy below-the-fold sections load client-side only as the user scrolls. The first view stays fast, while the core content and data stay server-rendered for search engines.
 </Callout>
 
 <Callout type="tradeoff">
@@ -105,7 +101,7 @@ I owned discovery, competitor analysis, information architecture, CMS design, pr
 
 <Compare before="~150K" after="300K+" label="Indexed pages (2×+)" />
 
-**Monthly sessions [TODO: year]**
+**Monthly sessions (2025–26)**
 
 | Month | Sessions |
 |---|---:|
@@ -119,7 +115,7 @@ I owned discovery, competitor analysis, information architecture, CMS design, pr
 | August | 115,123 |
 | September | 137,756 |
 
-Traffic grew **3.6× from January to the June peak**. The Jul–Aug decline coincides with the end of the admission season, which the whole category sees, and with platform migrations. [TODO: confirm the cause, and add a YoY comparison or a competitor seasonality reference.]
+Traffic grew **3.6× from January to the June peak**. The Jul–Aug dip came from a **full website revamp** in those months: URLs, templates and page structures all changed at once, so rankings reset temporarily. It coincided with the end of the admission season. Traffic was already recovering by September.
 
 **Structured, templated page types were driving real traffic, not just articles:**
 
@@ -133,14 +129,13 @@ Traffic grew **3.6× from January to the June peak**. The Jul–Aug decline coin
 Other results:
 - PageSpeed Insights of **75+ mobile / 90+ desktop** on key templates, at 300K+ pages.
 - Content processing went from **~4 hours to ~10 minutes**, with validation instead of manual checking.
-- Duplicate-content issues from raw CSV uploads were largely eliminated. [TODO: give a number if you have one.]
+- Duplicate-content issues from raw CSV uploads were largely eliminated through validation before publishing.
 
-## What I'd do differently
+## What I learned (and what I'd do differently)
 
-{/* TODO: these are suggested reflections. Keep only the ones that are true for you. */}
-- **Plan migrations with a traffic-risk budget.** I would stage URL and template changes by section, with rollback criteria, instead of changing several SEO systems at once. Doing it that way would have made the dip smaller and easier to diagnose.
+- **I brought the lessons from Collegedunia with me.** I had seen what goes wrong when content, data and SEO grow separately. This time I talked to multiple users directly before planning, and designed the information architecture to be easy to understand and to scale from day one.
+- **Stage big migrations.** The July–August revamp changed URLs, templates and page structures at once. Next time I'd roll out section by section, with rollback criteria, to shrink the dip and make it easier to diagnose.
 - **Instrument the funnel, not just sessions.** Sessions show discovery. I would track compare → predictor → lead conversion per page type from day one to prove which tools drive business value.
-- **Kill weak page types faster.** Use engagement and indexation data per template to retire low-value pages sooner.
 
 ## If I built this today with AI
 
