@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
+import { ArrowUpRight, Bike, Bot, Hammer, PenLine } from "lucide-react"
 import { ResumeTextLink } from "@/components/resume-link"
 import { Container } from "@/components/ui/Container"
 import { photoBlur } from "@/lib/photo-blur"
@@ -13,7 +15,31 @@ export const metadata: Metadata = pageMetadata({
   path: "/about",
 })
 
-const interests = ["[EDIT]", "[EDIT]", "[EDIT]", "[EDIT]"] as const
+const interests = [
+  {
+    icon: Bike,
+    title: "Road trips",
+    text: "Weekend rides across Rajasthan and Himachal. Every trip becomes a HarshOnRoads itinerary.",
+    href: "https://www.harshonroads.com/",
+  },
+  {
+    icon: Hammer,
+    title: "Building on weekends",
+    text: "Shipping side products like RankFlowHQ and HarshOnRoads. Building is how I learn.",
+    href: "/products",
+  },
+  {
+    icon: Bot,
+    title: "Playing with AI tools",
+    text: "Testing new models and agents, and breaking them to see where they fail.",
+  },
+  {
+    icon: PenLine,
+    title: "Writing",
+    text: "Working on notes about product, SEO and evaluating AI features.",
+    href: "/writing",
+  },
+] as const
 
 const contacts = [
   { label: "Email", href: `mailto:${site.email}` },
@@ -91,9 +117,7 @@ export default async function AboutPage() {
             />
             <figcaption className="space-y-1 px-5 py-4">
               <p className="text-sm text-fg">IGNITE 2026 — KollegeApply × Sportsdunia</p>
-              <p className="text-sm text-muted">
-                At the KollegeApply and Sportsdunia event. TODO: confirm my role.
-              </p>
+              <p className="text-sm text-muted">At the KollegeApply and Sportsdunia event.</p>
             </figcaption>
           </figure>
         </Container>
@@ -102,15 +126,51 @@ export default async function AboutPage() {
       <section className="pt-16 md:pt-24">
         <Container>
           <h2 className="text-2xl text-fg">Beyond work</h2>
-          <ul className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {interests.map((interest, index) => (
-              <li
-                key={`${interest}-${index}`}
-                className="flex min-h-28 items-end rounded-2xl border border-border bg-bg-elevated p-4 text-sm text-muted"
-              >
-                {interest}
-              </li>
-            ))}
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {interests.map((interest) => {
+              const Icon = interest.icon
+              const body = (
+                <>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent-ink transition-transform duration-300 group-hover:-rotate-6">
+                    <Icon className="size-5" aria-hidden />
+                  </span>
+                  <span className="mt-6 flex items-center gap-1 text-base text-fg">
+                    {interest.title}
+                    {"href" in interest ? (
+                      <ArrowUpRight
+                        className="size-4 text-muted opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        aria-hidden
+                      />
+                    ) : null}
+                  </span>
+                  <span className="mt-2 text-sm leading-relaxed text-muted">{interest.text}</span>
+                </>
+              )
+              const card =
+                "group flex h-full flex-col rounded-2xl border border-border bg-bg-elevated p-5 transition-colors duration-300"
+              return (
+                <li key={interest.title}>
+                  {"href" in interest ? (
+                    interest.href.startsWith("http") ? (
+                      <a
+                        href={interest.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${card} hover:border-accent/40`}
+                      >
+                        {body}
+                      </a>
+                    ) : (
+                      <Link href={interest.href} className={`${card} hover:border-accent/40`}>
+                        {body}
+                      </Link>
+                    )
+                  ) : (
+                    <div className={card}>{body}</div>
+                  )}
+                </li>
+              )
+            })}
           </ul>
         </Container>
       </section>

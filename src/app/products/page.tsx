@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function ProductsPage() {
   return (
-    <main className="pt-36 pb-16 md:pt-44">
+    <main className="pb-16">
       <Container>
         <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">
           Independent products · built and shipped outside my full-time role
