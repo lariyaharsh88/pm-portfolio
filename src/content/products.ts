@@ -100,11 +100,16 @@ export const products = [
       "Interactive India map with seasons and quick facts",
       "Side-by-side destination comparison on distance, budget, season and editorial scores",
       "Curated itineraries and a season-by-season guide",
+      "Distribution through my own travel channels: 264+ YouTube Shorts and Instagram as @harshonroads",
     ],
     decisions: [
       {
         title: "Constrain the AI to a curated dataset",
         body: "The planner composes itineraries only from destinations and data I've verified. Accepting less coverage was the trade-off for removing the hallucination problem entirely.",
+      },
+      {
+        title: "Content as the acquisition channel",
+        body: "I create the travel content myself (264+ Shorts on YouTube and Instagram), so the product grows on its own distribution instead of paid acquisition. Every trip becomes both a video and a verified itinerary.",
       },
       {
         title: "Structured tools beside the AI",

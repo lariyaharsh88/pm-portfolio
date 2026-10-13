@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Bike, Bot, Hammer, PenLine } from "lucide-react"
+import { ArrowUpRight, Bike, Bot, Clapperboard, Hammer, PenLine } from "lucide-react"
 import { ResumeTextLink } from "@/components/resume-link"
 import { Container } from "@/components/ui/Container"
 import { photoBlur } from "@/lib/photo-blur"
@@ -17,9 +17,15 @@ export const metadata: Metadata = pageMetadata({
 
 const interests = [
   {
+    icon: Clapperboard,
+    title: "Travel content creator",
+    text: "264+ YouTube Shorts on road trips, treks and hidden places as @harshonroads. My most-watched Short has 9.5K views.",
+    href: "https://www.youtube.com/@Harshonroads/shorts",
+  },
+  {
     icon: Bike,
     title: "Road trips",
-    text: "Weekend rides across Rajasthan and Himachal. Every trip becomes a HarshOnRoads itinerary.",
+    text: "Weekend escapes to the hills and Rajasthan. Every trip becomes a HarshOnRoads itinerary.",
     href: "https://www.harshonroads.com/",
   },
   {
@@ -45,6 +51,8 @@ const contacts = [
   { label: "Email", href: `mailto:${site.email}` },
   { label: "LinkedIn", href: site.linkedin, external: true },
   { label: "GitHub", href: site.github, external: true },
+  { label: "YouTube", href: "https://www.youtube.com/@Harshonroads", external: true },
+  { label: "Instagram", href: "https://www.instagram.com/harshonroads/", external: true },
 ] as const
 
 export default async function AboutPage() {
@@ -126,8 +134,8 @@ export default async function AboutPage() {
       <section className="pt-16 md:pt-24">
         <Container>
           <h2 className="text-2xl text-fg">Beyond work</h2>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {interests.map((interest) => {
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {interests.map((interest, index) => {
               const Icon = interest.icon
               const body = (
                 <>
@@ -149,7 +157,7 @@ export default async function AboutPage() {
               const card =
                 "group flex h-full flex-col rounded-2xl border border-border bg-bg-elevated p-5 transition-colors duration-300"
               return (
-                <li key={interest.title}>
+                <li key={interest.title} className={index === 0 ? "lg:col-span-2" : undefined}>
                   {"href" in interest ? (
                     interest.href.startsWith("http") ? (
                       <a
