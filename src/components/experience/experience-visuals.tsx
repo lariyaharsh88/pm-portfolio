@@ -113,22 +113,68 @@ function Caption({ value, label }: { value: string; label: string }) {
   )
 }
 
+const sources = ["Website", "Meta Ads", "Google Ads", "CSV"] as const
+
 function KollegeApplyPanel() {
+  const reduced = useReducedMotionSafe()
+  const clients = Array.from({ length: 6 })
+
   return (
     <Panel>
-      <div className="relative aspect-[4/3]">
-        <Image
-          src="/ignite-2026.jpg"
-          alt="Harsh at the KollegeApply × Sportsdunia IGNITE 2026 event"
-          fill
-          sizes="(min-width: 768px) 40vw, 100vw"
-          className="object-cover object-[50%_58%]"
-        />
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-          <p className="text-sm text-white">IGNITE 2026 · KollegeApply × Sportsdunia</p>
-        </div>
+      <div className="p-6">
+        <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">Lead distribution platform</p>
+        <svg viewBox="0 0 320 170" className="mt-4 w-full" aria-hidden>
+          {sources.map((label, index) => {
+            const y = 25 + index * 40
+            return (
+              <g key={label}>
+                <m.path
+                  d={`M70 ${y} C 115 ${y}, 115 85, 150 85`}
+                  fill="none"
+                  stroke="var(--accent)"
+                  strokeOpacity="0.5"
+                  strokeWidth="1.5"
+                  initial={reduced ? false : { pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease, delay: index * 0.1 }}
+                />
+                <rect x="0" y={y - 11} width="70" height="22" rx="11" fill="var(--bg)" stroke="var(--border)" />
+                <text x="35" y={y + 4} textAnchor="middle" fontSize="9" fill="var(--muted)">
+                  {label}
+                </text>
+              </g>
+            )
+          })}
+          {clients.map((_, index) => {
+            const y = 14 + index * 26
+            return (
+              <g key={index}>
+                <m.path
+                  d={`M190 85 C 230 85, 230 ${y}, 270 ${y}`}
+                  fill="none"
+                  stroke="var(--accent)"
+                  strokeOpacity="0.5"
+                  strokeWidth="1.5"
+                  initial={reduced ? false : { pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease, delay: 0.5 + index * 0.08 }}
+                />
+                <circle cx="280" cy={y} r="9" fill="var(--accent-soft)" stroke="var(--accent)" />
+              </g>
+            )
+          })}
+          <rect x="150" y="62" width="40" height="46" rx="12" fill="var(--accent)" />
+          <text x="170" y="90" textAnchor="middle" fontSize="10" fontWeight="600" fill="#fff">
+            LMS
+          </text>
+          <text x="300" y="168" textAnchor="end" fontSize="9" fill="var(--muted)">
+            600+ clients
+          </text>
+        </svg>
       </div>
-      <div className="grid grid-cols-2 divide-x divide-border">
+      <div className="grid grid-cols-2 divide-x divide-border border-t border-border">
         <Caption value="78M+" label="lead-distribution records" />
         <Caption value="300K+" label="indexed pages" />
       </div>
