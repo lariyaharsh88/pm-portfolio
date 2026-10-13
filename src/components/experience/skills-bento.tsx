@@ -10,7 +10,7 @@ import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe"
 import { cn } from "@/lib/cn"
 import { spring } from "@/lib/motion"
 
-const layouts = ["md:col-span-2", "md:row-span-2", "md:col-span-2"] as const
+const layouts = ["md:col-span-2", "md:row-span-2", "", "", "md:col-span-3"] as const
 
 export function SkillsBento() {
   return (
