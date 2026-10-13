@@ -7,6 +7,7 @@ import { Magnetic } from "@/components/motion/Magnetic"
 import { Reveal } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
 import { ResumeLink } from "@/components/resume-link"
+import { SocialLinks } from "@/components/social-links"
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { useFinePointer } from "@/hooks/useFinePointer"
@@ -138,7 +139,7 @@ export function Hero({
         />
         <Reveal instant>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Product Manager at KollegeApply, previously Collegedunia. 4+ years
+            Product Manager at KollegeApply, previously Collegedunia. 5 years
             in EdTech & B2B SaaS. Now building applied-AI products focused on
             evaluation, reliability and cost.
           </p>
@@ -155,6 +156,7 @@ export function Hero({
                 </ResumeLink>
               </Magnetic>
             ) : null}
+            <SocialLinks withLabel />
           </div>
         </Reveal>
         <div className="mt-16 flex items-center gap-3 text-muted md:mt-24">

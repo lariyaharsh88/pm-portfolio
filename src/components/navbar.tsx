@@ -9,6 +9,7 @@ import { useLenis } from "lenis/react"
 import { Magnetic } from "@/components/motion/Magnetic"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { ResumeLink } from "@/components/resume-link"
+import { SocialLinks } from "@/components/social-links"
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe"
 import { cn } from "@/lib/cn"
 import { ease } from "@/lib/motion"
@@ -148,6 +149,7 @@ export function Navbar({ hasResume = false }: { hasResume?: boolean }) {
           </div>
 
           <div className={cn("flex items-center gap-1", scrolled ? "ml-1" : "ml-auto")}>
+            <SocialLinks className="hidden md:flex" />
             <ThemeToggle />
             {hasResume ? (
               <Magnetic className="hidden md:inline-flex">
@@ -216,6 +218,7 @@ export function Navbar({ hasResume = false }: { hasResume?: boolean }) {
                 )
               })}
               <div className="mt-8 flex items-center gap-3">
+                <SocialLinks />
                 <ThemeToggle />
                 {hasResume ? (
                   <ResumeLink
