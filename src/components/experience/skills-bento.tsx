@@ -9,7 +9,7 @@ import { useFinePointer } from "@/hooks/useFinePointer"
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe"
 import { cn } from "@/lib/cn"
 import { spring } from "@/lib/motion"
-import { groupIcons, SkillIcon } from "@/components/experience/skill-icons"
+import { groupIcons } from "@/components/experience/skill-icons"
 
 const layouts = ["md:col-span-2", "md:row-span-2", "", "", "md:col-span-3"] as const
 
@@ -27,9 +27,8 @@ export function SkillsBento() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg px-3 py-1.5 text-sm text-fg"
+                      className="rounded-full border border-border bg-bg px-3 py-1.5 text-sm text-fg"
                     >
-                      <SkillIcon name={item} />
                       {item}
                     </li>
                   ))}
