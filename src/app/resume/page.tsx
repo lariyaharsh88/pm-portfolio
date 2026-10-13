@@ -28,7 +28,7 @@ export default function ResumePage() {
         <iframe
           src={resumeHref}
           title="Harsh Lariya resume PDF"
-          className="pointer-events-none mt-10 hidden h-[80vh] w-full rounded-3xl border border-border bg-bg-elevated md:block"
+          className="mt-10 hidden h-[80vh] w-full rounded-3xl border border-border bg-bg-elevated md:block"
         />
         <p className="mt-8 text-base text-muted md:hidden">
           <ResumeTextLink location="resume-mobile" className="text-base">

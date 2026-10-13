@@ -1,5 +1,7 @@
 export type ExperienceRole = {
   company: string
+  logo: string
+  url: string
   title: string
   dates: string
   location?: string
@@ -10,6 +12,8 @@ export type ExperienceRole = {
 
 export type Education = {
   school: string
+  logo: string
+  wordmark: string
   credential: string
   dates: string
 }
@@ -22,6 +26,8 @@ export type SkillGroup = {
 export const roles = [
   {
     company: "KollegeApply",
+    logo: "/logos/kollegeapply.svg",
+    url: "https://kollegeapply.com",
     title: "Product Manager",
     dates: "Jan 2025–Present",
     location: "Gurugram",
@@ -37,6 +43,8 @@ export const roles = [
   },
   {
     company: "Collegedunia",
+    logo: "/logos/collegedunia-icon.png",
+    url: "https://collegedunia.com",
     title: "Product Manager",
     dates: "Aug 2023–Sep 2024",
     scope:
@@ -50,6 +58,8 @@ export const roles = [
   },
   {
     company: "Collegedunia",
+    logo: "/logos/collegedunia-icon.png",
+    url: "https://collegedunia.com",
     title: "Associate Product Manager",
     dates: "Mar 2022–Aug 2023",
     bullets: [
@@ -61,6 +71,8 @@ export const roles = [
   },
   {
     company: "Collegedunia",
+    logo: "/logos/collegedunia-icon.png",
+    url: "https://collegedunia.com",
     title: "Digital Content Analyst",
     dates: "Aug 2021–Feb 2022",
     bullets: [
@@ -72,6 +84,8 @@ export const roles = [
 
 export const education = {
   school: "Delhi Technological University",
+  logo: "/logos/dtu-icon.png",
+  wordmark: "/logos/dtu-wordmark.jpg",
   credential: "B.Tech Electrical Engineering",
   dates: "2017–2021",
 } as const satisfies Education

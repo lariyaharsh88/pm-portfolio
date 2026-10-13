@@ -10,6 +10,7 @@ import { Tag } from "@/components/ui/Tag"
 import { education, roles, type ExperienceRole } from "@/content/experience"
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe"
 import { cn } from "@/lib/cn"
+import { CareerOverview, LogoTile, SidePanel } from "@/components/experience/experience-visuals"
 
 const previewCount = 2
 
@@ -35,6 +36,7 @@ export function ExperienceTimeline() {
             Product roles at KollegeApply and Collegedunia, across SEO, leads, rankings, and content systems.
           </p>
         </Reveal>
+        <CareerOverview />
 
         <div ref={ref} className="relative mt-16">
           <span
@@ -63,6 +65,7 @@ export function ExperienceTimeline() {
 }
 
 function TimelineRow({ index, children }: { index: number; children: ReactNode }) {
+  const side = index % 2 === 0 ? "md:col-start-2 md:row-start-1 md:pl-12" : "md:col-start-1 md:row-start-1 md:pr-12"
   const ref = useRef<HTMLLIElement>(null)
   const inView = useInView(ref, { amount: 0.45 })
   const reduced = useReducedMotionSafe()
@@ -71,9 +74,14 @@ function TimelineRow({ index, children }: { index: number; children: ReactNode }
   return (
     <li ref={ref} className="relative grid md:grid-cols-2 md:gap-x-20">
       <PulseDot active={inView && !reduced} />
-      <div className={cn("pl-10", index % 2 === 0 ? "md:pr-12 md:pl-0" : "md:col-start-2 md:pl-12")}>
+      <div className={cn("pl-10 md:row-start-1", index % 2 === 0 ? "md:pr-12 md:pl-0" : "md:col-start-2 md:pl-12")}>
         <Reveal from={from} amount={0.25}>
           {children}
+        </Reveal>
+      </div>
+      <div className={cn("hidden self-center md:block", side)}>
+        <Reveal from={from === "left" ? "right" : "left"} amount={0.25}>
+          <SidePanel index={index} wordmark={education.wordmark} school={education.school} />
         </Reveal>
       </div>
     </li>
@@ -108,12 +116,22 @@ function RoleCard({ role }: { role: ExperienceRole }) {
 
   return (
     <article className="rounded-3xl border border-border bg-bg-elevated p-5 md:p-6">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <p className="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">{role.company}</p>
-        <p className="font-mono text-xs text-muted">
-          {role.dates}
-          {role.location ? ` · ${role.location}` : ""}
-        </p>
+      <div className="flex items-center gap-3">
+        <LogoTile src={role.logo} alt={`${role.company} logo`} />
+        <div className="flex min-w-0 flex-1 flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <a
+            href={role.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] tracking-[0.14em] text-muted uppercase transition-colors hover:text-fg"
+          >
+            {role.company}
+          </a>
+          <p className="font-mono text-xs text-muted">
+            {role.dates}
+            {role.location ? ` · ${role.location}` : ""}
+          </p>
+        </div>
       </div>
       <h2 className="mt-2 text-2xl text-fg">{role.title}</h2>
       {role.scope ? <p className="mt-3 text-sm leading-relaxed text-fg">{role.scope}</p> : null}
@@ -173,7 +191,10 @@ function BulletList({ items, className }: { items: readonly string[]; className?
 function EducationCard() {
   return (
     <article className="rounded-3xl border border-border bg-bg-elevated p-5 md:p-6">
-      <p className="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Education</p>
+      <div className="flex items-center gap-3">
+        <LogoTile src={education.logo} alt={`${education.school} emblem`} />
+        <p className="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Education</p>
+      </div>
       <h2 className="mt-2 text-2xl text-fg">{education.credential}</h2>
       <p className="mt-2 text-sm text-muted">
         {education.school} · {education.dates}

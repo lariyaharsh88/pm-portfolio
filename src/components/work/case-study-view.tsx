@@ -44,13 +44,6 @@ export function CaseStudyView({
       ref={articleRef}
       style={{ "--study-accent": study.accent } as CSSProperties}
     >
-      {showTodo ? (
-        <Container className="pt-2">
-          <p className="inline-flex rounded-full bg-yellow-300 px-2.5 py-1 text-xs font-medium text-yellow-950">
-            TODO in this file
-          </p>
-        </Container>
-      ) : null}
       <header
         className="pb-8"
         style={{
@@ -58,6 +51,11 @@ export function CaseStudyView({
         }}
       >
         <Container>
+          {showTodo ? (
+            <p className="mb-4 inline-flex rounded-full bg-yellow-300 px-2.5 py-1 text-xs font-medium text-yellow-950">
+              TODO in this file
+            </p>
+          ) : null}
           <div className="flex items-center gap-3">
             <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">
               Case study
