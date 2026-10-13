@@ -35,21 +35,41 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: site.name,
+    default: site.title,
     template: "%s · Harsh Lariya",
   },
   description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.linkedin }],
+  creator: site.name,
+  keywords: [
+    "Harsh Lariya",
+    "Product Manager",
+    "AI Product Manager",
+    "Technical Product Manager",
+    "Data platforms",
+    "Applied AI",
+    "EdTech",
+    "B2B SaaS",
+    "Product portfolio",
+    "Gurugram",
+  ],
   openGraph: {
-    type: "website",
+    type: "profile",
     siteName: site.name,
-    title: site.name,
+    title: site.title,
     description: site.description,
+    url: "/",
+    locale: "en_IN",
+    firstName: "Harsh",
+    lastName: "Lariya",
   },
   twitter: {
     card: "summary_large_image",
-    title: site.name,
+    title: site.title,
     description: site.description,
   },
+  robots: { index: true, follow: true },
 }
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {

@@ -111,14 +111,26 @@ export function Navbar({ hasResume = false }: { hasResume?: boolean }) {
             "pointer-events-auto relative flex items-center gap-1 transition-[border-radius] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
             scrolled
               ? "mt-3 w-fit max-w-[calc(100%-1.5rem)] rounded-full border border-border bg-[color-mix(in_srgb,var(--bg)_78%,transparent)] px-2 py-1.5 shadow-[0_10px_40px_-18px_rgba(0,0,0,0.45)] backdrop-blur-xl"
-              : "w-full rounded-none border border-transparent bg-transparent px-5 py-4 md:px-8",
+              : "w-full rounded-none border-b border-border bg-[color-mix(in_srgb,var(--bg)_82%,transparent)] px-5 py-3 backdrop-blur-xl md:px-8",
           )}
         >
           <Link
             href="/"
-            className="rounded-full px-3 py-2 text-sm font-medium tracking-tight text-fg transition-colors duration-300 hover:text-accent-ink"
+            aria-label="Harsh Lariya, home"
+            className="group flex items-center gap-2.5 rounded-full py-1 pr-3 pl-1 text-fg"
           >
-            Harsh
+            <span
+              aria-hidden
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--accent),#a78bfa)] font-mono text-[13px] font-semibold text-white shadow-[0_6px_20px_-8px_var(--accent)] transition-transform duration-300 group-hover:-rotate-6"
+            >
+              HL
+            </span>
+            <span className={cn("flex flex-col leading-tight", scrolled && "hidden sm:flex")}>
+              <span className="text-sm font-semibold tracking-tight">Harsh Lariya</span>
+              {!scrolled ? (
+                <span className="hidden text-[11px] text-muted lg:block">Product Manager · Applied AI</span>
+              ) : null}
+            </span>
           </Link>
 
           <div

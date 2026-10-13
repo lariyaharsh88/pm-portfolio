@@ -4,14 +4,14 @@ import { ResumeTextLink } from "@/components/resume-link"
 import { Container } from "@/components/ui/Container"
 import { photoBlur } from "@/lib/photo-blur"
 import { hasResume } from "@/lib/resume"
-import { site } from "@/lib/site"
+import { site, pageMetadata } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "Product manager focused on data quality and applied AI. Open to PM and AI PM roles.",
-  alternates: { canonical: "/about" },
-}
+    "About Harsh Lariya: DTU engineer turned Product Manager. From content analyst to PM in 2 years, now building data platforms and applied-AI products.",
+  path: "/about",
+})
 
 const interests = ["[EDIT]", "[EDIT]", "[EDIT]", "[EDIT]"] as const
 

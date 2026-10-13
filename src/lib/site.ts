@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 function readSiteUrl() {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()
   if (!raw) return "http://localhost:3000"
@@ -7,11 +9,33 @@ function readSiteUrl() {
 
 export const siteUrl = readSiteUrl()
 
+/** Page metadata with matching Open Graph and Twitter tags. */
+export function pageMetadata({
+  title,
+  description,
+  path,
+}: {
+  title: string
+  description: string
+  path: string
+}): Metadata {
+  const fullTitle = `${title} · Harsh Lariya`
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: { type: "website", siteName: "Harsh Lariya", title: fullTitle, description, url: path },
+    twitter: { card: "summary_large_image", title: fullTitle, description },
+  }
+}
+
 export const site = {
   name: "Harsh Lariya",
   headline: "I build data-heavy products that turn messy workflows into measurable growth.",
+  title: "Harsh Lariya | Product Manager · Data Platforms & Applied AI",
+  role: "Product Manager · Data Platforms & Applied AI",
   description:
-    "Product manager focused on data quality and applied AI. Open to PM and AI PM roles.",
+    "Harsh Lariya is a Product Manager with 5 years in EdTech & B2B SaaS. Led a lead platform that handled 78M+ records and 600+ clients, and shipped 3 AI products.",
   email: "lariyaharsh88@gmail.com",
   linkedin: "https://www.linkedin.com/in/harshlariya/",
   github: "https://github.com/lariyaharsh88",

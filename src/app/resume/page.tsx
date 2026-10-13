@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/site"
 import { Magnetic } from "@/components/motion/Magnetic"
 import { ResumeLink, ResumeTextLink } from "@/components/resume-link"
 import { Container } from "@/components/ui/Container"
 import { resumeHref } from "@/lib/resume-path"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Resume",
-  description: "Harsh Lariya's product resume, as a PDF.",
-  alternates: { canonical: "/resume" },
-}
+  description:
+    "Download Harsh Lariya’s one-page Product Manager resume (PDF): data platforms, automation, technical SEO and applied AI.",
+  path: "/resume",
+})
 
 export default function ResumePage() {
   return (

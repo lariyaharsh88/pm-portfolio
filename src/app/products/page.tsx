@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/site"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/motion/Reveal"
@@ -7,12 +8,12 @@ import { FlowDiagram } from "@/components/products/flow-diagram"
 import { Container } from "@/components/ui/Container"
 import { products, type Product } from "@/content/products"
 
-export const metadata: Metadata = {
-  title: "Products",
+export const metadata: Metadata = pageMetadata({
+  title: "AI Products",
   description:
-    "Independent AI products I've designed, built and shipped: RankFlowHQ, the RankFlowHQ Education Hub and HarshOnRoads.",
-  alternates: { canonical: "/products" },
-}
+    "Independent AI products Harsh Lariya designed, built and shipped: RankFlowHQ (AI SEO workflow), its Education Hub, and HarshOnRoads (grounded trip planner).",
+  path: "/products",
+})
 
 export default function ProductsPage() {
   return (

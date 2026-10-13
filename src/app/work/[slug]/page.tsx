@@ -1,5 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc"
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/site"
 import { notFound } from "next/navigation"
 import { mdxComponents } from "@/components/mdx/mdx-components"
 import { CaseStudyView } from "@/components/work/case-study-view"
@@ -31,9 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!study) return { title: "Case study" }
 
   return {
-    title: study.title,
-    description: study.summary,
-    alternates: { canonical: `/work/${study.slug}` },
+    ...pageMetadata({ title: study.title, description: study.summary, path: `/work/${study.slug}` }),
     robots: study.status === "draft" ? { index: false, follow: false } : undefined,
   }
 }

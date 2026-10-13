@@ -17,6 +17,7 @@ const HowIWork = dynamic(() => import("@/components/home/how-i-work").then((mod)
 const CtaBand = dynamic(() => import("@/components/home/cta-band").then((mod) => mod.CtaBand))
 
 export const metadata: Metadata = {
+  title: { absolute: site.title },
   description: site.description,
   alternates: { canonical: "/" },
 }

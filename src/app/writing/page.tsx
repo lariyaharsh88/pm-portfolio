@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/site"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
@@ -7,11 +8,12 @@ import { Container } from "@/components/ui/Container"
 import { Tag } from "@/components/ui/Tag"
 import { formatDate, getNotes } from "@/lib/writing"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Writing",
-  description: "Notes on product management, PRDs, AI product teardowns and LLM evaluation.",
-  alternates: { canonical: "/writing" },
-}
+  description:
+    "Notes by Harsh Lariya on product management, PRDs, AI product teardowns and how to evaluate LLM features.",
+  path: "/writing",
+})
 
 export default function WritingPage() {
   const notes = getNotes()

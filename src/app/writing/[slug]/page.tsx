@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/site"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -21,9 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const note = getNote((await params).slug)
   if (!note) return { title: "Writing" }
   return {
-    title: note.title,
-    description: note.summary,
-    alternates: { canonical: `/writing/${note.slug}` },
+    ...pageMetadata({ title: note.title, description: note.summary, path: `/writing/${note.slug}` }),
   }
 }
 
