@@ -31,7 +31,7 @@ export const roles = [
     dates: "Jan 2025–Present",
     location: "Gurugram",
     scope:
-      "Own 6 product lines (SEO platform, lead management, B2B integrations, news portal, CMS) leading a 12+ member tech team and mentoring 1 APM.",
+      "Own 6 product lines (SEO platform, lead management, B2B integrations, news portal, CMS) leading a 12+ member tech team and mentoring 1 APM. Senior-most product role, reporting directly to the Founder.",
     bullets: [
       "Built the website, CMS and technical SEO from scratch: indexed pages ~150K → 300K+; monthly sessions 94K → 339K peak (3.6×).",
       "78M+ lead-distribution records across 268K+ batches; delivery time cut from 1–2 hours to under 5 minutes; operations team reduced ~75% while clients grew from ~200 to 600+.",
