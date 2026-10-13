@@ -1,36 +1,35 @@
 import { Fragment } from "react"
-import { Container } from "@/components/ui/Container"
-import { architectureSteps } from "@/content/rankflow"
 
-export function Architecture() {
+export function FlowDiagram({
+  steps,
+  className,
+}: {
+  steps: readonly string[]
+  className?: string
+}) {
   return (
-    <section className="py-16 md:py-24">
-      <Container>
-        <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">Architecture</p>
-        <h2 className="mt-3 max-w-xl text-3xl text-fg md:text-5xl">How a brief gets made</h2>
-        <p className="mt-4 max-w-2xl text-muted">TODO</p>
-        <div className="mt-12 hidden items-center md:flex">
-          {architectureSteps.map((step, index) => (
+    <div className={className}>
+        <div className="hidden items-center md:flex">
+          {steps.map((step, index) => (
             <Fragment key={step}>
               <Step label={step} index={index} />
-              {index < architectureSteps.length - 1 ? (
+              {index < steps.length - 1 ? (
                 <FlowLine direction="horizontal" index={index} />
               ) : null}
             </Fragment>
           ))}
         </div>
-        <div className="mt-10 flex flex-col md:hidden">
-          {architectureSteps.map((step, index) => (
+        <div className="flex flex-col md:hidden">
+          {steps.map((step, index) => (
             <Fragment key={step}>
               <Step label={step} index={index} />
-              {index < architectureSteps.length - 1 ? (
+              {index < steps.length - 1 ? (
                 <FlowLine direction="vertical" index={index} />
               ) : null}
             </Fragment>
           ))}
-        </div>
-      </Container>
-    </section>
+      </div>
+    </div>
   )
 }
 

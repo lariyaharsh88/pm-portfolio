@@ -42,15 +42,15 @@ export const projects = [
     tint: "emerald",
   },
   {
-    slug: "rankflowhq",
-    title: "RankFlowHQ",
-    outcome: "Independent AI product · In progress",
-    tags: ["Applied AI", "In progress"],
+    slug: "products",
+    title: "AI products I've built and shipped",
+    outcome: "RankFlowHQ (AI SEO workflow), its Education Hub, and HarshOnRoads (grounded AI trip planner). All three are live.",
+    tags: ["Applied AI", "Independent", "Live"],
     metrics: [
-      { value: "Eval", label: "Quality and reliability" },
-      { value: "Cost", label: "Spend per outcome" },
+      { value: "3", label: "live products" },
+      { value: "0→1", label: "idea to shipped, solo" },
     ],
-    href: "/rankflowhq",
+    href: "/products",
     tint: "violet",
   },
 ] as const satisfies readonly Project[]

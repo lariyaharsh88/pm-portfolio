@@ -17,7 +17,7 @@ const tints: Record<ProjectTint, string> = {
 const bars: Record<string, number[]> = {
   "lead-management-platform": [78, 70, 58, 46, 36, 28, 22, 18],
   "content-growth-platform": [28, 38, 48, 58, 74, 92, 66, 42, 48],
-  rankflowhq: [22, 48, 30, 64, 42, 70, 55, 84],
+  products: [22, 48, 30, 64, 42, 70, 55, 84],
 }
 
 export function SelectedWork() {
@@ -87,6 +87,10 @@ const screenshots: Record<string, { src: string; alt: string }> = {
   "lead-management-platform": {
     src: "/case-studies/lms-console.svg",
     alt: "Lead distribution console with masked contact details and per-record status",
+  },
+  products: {
+    src: "/products/rankflowhq.jpg",
+    alt: "RankFlowHQ homepage with the no-signup interactive demo",
   },
   "content-growth-platform": {
     src: "/case-studies/student-compare.svg",

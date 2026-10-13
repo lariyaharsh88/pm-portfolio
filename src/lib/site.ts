@@ -21,7 +21,7 @@ export const site = {
 export const navLinks = [
   { href: "/work", label: "Work" },
   { href: "/experience", label: "Experience" },
-  { href: "/rankflowhq", label: "RankFlowHQ" },
+  { href: "/products", label: "Products" },
   { href: "/writing", label: "Writing" },
   { href: "/about", label: "About" },
 ] as const

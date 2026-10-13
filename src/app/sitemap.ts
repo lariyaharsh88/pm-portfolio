@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/site"
 import { getNotes } from "@/lib/writing"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/work", "/experience", "/rankflowhq", "/about", "/resume", "/writing"]
+  const paths = ["", "/work", "/experience", "/products", "/about", "/resume", "/writing"]
 
   return [
     ...paths.map((path) => ({
