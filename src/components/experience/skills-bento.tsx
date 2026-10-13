@@ -9,6 +9,7 @@ import { useFinePointer } from "@/hooks/useFinePointer"
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe"
 import { cn } from "@/lib/cn"
 import { spring } from "@/lib/motion"
+import { groupIcons, SkillIcon } from "@/components/experience/skill-icons"
 
 const layouts = ["md:col-span-2", "md:row-span-2", "", "", "md:col-span-3"] as const
 
@@ -21,15 +22,14 @@ export function SkillsBento() {
           {skillGroups.map((group, index) => (
             <StaggerItem key={group.title} className={cn("h-full", layouts[index])}>
               <TiltCard>
-                <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
-                  {group.title}
-                </p>
+                <GroupHeader title={group.title} />
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-border bg-bg px-3 py-1.5 text-sm text-fg"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg px-3 py-1.5 text-sm text-fg"
                     >
+                      <SkillIcon name={item} />
                       {item}
                     </li>
                   ))}
@@ -40,6 +40,20 @@ export function SkillsBento() {
         </Stagger>
       </Container>
     </section>
+  )
+}
+
+function GroupHeader({ title }: { title: string }) {
+  const Icon = groupIcons[title]
+  return (
+    <div className="flex items-center gap-3">
+      {Icon ? (
+        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-soft text-accent-ink">
+          <Icon className="size-[18px]" aria-hidden />
+        </span>
+      ) : null}
+      <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">{title}</p>
+    </div>
   )
 }
 
