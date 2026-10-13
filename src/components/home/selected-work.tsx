@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/Container"
 import { Tag } from "@/components/ui/Tag"
@@ -82,8 +83,39 @@ function WorkCard({ project }: { project: Project }) {
   )
 }
 
+const screenshots: Record<string, { src: string; alt: string }> = {
+  "lead-management-platform": {
+    src: "/case-studies/lms-console.svg",
+    alt: "Lead distribution console with masked contact details and per-record status",
+  },
+  "content-growth-platform": {
+    src: "/case-studies/student-compare.svg",
+    alt: "College comparison page built on the shared data layer",
+  },
+}
+
 function Mockup({ slug, interactive }: { slug: string; interactive: boolean }) {
   const heights = bars[slug] ?? [40, 55, 48, 70]
+  const shot = screenshots[slug]
+
+  if (shot) {
+    return (
+      <div className="relative min-h-56 overflow-hidden rounded-2xl border border-white/10 bg-black/10 md:min-h-full">
+        <Image
+          src={shot.src}
+          alt={shot.alt}
+          fill
+          unoptimized
+          sizes="(min-width: 768px) 45vw, 100vw"
+          className={cn(
+            "object-cover object-left-top",
+            interactive &&
+              "transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100",
+          )}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="relative min-h-56 overflow-hidden rounded-2xl border border-white/10 bg-black/10 md:min-h-full">

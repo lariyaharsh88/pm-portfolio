@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
@@ -41,6 +42,17 @@ export default async function NotePage({ params }: Props) {
         </p>
         <h1 className="mt-3 text-4xl text-balance text-fg md:text-5xl">{note.title}</h1>
         <p className="mt-4 text-lg text-muted">{note.summary}</p>
+        {note.cover && (
+          <Image
+            src={note.cover}
+            alt=""
+            width={1600}
+            height={840}
+            unoptimized
+            priority
+            className="mt-10 w-full rounded-2xl border border-border"
+          />
+        )}
         <article className="prose case-prose mt-12 min-w-0">
           <MDXRemote
             source={note.content}

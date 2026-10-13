@@ -67,11 +67,15 @@ I owned problem discovery, requirements, prioritization, workflow design, QA sig
 
 **1. Configure once, run continuously.** Ops sets a client's mapping and chooses real-time or scheduled delivery. After that, the system distributes leads on its own. The ops job changed from *doing* the delivery to *checking* it, about 10 minutes of monitoring a day.
 
+<Figure src="/case-studies/lms-config.svg" alt="Client delivery setup: field mapping, real-time or scheduled delivery, and rules such as daily caps and PII masking" caption="Set up once per client: field mapping, delivery mode and rules (illustrative mockup, synthetic data)" />
+
 <Callout type="decision">
 **I chose configuration over automation scripts.** Scripts automate one person's workflow. Configuration lets anyone run any client's workflow. That is what made client continuity possible when people left.
 </Callout>
 
 **2. Masking by default.** PII is masked in the interface (`t************l`, `******7111`). Being able to open a record no longer means seeing the customer's details.
+
+<Figure src="/case-studies/lms-console.svg" alt="Distribution console with masked names and phone numbers and a status for every record" caption="Masked PII and a status on every record (illustrative mockup, synthetic data)" />
 
 **3. A full lead journey.** Every record carries its status history: received → validated → mapped → distribution attempt → outcome. User-level logs record who did what and when.
 

@@ -9,6 +9,7 @@ export type Note = {
   summary: string
   tags: string[]
   status: "published" | "draft"
+  cover?: string
   readingMinutes: number
   content: string
 }
@@ -32,6 +33,7 @@ function readNote(fileName: string): Note {
     summary: data.summary,
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     status: data.status,
+    cover: typeof data.cover === "string" ? data.cover : undefined,
     readingMinutes: Math.max(1, Math.round(words / 220)),
     content,
   }

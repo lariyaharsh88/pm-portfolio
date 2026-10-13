@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { SplitText } from "@/components/motion/SplitText"
@@ -28,6 +29,18 @@ export default function WritingPage() {
             {notes.map((note) => (
               <li key={note.slug}>
                 <Link href={`/writing/${note.slug}`} className="group block py-8">
+                  {note.cover && (
+                    <div className="mb-6 overflow-hidden rounded-2xl border border-border">
+                      <Image
+                        src={note.cover}
+                        alt=""
+                        width={1600}
+                        height={840}
+                        unoptimized
+                        className="aspect-[40/21] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center gap-3 font-mono text-xs text-muted">
                     <span>{formatDate(note.date)}</span>
                     <span>·</span>
