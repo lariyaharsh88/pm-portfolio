@@ -31,12 +31,13 @@ export const roles = [
     dates: "Jan 2025–Present",
     location: "Gurugram",
     scope:
-      "Own 6 product lines (SEO platform, lead management, B2B integrations, news portal, CMS) with a 12-person cross-functional team.",
+      "Own 6 product lines (SEO platform, lead management, B2B integrations, news portal, CMS) leading a 12+ member tech team and mentoring 1 APM.",
     bullets: [
       "Built the website, CMS and technical SEO from scratch: indexed pages ~150K → 300K+; monthly sessions 94K → 339K peak (3.6×).",
       "78M+ lead-distribution records across 268K+ batches; delivery time cut from 1–2 hours to under 5 minutes; operations team reduced ~75% while clients grew from ~200 to 600+.",
       "Launched an SEO-first news portal: 500K+ sessions in 5 months; CMS automation cut content processing from 4 hours to 10 minutes.",
       "Shipped a B2B integration for 60+ enterprise clients (261K+ leads routed) at 99%+ uptime.",
+      "Built custom GA4 reports and Search Console audits (site health, indexing, page status); guided the scraping and data teams, and co-created wireframes with Design from user feedback and competitor research.",
     ],
     tags: ["SEO", "Leads", "B2B", "CMS"],
   },
@@ -109,6 +110,8 @@ export const skillGroups = [
       "Product design & UX",
       "Information architecture",
       "Competitive analysis",
+      "User feedback",
+      "Wireframing",
       "A/B testing & experimentation",
       "Metrics & OKRs",
       "0→1 launches",
@@ -133,7 +136,8 @@ export const skillGroups = [
   {
     title: "Leadership & Delivery",
     items: [
-      "Team management",
+      "Tech team management (12+)",
+      "APM mentoring",
       "Stakeholder management",
       "Project management",
       "Agile / Scrum",
@@ -143,10 +147,10 @@ export const skillGroups = [
   },
   {
     title: "Growth & Platform",
-    items: ["Technical SEO", "Programmatic SEO", "CMS & workflow automation", "APIs & integrations", "HTML", "DevOps coordination"],
+    items: ["Technical SEO", "Programmatic SEO", "CMS & workflow automation", "APIs & integrations", "HTML", "DevOps & deployment basics", "AI-assisted coding"],
   },
   {
     title: "Tools",
-    items: ["Jira", "Figma", "GA4", "Looker Studio", "Search Console", "GitHub", "Cursor", "Supabase"],
+    items: ["Jira", "Figma", "GA4 custom reports", "Looker Studio", "Search Console", "GitHub", "Cursor", "Supabase"],
   },
 ] as const satisfies readonly SkillGroup[]
