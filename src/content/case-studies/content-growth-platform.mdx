@@ -1,0 +1,147 @@
+---
+title: "Building a content & growth platform from scratch"
+slug: "content-growth-platform"
+summary: "I led a 0→1 education platform (website, CMS, structured data, student tools and technical SEO) that doubled indexed pages to 300K+, cut content processing from 4 hours to 10 minutes, and grew monthly sessions to a peak of 339K."
+role: "Product Manager / Product Owner"
+company: "KollegeApply"
+timeline: "[TODO: e.g. Jan 2025 – Present]"
+team: "[TODO: e.g. 6 engineers, content, SEO, ops]"
+tags: ["0→1", "CMS", "Growth / SEO", "Structured Data"]
+accent: "#10B981"
+cover: "/case-studies/content-cover.svg"
+status: "published"
+metrics:
+  - { value: "150K → 300K+", label: "indexed pages" }
+  - { value: "339K", label: "peak monthly sessions (June)" }
+  - { value: "4h → 10m", label: "content processing time" }
+  - { value: "75+ / 90+", label: "PageSpeed mobile / desktop" }
+---
+
+{/* TODO before publishing:
+   1. Pick ONE total-sessions number. The monthly figures sum to 1,700,353, not 1,912,652. Use the exact GA4 date range, or drop the total.
+   2. Add the year to the monthly data and, if you can, a year-over-year comparison for Jul–Sep. */}
+
+## TL;DR
+
+Content arrived weekly in spreadsheets and was uploaded by hand. Structured data (colleges, courses, exams, cutoffs) went in through raw CSV uploads that created duplicates and broken pages. I led the build of a platform where **one validated data layer powers every page, tool and SEO surface**. It includes a CMS with validation and audit trails, templated pages, student decision tools, and technical SEO designed in from the start.
+
+## Context
+
+Students choosing a college move through **Discover → Explore → Compare → Evaluate → Decide**. Established players (Shiksha, Careers360 and others) already own this search space. A new entrant cannot win with more articles alone. It wins with **better-structured information, connected into journeys, at a scale that search engines can index**.
+
+## The problem
+
+<Compare before="~4 hours" after="~10 minutes" label="Content processing time per batch" />
+
+- **Publishing was manual.** Articles were shared weekly in sheets and uploaded by hand. That meant delays, formatting errors, and dependency on a few people.
+- **Data was unsafe at scale.** Direct CSV uploads created duplicate articles and malformed data, and nothing stopped bad data from going live.
+- **Pages were islands.** Content, college data and tools weren't connected, so a student reading about an exam had no path to cutoffs, predictors or comparisons.
+- **SEO was an afterthought.** With hundreds of thousands of potential URLs, crawl budget, canonicals, internal linking and performance had to be product decisions rather than post-launch fixes.
+
+<Callout type="insight">
+For an education site, **the structured data *is* the product**. Articles attract a visit, but cutoffs, comparisons and predictors are what students come back for and act on. If the data layer is wrong, every page built on it is wrong at scale.
+</Callout>
+
+## Options considered
+
+<Options>
+  <Option title="Speed up the spreadsheet workflow">
+    Quick win, but publishing would still depend on people and bad data would still reach the site. Rejected: it optimizes the wrong process.
+  </Option>
+  <Option title="Adopt an off-the-shelf headless CMS">
+    Fine for articles, but weak for relational education data (college ↔ course ↔ exam ↔ cutoff) and bulk validation. We'd have ended up building the hard part anyway. {/* TODO: confirm this was actually considered */}
+  </Option>
+  <Option title="Build a CMS + structured-data layer designed for templates and SEO" chosen>
+    Higher upfront investment, but one data layer could feed every page type, tool and schema markup, and validation could happen before anything went live.
+  </Option>
+</Options>
+
+## What we built
+
+I owned discovery, competitor analysis, information architecture, CMS design, prioritization and technical SEO strategy, working with engineering, content, SEO and business teams.
+
+**1. A CMS that is a product, not an admin panel.** It manages articles *and* structured data, with bulk uploads that pass format checks, duplicate detection and error flags **before** publishing.
+
+<Callout type="decision">
+**Validate before publishing, not after.** At 300K pages, fixing bad pages one by one doesn't scale. The system has to catch predictable errors before any user sees them.
+</Callout>
+
+**2. User-level activity tracking.** Every change records who changed what, and when. When something broke, we fixed the *process* that caused it, not just the page: **issue → trace → root cause → fix workflow → prevent recurrence**.
+
+**3. One data layer, many experiences.**
+- College data → college pages → comparison → evaluation
+- Exam data → exam pages → calendar → cutoffs → predictor
+- Course data → course pages → course finder → comparison
+
+<Callout type="decision">
+**Treat structured data as a shared platform layer.** Building each feature on its own copy of the data would have been faster for the first feature and much slower for every one after it.
+</Callout>
+
+**4. Student decision tools.** College and course discovery, side-by-side comparison, exam calendar, exam and college cutoffs, college predictor, course finder, mock tests, and a personal dashboard.
+
+**5. Templated pages at scale.** **Data → template → page → internal links → search discovery → user journey.** New page types launched by adding data, not by writing pages.
+
+**6. Technical SEO as architecture.** Crawlability, indexation rules, URL design, redirects, metadata, canonicals, schema markup, internal linking, sitemaps, robots.txt, and continuous audits. Performance was built into templates, not fixed at the end.
+
+## Trade-offs
+
+<Callout type="tradeoff">
+**Page volume vs. page quality.** Templates can generate millions of thin URLs. We only generated pages backed by real data and a real student question, and we controlled indexation for the rest. The goal was useful pages, not more URLs.
+</Callout>
+
+<Callout type="tradeoff">
+**Richness vs. speed.** Data-dense pages (tables, comparisons, cutoffs) are heavy. We held a performance budget of 75+ mobile / 90+ desktop on PageSpeed Insights even when that meant cutting UI elements. [TODO: give one concrete example of something you cut or deferred.]
+</Callout>
+
+<Callout type="tradeoff">
+**Short-term traffic vs. long-term architecture.** Big URL and template migrations cause temporary ranking volatility. We accepted the dip for a structure that could scale.
+</Callout>
+
+## Results
+
+<Compare before="~150K" after="300K+" label="Indexed pages (2×+)" />
+
+**Monthly sessions [TODO: year]**
+
+| Month | Sessions |
+|---|---:|
+| January | 94,672 |
+| February | 126,026 |
+| March | 169,077 |
+| April | 186,861 |
+| May | 289,861 |
+| June | **339,061** |
+| July | 241,916 |
+| August | 115,123 |
+| September | 137,756 |
+
+Traffic grew **3.6× from January to the June peak**. The Jul–Aug decline coincides with the end of the admission season, which the whole category sees, and with platform migrations. [TODO: confirm the cause, and add a YoY comparison or a competitor seasonality reference.]
+
+**Structured, templated page types were driving real traffic, not just articles:**
+
+| Page type | Sessions |
+|---|---:|
+| College listing | 64,700 |
+| Compare | 33,155 |
+| Exam cutoff | 21,070 |
+| College cutoff | 16,608 |
+
+Other results:
+- PageSpeed Insights of **75+ mobile / 90+ desktop** on key templates, at 300K+ pages.
+- Content processing went from **~4 hours to ~10 minutes**, with validation instead of manual checking.
+- Duplicate-content issues from raw CSV uploads were largely eliminated. [TODO: give a number if you have one.]
+
+## What I'd do differently
+
+{/* TODO: these are suggested reflections. Keep only the ones that are true for you. */}
+- **Plan migrations with a traffic-risk budget.** I would stage URL and template changes by section, with rollback criteria, instead of changing several SEO systems at once. Doing it that way would have made the dip smaller and easier to diagnose.
+- **Instrument the funnel, not just sessions.** Sessions show discovery. I would track compare → predictor → lead conversion per page type from day one to prove which tools drive business value.
+- **Kill weak page types faster.** Use engagement and indexation data per template to retire low-value pages sooner.
+
+## If I built this today with AI
+
+- **AI-assisted structured data entry.** Extract college, fee, cutoff and eligibility data from official PDFs and notices with an LLM using structured outputs, validated against the schema the CMS already enforces. A human approves anything with low confidence.
+- **Content QA agent.** Flag outdated dates, contradictions with the structured data ("article says the fee is X, the data layer says Y"), and missing internal links before publishing.
+- **Conversational predictor.** "Which colleges can I get with rank 12,000 in JEE Main?" answered from *our* cutoff data with citations, not from the model's memory.
+
+**How I'd evaluate it:** field-level extraction accuracy on a labeled set of 200 documents, factual-consistency rate against the data layer, citation coverage, cost per page updated, and latency. The non-negotiable is that no AI-generated number goes live without passing the same validation a human upload would.

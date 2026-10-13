@@ -1,0 +1,73 @@
+---
+title: Case study template
+slug: template
+summary: A draft that shows every case-study block. Replace the frontmatter, then set status to published.
+role: Product Manager
+company: Example Co
+timeline: Q1–Q3 2026
+team: PM, design, 3 engineers
+tags:
+  - Template
+  - Draft
+metrics:
+  - value: 40x
+    label: Example growth
+  - value: "10m"
+    label: Example cycle time
+accent: "#7C5CFF"
+cover: /case-studies/template.svg
+status: draft
+---
+
+This file is the pattern for a case study. Nothing in it is a real engagement. Copy it, swap the frontmatter, and set `status` to `published` when the write-up is ready. Drafts stay off the work index.
+
+## Context
+
+Open with the workflow, not the solution. Name the number that was wrong and the decision the product had to change.
+
+<Callout type="insight">
+An insight is a fact that changed the roadmap. One or two sentences. The recruiter should be able to repeat it.
+</Callout>
+
+<Metric value="10M+" label="Records in the system you owned" />
+
+## Decision
+
+Put the options you actually weighed side by side. Mark the one you shipped.
+
+<Options>
+  <Option title="Rewrite the platform">
+    A full rebuild would have touched every workflow at once. It also would have hidden whether any single change was responsible for the result.
+  </Option>
+  <Option title="Ship a thin slice" chosen>
+    A narrow loop had an owner, a metric, and a way to turn it off. That was the option that shipped.
+  </Option>
+</Options>
+
+<Callout type="decision">
+A decision names what you chose and what you refused. Keep it specific enough that another PM could argue with it.
+</Callout>
+
+<Callout type="tradeoff">
+A tradeoff is the cost you accepted. Speed against coverage, quality against spend, or a manual step you left in place on purpose.
+</Callout>
+
+<Timeline items={[
+  { date: "Week 1", title: "Baseline", text: "Write down the current numbers before changing the workflow." },
+  { date: "Week 4", title: "First slice", text: "Ship the narrowest change that can move the metric." },
+  { date: "Week 8", title: "Read the result", text: "Keep the slice only if the number moved the right way." }
+]} />
+
+## Result
+
+Compare two numbers in the same unit. `5K` and `200K+` are read as thousands. Plain numbers such as `240` and `10` are compared as-is, so a shorter cycle time shows a shorter bar.
+
+<Compare before="5K" after="200K+" label="Monthly sessions" />
+
+<Compare before="240" after="10" label="Minutes to process a batch" />
+
+<Callout type="result">
+A result is the number after the change, stated once, with the unit still attached.
+</Callout>
+
+<Figure src="/case-studies/template.svg" alt="Abstract panels used as the template figure" caption="Figures zoom in place. Click to open, click the backdrop or press Escape to close." />
