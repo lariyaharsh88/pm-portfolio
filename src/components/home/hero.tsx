@@ -67,7 +67,7 @@ export function Hero({
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[90vh] items-center overflow-hidden"
+      className="relative -mt-24 flex min-h-[calc(90vh+6rem)] items-center overflow-hidden pt-24"
       onMouseMove={parallax ? onMouseMove : undefined}
       onMouseLeave={parallax ? onMouseLeave : undefined}
     >

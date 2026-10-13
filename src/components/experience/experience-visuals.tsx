@@ -272,16 +272,23 @@ function PromotionPanel() {
   )
 }
 
-function EducationPanel({ wordmark, school }: { wordmark: string; school: string }) {
+function EducationPanel({ logo, school }: { logo: string; school: string }) {
   return (
-    <Panel className="flex items-center justify-center bg-white p-6">
-      <Image src={wordmark} alt={school} width={507} height={54} unoptimized className="h-auto w-full max-w-sm" />
+    <Panel className="flex items-center gap-5 p-6">
+      <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-white p-1.5 ring-1 ring-border">
+        <Image src={logo} alt={`${school} seal`} width={300} height={299} unoptimized className="h-full w-full object-contain" />
+      </span>
+      <div className="min-w-0">
+        <p className="text-lg leading-snug text-fg">{school}</p>
+        <p className="mt-1 text-sm text-muted">Formerly Delhi College of Engineering · est. 1941</p>
+        <p className="mt-3 text-sm text-accent-ink">B.Tech, Electrical Engineering</p>
+      </div>
     </Panel>
   )
 }
 
 /** The visual shown beside each timeline card on desktop, keyed by row index. */
-export function SidePanel({ index, wordmark, school }: { index: number; wordmark: string; school: string }) {
+export function SidePanel({ index, logo, school }: { index: number; logo: string; school: string }) {
   switch (index) {
     case 0:
       return <KollegeApplyPanel />
@@ -292,6 +299,6 @@ export function SidePanel({ index, wordmark, school }: { index: number; wordmark
     case 3:
       return <PromotionPanel />
     default:
-      return <EducationPanel wordmark={wordmark} school={school} />
+      return <EducationPanel logo={logo} school={school} />
   }
 }

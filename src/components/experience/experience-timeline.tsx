@@ -81,7 +81,7 @@ function TimelineRow({ index, children }: { index: number; children: ReactNode }
       </div>
       <div className={cn("hidden self-center md:block", side)}>
         <Reveal from={from === "left" ? "right" : "left"} amount={0.25}>
-          <SidePanel index={index} wordmark={education.wordmark} school={education.school} />
+          <SidePanel index={index} logo={education.logo} school={education.school} />
         </Reveal>
       </div>
     </li>

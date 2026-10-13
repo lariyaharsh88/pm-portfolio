@@ -13,7 +13,6 @@ export type ExperienceRole = {
 export type Education = {
   school: string
   logo: string
-  wordmark: string
   credential: string
   dates: string
 }
@@ -84,8 +83,7 @@ export const roles = [
 
 export const education = {
   school: "Delhi Technological University",
-  logo: "/logos/dtu-icon.png",
-  wordmark: "/logos/dtu-wordmark.jpg",
+  logo: "/logos/dtu-seal.png",
   credential: "B.Tech Electrical Engineering",
   dates: "2017–2021",
 } as const satisfies Education
