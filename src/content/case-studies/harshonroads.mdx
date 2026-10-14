@@ -1,0 +1,155 @@
+---
+title: "HarshOnRoads: planning, personas and PRD for a trip planner people can trust"
+slug: "harshonroads"
+summary: "How I planned and built HarshOnRoads end to end: the user personas, the problem framing, a PRD for the AI trip planner, the decision to put verified data before AI, the tool roadmap, and how my own travel content became the distribution channel."
+role: "Founder-PM: research, product, design and build"
+company: "Independent product"
+timeline: "Independent · live and ongoing"
+team: "Solo (AI-assisted coding)"
+tags: ["AI Product Management", "Product Planning", "User Personas", "PRD", "0→1"]
+accent: "#b45309"
+cover: "/products/harshonroads.jpg"
+status: "published"
+metrics:
+  - { value: "10+", label: "live planning tools and calculators" }
+  - { value: "2", label: "plan languages (English & Hindi)" }
+  - { value: "264+", label: "YouTube Shorts as the distribution channel" }
+  - { value: "0", label: "accounts needed to use the calculators" }
+---
+
+{/* Add usage numbers here once measured: monthly visitors, plans generated, plan-to-save rate. */}
+
+## TL;DR
+
+Indian weekend travellers plan trips across Instagram reels, blogs, maps and AI chatbots, and the chatbots often invent places, timings and distances. I built **HarshOnRoads** as a trip-planning product that puts **verified destination data first**: an AI trip planner, a weekend finder, cost and feasibility engines, an India map, a leave-day long-weekend finder and an assistant called Roadie. When the planner has to go beyond verified data, the plan is **clearly marked as AI-researched**. It's live at [harshonroads.com](https://www.harshonroads.com/) and grows through my own travel content.
+
+## How it started
+
+I make travel Shorts as [@harshonroads](https://www.youtube.com/@Harshonroads/shorts) (264+ on YouTube). The same questions kept coming up: *Where should I go this weekend from Delhi? Is 2 days enough? How much will it cost? Can my car get there?* The answers existed, but scattered across reels, blogs and forum threads, and generic AI planners answered confidently and often wrongly.
+
+## User research and personas
+
+I built these personas from the questions my audience asks in comments and messages, and from my own trips. They are **proto-personas**: hypotheses to design against, refined as real usage data comes in.
+
+| | **Weekend Warrior: Rohan, 27** | **Budget Explorer: Priya, 22** | **Road-Tripper: Arjun, 32** |
+|---|---|---|---|
+| **Who** | Working professional in Gurugram, 5-day job | Student or first jobber, travels with friends | Owns a car, plans self-drive trips |
+| **Goal** | Make the most of 2–3 free days without wasting one on planning | A memorable trip within a fixed budget | A route the car can handle, with good stops |
+| **Pain** | Too many options; doesn't know what's realistic in a weekend | Hidden costs; can't compare places by budget | Bad roads, wrong drive times, unsuitable routes for a hatchback |
+| **Question** | "Where can I go this weekend from Delhi?" | "Where can 4 of us go for ₹20K?" | "Can a sedan reach Shangarh? How long is the drive?" |
+| **Must-have** | Ranked suggestions for *this* weekend | Transparent cost breakdown | Drive times, road-access warnings, route order |
+
+<Callout type="insight">
+All three personas share one fear: **planning a trip that doesn't work in reality**: too far for the days available, more expensive than expected, or a place that isn't what the plan said. Trust in the plan matters more than how clever it sounds.
+</Callout>
+
+## Problem statement
+
+> Weekend travellers in India waste hours planning across scattered sources and still end up with unrealistic plans, because generic tools don't know real distances, costs, seasons or road conditions, and AI planners invent details. **HarshOnRoads helps them decide where to go and plan a trip they can actually do, from data they can trust.**
+
+## Product planning
+
+**Jobs to be done**
+1. *Decide where to go* (I have dates and a budget, not a destination).
+2. *Check it's feasible* (do the days, budget and vehicle work?).
+3. *Plan the days* (a realistic day-by-day itinerary).
+4. *Prepare* (cost, packing, transport, hotels).
+
+**Roadmap:** the product is organised in phases, each answering one job completely before the next builds on it.
+
+<Timeline items={[
+  { date: "Phase 1", title: "Content foundation", text: "Verified destination database (distance from Delhi, budget range, best months, highlights), destination pages, curated 2- and 3-day itineraries, and seasonal guides. The data layer every later feature depends on." },
+  { date: "Phase 2", title: "Decide where to go", text: "Weekend finder ranked by budget, days, distance, transport, style and month; interactive India map; side-by-side compare; best-month discovery." },
+  { date: "Phase 3", title: "AI trip planner", text: "Day-by-day itineraries from verified places, with route map, drive times and plain-language edits; English and Hindi." },
+  { date: "Phase 4", title: "Check and prepare", text: "Trip feasibility and cost engines, transport comparison, route optimiser, fuel and budget calculators, packing list, hotel search." },
+  { date: "Phase 5", title: "Retention and reach", text: "Leave-day long-weekend finder, My Trips, the Roadie assistant, and travel videos linked to destinations." }
+]} />
+
+## PRD: the AI trip planner
+
+**Goal:** turn a brief (destination, budget, days, style, interests) into a practical day-by-day plan the traveller can trust and follow.
+
+**Non-goals (v1):** booking and payments; real-time traffic; international trips.
+
+| # | Requirement | Priority |
+|---|---|---|
+| R1 | Pick a destination from verified places, or search any tourist city | P0 |
+| R2 | Brief controls update live (budget, days, style, interests); no rigid multi-step form | P0 |
+| R3 | One-tap "vibes" (Weekend escape, Budget explorer, Luxury break, Adventure week) preset the brief | P1 |
+| R4 | For verified destinations, the plan may only use places in the verified database | P0 |
+| R5 | For other cities, generate an AI-researched plan that is **clearly labelled** as such | P0 |
+| R6 | Day-by-day output with route map and drive times | P0 |
+| R7 | Optional vehicle type → road-access warnings | P1 |
+| R8 | Edit the plan in plain words ("make day 2 more relaxed") | P1 |
+| R9 | Plan language: English or Hindi | P1 |
+| R10 | "See a sample plan first" before entering anything | P1 |
+
+**Success metrics**
+
+| Metric | Why |
+|---|---|
+| Plan completion rate (brief → generated plan) | Is the brief easy enough to fill in? |
+| Plan save / share rate | Did the plan feel trustworthy enough to keep? |
+| Edits per plan | Lower is better once the plan is good |
+| Verified vs. AI-researched plan share | How much of demand the verified data covers |
+| Reported wrong places or timings | The trust metric; target near zero for verified plans |
+
+## Key product decisions
+
+<Options>
+  <Option title="A pure LLM planner for any destination">
+    Covers everything from day one and is fast to build, but it invents places and drive times, which is exactly the problem users already have with chatbots. Rejected as the default.
+  </Option>
+  <Option title="Verified data only">
+    Fully trustworthy, but users searching for a city we haven't covered get nothing, and they leave.
+  </Option>
+  <Option title="Verified data first, AI-researched fallback that is clearly labelled" chosen>
+    Verified destinations get plans built only from verified places. Other cities still get a plan, marked as AI-researched so users know how much to trust it. Coverage grows as the database grows. Chosen.
+  </Option>
+</Options>
+
+<Callout type="decision">
+**Deterministic tools beside the AI.** The weekend finder, feasibility and cost engines, route optimiser and calculators are rule-based and run in the browser, with no account needed. They're instant, predictable and free to run. AI is used where it adds value: composing itineraries, plain-language edits and the Roadie assistant.
+</Callout>
+
+<Callout type="decision">
+**Hindi plans.** Many weekend travellers are more comfortable reading in Hindi. Offering the plan language as a simple toggle widens the audience at almost no extra cost.
+</Callout>
+
+<Callout type="decision">
+**Leave-day arbitrage.** The long-weekend finder scans national and state holidays for the next 12 months, finds windows where 0–2 leave days unlock a 3+ day break, and matches destinations that fit. This turns a one-off planning tool into something people come back to.
+</Callout>
+
+## Trade-offs
+
+<Callout type="tradeoff">
+**Coverage vs. trust.** Verified data takes time to build, so coverage grows slowly. The labelled AI fallback keeps users from hitting a dead end without hiding which plans are verified.
+</Callout>
+
+<Callout type="tradeoff">
+**Breadth of tools vs. depth.** 10+ tools risk feeling scattered. I grouped them by job (decide, check, plan, prepare) on the Tools page, and kept the AI trip planner as the hero feature.
+</Callout>
+
+## Distribution: content as the growth engine
+
+Instead of paid acquisition, the product grows through my own travel content: 264+ YouTube Shorts and Instagram as @harshonroads. Every trip becomes **both a video and a verified itinerary**, which grows the database and the audience at the same time. Destination pages are built for search (weekend trips, itineraries, best time to visit), so content and SEO feed each other.
+
+## How I evaluate the AI planner
+
+Using the framework from [How I evaluate LLM features before they ship](/writing/how-i-evaluate-llm-features):
+- **Correctness:** for verified destinations, every place in the plan must exist in the database (checked automatically).
+- **Feasibility:** total drive time plus activities must fit the usable hours of each day.
+- **Budget fit:** the estimated cost stays within the brief.
+- **Labelling:** every AI-researched plan carries the label, with no exceptions.
+
+## What I learned
+
+- **Personas made the scope obvious.** Once I wrote down "Can a sedan reach Shangarh?", vehicle road-access warnings became a clear requirement rather than a nice-to-have.
+- **Honesty about uncertainty is a feature.** Labelling AI-researched plans builds more trust than pretending every plan is verified.
+- **Being the creator and the PM helps.** My audience's comments work as continuous user research, and each trip produces product data.
+
+## What's next
+
+- Measure the funnel: visitors → plans generated → plans saved → trips taken.
+- Grow verified coverage, guided by which AI-researched cities are requested most.
+- Run a formal evaluation of the planner and publish the numbers here.

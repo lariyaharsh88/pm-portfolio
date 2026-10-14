@@ -33,7 +33,7 @@ export type CaseStudy = {
   hasTodo: boolean
 }
 
-const publishedOrder = ["lead-management-platform", "content-growth-platform", "rankflowhq"]
+const publishedOrder = ["lead-management-platform", "content-growth-platform", "rankflowhq", "harshonroads"]
 
 export type CaseStudyMeta = Omit<CaseStudy, "content" | "hasTodo">
 

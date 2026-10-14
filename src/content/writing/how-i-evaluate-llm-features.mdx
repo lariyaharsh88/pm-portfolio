@@ -21,7 +21,7 @@ Most evaluation fails here, before any testing starts. "Write a good article" is
 - **Structured:** headings, FAQ and metadata follow the template and validate against the schema.
 - **Usable:** an editor would publish it with light edits, not a rewrite.
 
-For HarshOnRoads the most important criterion is simpler and stricter: **every place in the itinerary must exist in the verified dataset.** A beautiful itinerary with one invented fort is a failed itinerary.
+For HarshOnRoads the most important criterion is simpler and stricter: **for verified destinations, every place in the itinerary must exist in the verified dataset**, and any AI-researched plan must be labelled as such. A beautiful itinerary with one invented fort is a failed itinerary.
 
 <Callout type="insight">
 Write the criteria as pass/fail questions before you look at any output. If you write them afterwards, you end up grading whatever the model happened to do well.
@@ -61,10 +61,10 @@ Averages hide the failures that hurt users. After scoring, I group every failed 
 - **Intent miss:** a correct, well-written answer to the wrong question.
 - **Refusal or empty output.**
 
-Each failure mode needs a different fix. Hallucination is usually solved by **grounding**: the model may only use retrieved sources (RankFlowHQ) or a verified dataset (HarshOnRoads), and anything outside that is rejected. Retrieval misses need better search, not a better prompt. Format breaks need structured outputs plus validation and a retry. Treating every failure as "the model is bad" leads to endless prompt tweaking that fixes nothing.
+Each failure mode needs a different fix. Hallucination is usually solved by **grounding**: the model may only use retrieved sources (RankFlowHQ) or a verified dataset (HarshOnRoads), and anything outside that is rejected or clearly labelled. Retrieval misses need better search, not a better prompt. Format breaks need structured outputs plus validation and a retry. Treating every failure as "the model is bad" leads to endless prompt tweaking that fixes nothing.
 
 <Callout type="decision">
-On HarshOnRoads I chose to **constrain the AI to a curated dataset**. It covers fewer places than an unconstrained model, but it removes invented attractions entirely. For a travel product, a missing place is an inconvenience; an invented one is a broken trip.
+On HarshOnRoads I chose **verified data first**: for verified destinations the planner can only use places in the database, so it can't invent an attraction. Other cities still get a plan, clearly labelled as AI-researched. For a travel product, a missing place is an inconvenience; an invented one is a broken trip, and an unlabelled guess hides the risk.
 </Callout>
 
 ## 5. Count cost and latency per good output

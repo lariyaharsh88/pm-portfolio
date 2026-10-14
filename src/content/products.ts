@@ -89,15 +89,16 @@ export const products = [
     name: "HarshOnRoads",
     url: "https://www.harshonroads.com/",
     urlLabel: "harshonroads.com",
-    tagline: "An India road-trip planner that builds itineraries from verified destination data, not invented attractions.",
+    tagline: "An India trip planner that builds itineraries from verified destination data first, and clearly labels anything AI-researched.",
     screenshot: "/products/harshonroads.jpg",
+    caseStudy: "/work/harshonroads",
     accent: "#b45309",
     problem:
       "Generic AI trip planners hallucinate places, timings and distances. Travelers need plans they can actually drive.",
     users: "Weekend travelers and road-trippers in India, especially from Delhi NCR.",
     flow: ["Budget, days & style", "Verified destination data", "Ranking & matching", "Day-by-day itinerary"],
     features: [
-      "Trip planner that builds day-by-day itineraries from verified destination data",
+      "AI trip planner: day-by-day itineraries from verified places (AI-researched plans for other cities are clearly labelled), with route map, drive times, plain-language edits, English and Hindi",
       "Weekend finder ranking destinations by budget, days, distance, transport and travel style",
       "Interactive India map with seasons and quick facts",
       "Side-by-side destination comparison on distance, budget, season and editorial scores",
@@ -106,8 +107,8 @@ export const products = [
     ],
     decisions: [
       {
-        title: "Constrain the AI to a curated dataset",
-        body: "The planner composes itineraries only from destinations and data I've verified. Accepting less coverage was the trade-off for removing the hallucination problem entirely.",
+        title: "Verified data first, labelled AI fallback",
+        body: "For verified destinations, the planner may only use places in the verified database, so it can't invent an attraction. For other cities it still produces a plan, clearly marked as AI-researched, so users know how far to trust it.",
       },
       {
         title: "Content as the acquisition channel",
