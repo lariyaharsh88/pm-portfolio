@@ -26,6 +26,16 @@ export function CtaBand() {
               </Magnetic>
               <Magnetic>
                 <Button
+                  href={site.whatsapp}
+                  variant="secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button
                   href={site.linkedin}
                   variant="secondary"
                   target="_blank"

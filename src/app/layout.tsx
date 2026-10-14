@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Footer } from "@/components/footer"
 import { LinkTracker } from "@/components/link-tracker"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 import { LazyCursor } from "@/components/lazy-cursor"
 import { MotionProvider } from "@/components/motion-provider"
 import { Navbar } from "@/components/navbar"
@@ -96,6 +97,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             </SmoothScroll>
           </MotionProvider>
         </ThemeProvider>
+        <WhatsAppButton />
         {process.env.VERCEL ? (
           <>
             <Analytics />

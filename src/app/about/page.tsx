@@ -49,6 +49,7 @@ const interests = [
 
 const contacts = [
   { label: "Email", href: `mailto:${site.email}` },
+  { label: "WhatsApp", href: site.whatsapp, external: true },
   { label: "LinkedIn", href: site.linkedin, external: true },
   { label: "GitHub", href: site.github, external: true },
   { label: "YouTube", href: "https://www.youtube.com/@Harshonroads", external: true },

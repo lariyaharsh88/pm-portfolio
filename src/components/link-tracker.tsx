@@ -13,6 +13,7 @@ export function LinkTracker() {
       const href = link.getAttribute("href") ?? ""
       if (href.startsWith("mailto:")) track("email_click", { path: location.pathname })
       else if (href.startsWith(site.linkedin)) track("linkedin_click", { path: location.pathname })
+      else if (href.startsWith("https://wa.me/")) track("whatsapp_click", { path: location.pathname })
     }
     document.addEventListener("click", onClick)
     return () => document.removeEventListener("click", onClick)

@@ -25,6 +25,14 @@ export function Footer() {
               LinkedIn
             </a>
             <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-fg"
+            >
+              WhatsApp
+            </a>
+            <a
               href={site.github}
               target="_blank"
               rel="noopener noreferrer"
