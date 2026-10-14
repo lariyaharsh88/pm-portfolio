@@ -1,23 +1,104 @@
 ---
-title: "How I evaluate LLM features"
+title: "How I evaluate LLM features before they ship"
 slug: how-i-evaluate-llm-features
-date: "2026-11-03"
-summary: "A one-page framework for checking quality, reliability and cost before an LLM feature ships."
-tags: ["Evals", "Framework"]
+date: "2026-10-14"
+summary: "The 6-step framework I use for RankFlowHQ and HarshOnRoads to decide whether an AI feature is good enough to ship: what good means, a real test set, quality, failure modes, cost and launch gates."
+tags: ["AI Product Management", "Evals", "Framework"]
 cover: /writing/how-i-evaluate-llm-features.svg
-status: draft
+status: published
 ---
 
-{/* TODO: write this. */}
+A demo that works on five hand-picked prompts tells you almost nothing. The real questions for an AI feature are: **how often is it good enough, how does it fail, and what does each good output cost?**
 
-## Define the task and what "good" means
+I've shipped three LLM-powered products on my own: [RankFlowHQ](https://rankflowhq.com/) (keyword to cited, publish-ready article), its [Education Hub](https://education.rankflowhq.com/) (news to SEO-ready stories), and [HarshOnRoads](https://www.harshonroads.com/) (trip itineraries from verified destination data). This is the framework I use to decide whether an AI feature is ready to go live.
 
-## Build the test set
+## 1. Define the task and what "good" means
 
-## Quality metrics
+Most evaluation fails here, before any testing starts. "Write a good article" is not testable. I break it into **criteria a reviewer could score in under a minute**:
 
-## Reliability and failure modes
+- **Correct:** every factual claim is supported by the sources the system retrieved.
+- **Complete:** it answers the search intent behind the keyword, not just the keyword.
+- **Structured:** headings, FAQ and metadata follow the template and validate against the schema.
+- **Usable:** an editor would publish it with light edits, not a rewrite.
 
-## Cost and latency
+For HarshOnRoads the most important criterion is simpler and stricter: **every place in the itinerary must exist in the verified dataset.** A beautiful itinerary with one invented fort is a failed itinerary.
 
-## Human-in-the-loop and launch gates
+<Callout type="insight">
+Write the criteria as pass/fail questions before you look at any output. If you write them afterwards, you end up grading whatever the model happened to do well.
+</Callout>
+
+## 2. Build a test set from real inputs
+
+Favourite prompts make a bad test set. It has to look like real traffic:
+
+- **Typical inputs (about 60%):** the keywords and trip requests real users actually enter.
+- **Hard inputs (about 25%):** long-tail keywords, ambiguous intent, destinations with little data.
+- **Adversarial inputs (about 15%):** inputs designed to break the system, such as a keyword with no good sources, a trip to a place that isn't covered, or a request that invites the model to invent statistics.
+
+30–50 cases is enough to start. The goal isn't statistical perfection; it's catching failure patterns before users do. The set lives in a spreadsheet and is **re-run on every prompt or model change**, so improvements and regressions are visible instead of anecdotal.
+
+## 3. Measure quality, not vibes
+
+Each output is scored against the criteria from step 1. A small set of numbers is enough:
+
+| Metric | What it answers |
+|---|---|
+| **Pass rate** | % of outputs meeting all criteria (the headline number) |
+| **Unsupported-claim rate** | % of outputs with at least one claim not backed by a source |
+| **Schema validity** | % of outputs that parse and validate first time |
+| **Edit effort** | How much an editor had to change before publishing |
+| **Human preference** | In side-by-side comparisons, which version reviewers choose |
+
+Wherever a check can be automated, automate it: schema validation, checking every place against the destination database, checking that every cited URL was actually retrieved. Using a second LLM as a judge helps at scale, but calibrate it against human scores on a sample first. A judge model that disagrees with your editors is just a second source of noise.
+
+## 4. Hunt for failure modes
+
+Averages hide the failures that hurt users. After scoring, I group every failed output by **why** it failed:
+
+- **Hallucination:** a fact, statistic or place that isn't in the sources.
+- **Retrieval miss:** the right answer existed, but the system never fetched it.
+- **Format break:** malformed structure that breaks the page.
+- **Intent miss:** a correct, well-written answer to the wrong question.
+- **Refusal or empty output.**
+
+Each failure mode needs a different fix. Hallucination is usually solved by **grounding**: the model may only use retrieved sources (RankFlowHQ) or a verified dataset (HarshOnRoads), and anything outside that is rejected. Retrieval misses need better search, not a better prompt. Format breaks need structured outputs plus validation and a retry. Treating every failure as "the model is bad" leads to endless prompt tweaking that fixes nothing.
+
+<Callout type="decision">
+On HarshOnRoads I chose to **constrain the AI to a curated dataset**. It covers fewer places than an unconstrained model, but it removes invented attractions entirely. For a travel product, a missing place is an inconvenience; an invented one is a broken trip.
+</Callout>
+
+## 5. Count cost and latency per good output
+
+An AI feature has unit economics, and they belong in the evaluation:
+
+- **Cost per request:** tokens in and out, plus search or retrieval calls.
+- **Cost per good output:** cost per request ÷ pass rate. A cheap model with a 50% pass rate can cost more than an expensive one at 90%, once you count retries and human fixes.
+- **Latency:** time to the first useful output, and total time.
+
+Which number matters most depends on the moment. RankFlowHQ's homepage demo exists so a visitor sees a real result in seconds without signing up, so speed is the gating metric there. The full article pipeline is judged mainly on quality.
+
+## 6. Set launch gates and keep a human in the loop
+
+Before launch, agree on thresholds, for example:
+
+- Pass rate above the target on the test set
+- Zero hallucinations on the adversarial cases
+- Cost per good output inside the budget
+- No regression versus the previous version
+
+Below the gate, the feature doesn't ship, or it ships with a **human approval step**. Many AI features should launch as "AI drafts, a human approves", and remove the human only once the numbers prove it's safe. After launch, keep evaluating with real signals: edit rates, thumbs up/down, regeneration rate and drop-off.
+
+<Callout type="tradeoff">
+Strict gates slow launches down. The alternative is shipping something impressive in a demo and unreliable in production, which costs far more trust than a two-week delay.
+</Callout>
+
+## The one-page checklist
+
+1. Write pass/fail criteria **before** looking at outputs.
+2. Build a 30–50 case test set: typical, hard and adversarial inputs.
+3. Score pass rate, unsupported claims, schema validity and editor effort.
+4. Group failures by cause, and fix each cause differently.
+5. Track cost and latency **per good output**, not per request.
+6. Agree on launch gates, and start with a human in the loop.
+
+The model is only one part of an AI product. The evaluation is what tells you whether the product actually works, and it's the part a product manager should own.

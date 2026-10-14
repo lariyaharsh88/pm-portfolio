@@ -42,7 +42,7 @@ const interests = [
   {
     icon: PenLine,
     title: "Writing",
-    text: "Working on notes about product, SEO and evaluating AI features.",
+    text: "Notes on product, SEO and AI. Latest: how I evaluate LLM features before they ship.",
     href: "/writing",
   },
 ] as const
