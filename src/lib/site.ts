@@ -39,6 +39,9 @@ export const site = {
   email: "lariyaharsh88@gmail.com",
   linkedin: "https://www.linkedin.com/in/harshlariya/",
   github: "https://github.com/lariyaharsh88",
+  phone: "tel:+918882332594",
+  phoneLabel: "+91 88823 32594",
+  emailLink: `mailto:lariyaharsh88@gmail.com?subject=${encodeURIComponent("Product Manager opportunity")}`,
   whatsapp: `https://wa.me/918882332594?text=${encodeURIComponent(
     "Hi Harsh, I saw your portfolio and would like to talk about a Product Manager role.",
   )}`,

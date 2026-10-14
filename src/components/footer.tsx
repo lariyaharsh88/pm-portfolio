@@ -24,6 +24,9 @@ export function Footer() {
             >
               LinkedIn
             </a>
+            <a href={site.phone} className="transition-colors duration-300 hover:text-fg">
+              Call
+            </a>
             <a
               href={site.whatsapp}
               target="_blank"

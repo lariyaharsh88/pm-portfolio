@@ -22,7 +22,12 @@ export function CtaBand() {
             />
             <div className="mt-8 flex flex-wrap gap-3">
               <Magnetic>
-                <Button href={`mailto:${site.email}`}>Email</Button>
+                <Button href={site.emailLink}>Email</Button>
+              </Magnetic>
+              <Magnetic>
+                <Button href={site.phone} variant="secondary">
+                  Call
+                </Button>
               </Magnetic>
               <Magnetic>
                 <Button
