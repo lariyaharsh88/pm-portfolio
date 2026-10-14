@@ -31,6 +31,8 @@ I make travel Shorts as [@harshonroads](https://www.youtube.com/@Harshonroads/sh
 
 I built these personas from the questions my audience asks in comments and messages, and from my own trips. They are **proto-personas**: hypotheses to design against, refined as real usage data comes in.
 
+<Figure src="/case-studies/hor/personas.svg" alt="Three persona cards: Weekend Warrior, Budget Explorer and Road-Tripper" caption="Three proto-personas and the one question each brings" />
+
 | | **Weekend Warrior: Rohan, 27** | **Budget Explorer: Priya, 22** | **Road-Tripper: Arjun, 32** |
 |---|---|---|---|
 | **Who** | Working professional in Gurugram, 5-day job | Student or first jobber, travels with friends | Owns a car, plans self-drive trips |
@@ -55,7 +57,13 @@ All three personas share one fear: **planning a trip that doesn't work in realit
 3. *Plan the days* (a realistic day-by-day itinerary).
 4. *Prepare* (cost, packing, transport, hotels).
 
+<Figure src="/case-studies/hor/jobs-to-tools.svg" alt="Diagram mapping the four jobs to the tools that answer them" caption="Every tool maps to one job: decide, check, plan or prepare" />
+
 **Roadmap:** the product is organised in phases, each answering one job completely before the next builds on it.
+
+<Figure src="/case-studies/hor/tools-chart.svg" alt="Bar chart of live tools by job: decide 5, check 3, plan 3, prepare 4" caption="Live tools by job. Deciding where to go is the hardest step, so it gets the most help." />
+
+<Figure src="/case-studies/hor/weekend-finder.jpg" alt="HarshOnRoads weekend finder page" caption="Decide: the weekend finder ranks destinations by month, budget, distance and style. No forms, no chatbot." />
 
 <Timeline items={[
   { date: "Phase 1", title: "Content foundation", text: "Verified destination database (distance from Delhi, budget range, best months, highlights), destination pages, curated 2- and 3-day itineraries, and seasonal guides. The data layer every later feature depends on." },
@@ -70,6 +78,10 @@ All three personas share one fear: **planning a trip that doesn't work in realit
 **Goal:** turn a brief (destination, budget, days, style, interests) into a practical day-by-day plan the traveller can trust and follow.
 
 **Non-goals (v1):** booking and payments; real-time traffic; international trips.
+
+<Figure src="/case-studies/hor/planner-flow.svg" alt="Flow diagram of the AI trip planner: verified plan or labelled AI-researched plan, then guardrails" caption="The planner flow: verified data first, a labelled AI fallback, and guardrails on every plan" />
+
+<Figure src="/case-studies/hor/trip-planner.jpg" alt="HarshOnRoads AI trip planner page" caption="The live AI trip planner: pick a destination, set budget and days, tap a vibe" />
 
 | # | Requirement | Priority |
 |---|---|---|
@@ -120,6 +132,8 @@ All three personas share one fear: **planning a trip that doesn't work in realit
 **Leave-day arbitrage.** The long-weekend finder scans national and state holidays for the next 12 months, finds windows where 0–2 leave days unlock a 3+ day break, and matches destinations that fit. This turns a one-off planning tool into something people come back to.
 </Callout>
 
+<Figure src="/case-studies/hor/long-weekends.jpg" alt="HarshOnRoads long-weekend finder page" caption="The long-weekend finder: holidays plus 0–2 leave days, matched to destinations" />
+
 ## Trade-offs
 
 <Callout type="tradeoff">
@@ -130,9 +144,15 @@ All three personas share one fear: **planning a trip that doesn't work in realit
 **Breadth of tools vs. depth.** 10+ tools risk feeling scattered. I grouped them by job (decide, check, plan, prepare) on the Tools page, and kept the AI trip planner as the hero feature.
 </Callout>
 
+<Figure src="/case-studies/hor/tools.jpg" alt="HarshOnRoads tools page" caption="Tools grouped by job. Calculators run in the browser with no account." />
+
+<Figure src="/case-studies/hor/compare.jpg" alt="HarshOnRoads destination comparison page" caption="Compare: two destinations side by side, with a winner per category" />
+
 ## Distribution: content as the growth engine
 
 Instead of paid acquisition, the product grows through my own travel content: 264+ YouTube Shorts and Instagram as @harshonroads. Every trip becomes **both a video and a verified itinerary**, which grows the database and the audience at the same time. Destination pages are built for search (weekend trips, itineraries, best time to visit), so content and SEO feed each other.
+
+<Figure src="/case-studies/hor/flywheel.svg" alt="Content flywheel: trip, Short, audience, questions, verified data, better plans" caption="The content flywheel: every trip becomes both a video and verified data" />
 
 ## How I evaluate the AI planner
 
