@@ -84,7 +84,7 @@ export function CaseStudyView({
 
       <Container>
         <section className="rounded-3xl border border-border bg-bg-elevated p-6 md:p-8">
-          <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">TL;DR</p>
+          <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">At a glance</p>
           <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:grid-cols-4">
             {facts.map((fact) => (
               <div key={fact.label}>
