@@ -22,7 +22,7 @@ export const products = [
     urlLabel: "rankflowhq.com",
     tagline: "An AI SEO workflow that takes a keyword to a publish-ready, cited article in one guided pipeline.",
     screenshot: "/products/rankflowhq.jpg",
-    accent: "#38bdf8",
+    accent: "#0369a1",
     problem:
       "SEO teams stitch together chat prompts, keyword tools, optimizers and docs. Handoffs are slow, quality is inconsistent, and nothing scales past a few articles a week.",
     users: "Bloggers, SaaS content teams and SEO agencies.",
@@ -60,7 +60,7 @@ export const products = [
     urlLabel: "education.rankflowhq.com",
     tagline: "An automated news and trends stack that turns education headlines into indexable, SEO-ready stories.",
     screenshot: "/products/education.jpg",
-    accent: "#818cf8",
+    accent: "#4f46e5",
     problem:
       "Education news moves fast. Editorial teams manually check sources, miss trending searches, and publish too late to rank.",
     users: "Education publishers and content editors. It is also a live showcase of RankFlowHQ's pipeline in a vertical I know well.",
@@ -89,7 +89,7 @@ export const products = [
     urlLabel: "harshonroads.com",
     tagline: "An India road-trip planner that builds itineraries from verified destination data, not invented attractions.",
     screenshot: "/products/harshonroads.jpg",
-    accent: "#d97706",
+    accent: "#b45309",
     problem:
       "Generic AI trip planners hallucinate places, timings and distances. Travelers need plans they can actually drive.",
     users: "Weekend travelers and road-trippers in India, especially from Delhi NCR.",
