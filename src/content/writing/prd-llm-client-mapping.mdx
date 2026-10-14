@@ -1,25 +1,115 @@
 ---
-title: "PRD: LLM-assisted client mapping"
+title: "PRD: LLM-assisted client mapping for a lead platform"
 slug: prd-llm-client-mapping
-date: "2026-10-20"
-summary: "Cutting new-client onboarding from hours to minutes with LLM-suggested field mappings, a human approval step and schema validation."
-tags: ["PRD", "Applied AI", "Evals"]
+date: "2026-10-14"
+summary: "A sample PRD for adding AI to the lead management platform I built: LLM-suggested field and course mappings, approved by a human and validated by the system, to cut new-client onboarding from hours to minutes."
+tags: ["PRD", "AI Product Management", "B2B SaaS"]
 cover: /writing/prd-llm-client-mapping.svg
-status: draft
+status: published
 ---
 
-{/* TODO: write this. It builds on the "If I built this today with AI" section of the lead-platform case study. */}
+*This is a forward-looking PRD: the next AI feature I would add to the [lead management platform](/work/lead-management-platform) I built at KollegeApply. It shows how I write requirements for an AI feature, including how it gets evaluated.*
 
-## Problem
+| | |
+|---|---|
+| **Owner** | Product (Harsh Lariya) |
+| **Status** | Proposal |
+| **Engineering** | 2 backend engineers, 1 QA |
+| **Stakeholders** | Operations head, Sales, client onboarding |
 
-## Users and jobs to be done
+## 1. Problem
 
-## Goals and non-goals
+Every new client on the lead platform needs a **mapping**: our lead fields (name, phone, course interest, city, source) matched to the client's fields, plus course codes, caps and delivery rules. Today an ops person builds it by hand from the client's sample sheet or API document.
 
-## Proposed solution
+- It takes **hours per client**, and most of that is reading the client's naming conventions ("prog_cd", "Course Name (UG)") and matching them to ours.
+- **Course mapping errors** are one of the platform's tracked exception types. A wrong mapping silently sends the wrong leads until someone notices.
+- Onboarding peaks in the admission season, exactly when ops capacity is tightest.
 
-## Evaluation plan
+**Opportunity:** the slow part is pattern-matching between two vocabularies, which LLMs do well. The risky part (deciding what goes live) stays with a human and with deterministic validation.
 
-## Risks and failure modes
+## 2. Users and jobs to be done
 
-## Launch plan and success metrics
+| User | Job to be done |
+|---|---|
+| **Ops executive** (primary) | "When a new client signs, help me set up their delivery correctly the first time, without reading every column by hand." |
+| **Ops head** | "Let me onboard more clients in peak season without adding people, and know every mapping was reviewed." |
+| **Client** | "Start receiving correct leads on the agreed date." |
+
+## 3. Goals and non-goals
+
+**Goals**
+- Cut median time to a **live, approved mapping** from hours to under 15 minutes.
+- Reduce course mapping errors in a new client's first 30 days.
+- Keep a human approving every mapping before it goes live.
+
+**Non-goals (v1)**
+- Fully automatic mapping with no human review.
+- Changing the routing or distribution engine. It stays deterministic.
+- Mapping for clients without a sample file or API document.
+
+## 4. Proposed solution
+
+1. **Upload:** the ops executive uploads the client's sample file (CSV/Sheet) or pastes the API field list.
+2. **Mask first:** any PII in sample rows is masked **before** anything is sent to the model.
+3. **Suggest:** an LLM returns a **structured output**, one row per field: our field → client field, a confidence score and a one-line reason. Course names are matched against our course master list only, so the model can't invent a course.
+4. **Validate:** the system checks the suggestion deterministically: required fields present, types compatible, every course code exists, no duplicate targets.
+5. **Review:** the executive sees suggestions sorted by confidence. High-confidence rows are pre-ticked, and low-confidence or failed-validation rows must be resolved manually.
+6. **Approve and test:** one test lead is sent to the client's endpoint before the mapping goes live. Every approval is written to the audit log.
+
+<Callout type="decision">
+**Human approval is mandatory in v1.** A wrong mapping costs a client trust and wastes their lead budget. The LLM's job is to remove the reading and matching work, not the accountability.
+</Callout>
+
+## 5. Requirements
+
+| # | Requirement | Priority |
+|---|---|---|
+| R1 | Accept CSV, Google Sheet link, or pasted API field list | P0 |
+| R2 | Mask PII in sample rows before any model call | P0 |
+| R3 | Structured output (JSON schema): field, target, confidence, reason | P0 |
+| R4 | Course matching restricted to the course master list | P0 |
+| R5 | Deterministic validation; block approval if it fails | P0 |
+| R6 | Review UI with confidence sorting and bulk-accept for high-confidence rows | P0 |
+| R7 | Test-lead send before go-live | P1 |
+| R8 | Audit log of suggestion, edits and approver | P0 |
+| R9 | Learn from edits: store corrected mappings as examples for future prompts | P2 |
+
+## 6. Evaluation plan
+
+Before launch, the feature is tested offline on **historical mappings we already know are correct**:
+
+- **Test set:** 50 past client configurations: 30 typical, 15 messy (unusual naming, missing columns), 5 adversarial (fields that look similar but aren't, courses not in our list).
+- **Field-level accuracy:** % of fields mapped correctly. **Launch gate: ≥ 95%** on the full set.
+- **Course-level accuracy:** % of courses matched correctly, with **zero invented course codes** (guaranteed by R4, and tested anyway).
+- **Calibration:** among suggestions marked high-confidence, accuracy must be ≥ 98%, otherwise bulk-accept is disabled.
+- **Cost and latency:** cost per onboarding and time to suggestions (target under 30 seconds).
+
+After launch: % of suggestions accepted without edits, edits per mapping, time to go-live, and course mapping exceptions in the first 30 days compared with manually built mappings.
+
+## 7. Risks and failure modes
+
+| Risk | Mitigation |
+|---|---|
+| Confidently wrong mapping goes live | Validation (R5), human approval, test lead (R7), calibration gate |
+| PII sent to a third-party model | Masking before the model call (R2); only headers and masked samples are sent |
+| Ops rubber-stamp suggestions | Low-confidence rows can't be bulk-accepted; track the "approved with zero edits" rate per user |
+| Model or prompt changes cause regressions | Re-run the 50-case test set on every change; block deploys that drop below the gate |
+| Over-reliance in peak season | A manual mapping path always remains available |
+
+## 8. Launch plan and success metrics
+
+1. **Shadow mode (2 weeks):** suggestions are generated but hidden. We compare them with what ops builds by hand.
+2. **Beta:** 2 ops executives, new clients only, with the ops head reviewing every mapping.
+3. **General availability:** all new clients, once the gates hold for 2 weeks.
+
+| Metric | Target |
+|---|---|
+| Median time to approved mapping | < 15 min (from hours) |
+| Field-level accuracy (offline) | ≥ 95% |
+| Suggestions accepted without edits | ≥ 80% |
+| Course mapping exceptions, first 30 days | Lower than manual baseline |
+| Invented course codes | 0 |
+
+<Callout type="tradeoff">
+Shadow mode delays the benefit by two weeks. In exchange, we measure the model against real ops behaviour before any client is affected, which is worth more than two weeks of saved time.
+</Callout>

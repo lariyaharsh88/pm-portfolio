@@ -1,0 +1,76 @@
+---
+title: "Teardown: Perplexity, and what an answer engine has to get right"
+slug: teardown-perplexity
+date: "2026-10-14"
+summary: "A product teardown of Perplexity from someone who builds grounded AI content tools: the core loop, where citations earn trust, where it breaks, the metrics I'd watch, and three things I'd build next."
+tags: ["Teardown", "AI Product Management", "AI Search"]
+cover: /writing/teardown-perplexity.svg
+status: published
+---
+
+*This is my view as a user and as someone who builds similar systems. I built [RankFlowHQ](https://rankflowhq.com/), which turns a keyword into a cited article, so source-grounded answers are a problem I think about daily. I have no inside knowledge of Perplexity's data or roadmap.*
+
+## What it is and who it's for
+
+Perplexity is an **answer engine**. You ask a question in plain language and get a written answer with numbered citations to the web pages it used, instead of ten blue links.
+
+The core user isn't "everyone who searches". It's people whose questions need **synthesis**: students, researchers, analysts, PMs and developers asking "compare X and Y", "what changed in…", "explain… with sources". For a quick fact or a website you already know, a traditional search engine is still faster.
+
+<Callout type="insight">
+Perplexity doesn't win on retrieval; search engines have better indexes. It wins on **reducing the work after the search**: opening tabs, reading, cross-checking and summarising. That's the job it's hired for.
+</Callout>
+
+## The core loop
+
+1. **Ask** a question in natural language.
+2. **Search and read:** the system runs searches and picks sources.
+3. **Answer with citations:** a short synthesis with numbered sources inline.
+4. **Follow up:** suggested related questions keep you in the thread, and context carries over.
+5. **Save or share:** threads can be organised and shared.
+
+The loop works because each answer is good enough to make the next question cheap to ask. A traditional search session restarts from zero every time; a Perplexity thread compounds.
+
+## Where the AI is (and isn't)
+
+- **Query understanding:** turning a vague question into several targeted searches.
+- **Source selection:** deciding which results are worth reading.
+- **Synthesis:** writing the answer and attaching each claim to a source.
+- **Suggestions:** generating useful follow-up questions.
+
+What's *not* AI is just as important: the **citations UI**. Numbered, clickable sources next to each claim turn "trust me" into "check me". It's the single most important design decision in the product, and it's a UX decision, not a model one.
+
+<Callout type="decision">
+I made the same choice in RankFlowHQ: drafts are built from retrieved sources and cite them, rather than relying on the model's memory. A citation lets the user verify the answer instead of having to believe it.
+</Callout>
+
+## Where it breaks
+
+- **Citation ≠ support.** An answer can cite a real page that doesn't actually say what the sentence claims. Users who see a citation number assume the claim was checked. This is the most damaging failure, because it borrows trust from the citation UI.
+- **Source quality.** If the top results are thin, SEO-driven pages, the answer inherits their weaknesses, confidently and fluently. Garbage in, polished garbage out.
+- **Freshness edges.** For fast-moving topics (prices, exam dates, policy changes), the answer can mix current and outdated sources without flagging the conflict.
+- **Over-answering.** Sometimes the honest answer is "the sources disagree" or "there isn't good information on this". A synthesis engine is biased towards always producing a confident paragraph.
+
+## Metrics I'd watch
+
+| Metric | Why it matters |
+|---|---|
+| **Follow-up rate per thread** | The core loop is working if people ask a second question |
+| **Citation click-through** | Are users verifying? Too low may mean blind trust; a spike may mean doubt |
+| **Claim-support rate** (offline eval) | % of cited sentences genuinely supported by their source: the trust metric |
+| **Answer regeneration and rephrase rate** | A proxy for "that answer wasn't good enough" |
+| **Return rate for research-type queries** | Is it becoming the default tool for synthesis tasks? |
+| **Cost per answered query** | Multiple searches plus LLM calls per query; this decides the economics of the free tier |
+
+## What I'd build next
+
+1. **"Supported / partly supported" markers on citations.** Run a lightweight check that each sentence is actually backed by its cited source, and show a subtle marker when support is weak. This protects the product's most valuable asset: trust in the citations.
+2. **"Sources disagree" mode.** When top sources conflict (common for exam dates, prices and policies), show the disagreement side by side instead of blending it into one answer. A clear "it depends, and here's why" builds more trust than false certainty.
+3. **Verified source packs for regulated or local topics.** For areas like Indian college admissions, let users or partners pin an official source set (exam boards, university notices) so answers come from authoritative documents first. I built the same idea into HarshOnRoads, where itineraries come only from verified destination data.
+
+<Callout type="tradeoff">
+All three ideas add latency or cost per query. The bet is that for research-style questions, users will trade a second or two for answers they don't need to double-check, and that trust is what keeps them coming back.
+</Callout>
+
+## The PM lesson
+
+The most important part of an AI answer product isn't the model. It's the **trust system around the model**: which sources it reads, how claims link to evidence, and how honestly it handles uncertainty. The models will keep getting better for everyone; the trust layer is where products actually differ.

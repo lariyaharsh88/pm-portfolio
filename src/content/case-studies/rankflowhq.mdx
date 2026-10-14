@@ -1,0 +1,112 @@
+---
+title: "RankFlowHQ: building a grounded AI SEO product, solo"
+slug: "rankflowhq"
+summary: "I designed, built and launched RankFlowHQ on my own: a Generative AI workflow that takes a keyword to a cited, publish-ready article. The product decisions were about trust, time-to-value and positioning, not just prompts."
+role: "Founder-PM: product, design and build"
+company: "Independent product"
+timeline: "Independent · live and ongoing"
+team: "Solo (AI-assisted coding)"
+tags: ["Generative AI", "0→1", "AI Product Management", "B2B SaaS"]
+accent: "#0369a1"
+cover: "/products/rankflowhq.jpg"
+status: "published"
+metrics:
+  - { value: "0→1", label: "idea to live product, solo" }
+  - { value: "6", label: "pipeline stages, keyword to publish" }
+  - { value: "0", label: "signups needed to see a first result" }
+  - { value: "3", label: "live AI products I have shipped" }
+---
+
+{/* Add real usage and evaluation numbers here once measured: articles generated, signups, pass rate, cost per article. */}
+
+## TL;DR
+
+SEO teams juggle chat prompts, keyword tools, optimisers and docs, and still struggle to publish consistently good pages at volume. I built **RankFlowHQ** to run the whole program in one guided pipeline: keyword → clustering → research → outline → **cited** draft → SEO packaging. I owned every part: the problem, positioning, scope, AI design, UX and the build. It's live at [rankflowhq.com](https://rankflowhq.com/), with an [Education Hub](https://education.rankflowhq.com/) that runs the same engine on education news.
+
+## Context
+
+I spent 5 years building SEO and content platforms at Collegedunia and KollegeApply, including scaling a site to 300K+ indexed pages. I saw the same pattern everywhere: AI made *writing* cheap, but **publishing good pages consistently** was still slow, because research, structure, accuracy and on-page standards lived in people's heads and in scattered tools.
+
+## The problem
+
+- **Fragmented workflow:** keyword research in one tool, briefs in docs, drafts in a chat window, optimisation in a plugin. Every handoff costs time.
+- **Inconsistent quality at volume:** each writer and each prompt produces a different structure, so rankings suffer as output scales.
+- **Trust:** generic AI writing confidently invents statistics and facts. An SEO page with a fabricated number is a liability, not an asset.
+
+<Callout type="insight">
+Users didn't need another way to *generate text*. They needed a **repeatable process** that produces pages they can trust and publish. The product is the pipeline and its standards; the model is one component.
+</Callout>
+
+## Users
+
+- **Bloggers and niche site owners:** publish quality pages faster without juggling tools.
+- **SaaS content teams:** turn product expertise into SEO pages on a steady cadence.
+- **Agencies:** standardise production across clients to improve turnaround and margins.
+
+## Options considered
+
+<Options>
+  <Option title="A better prompt library on top of ChatGPT">
+    Fast to build, but it doesn't fix the workflow: no research step, no structure standards, no packaging, and no protection against invented facts. Rejected: it competes with a free tool on that tool's own ground.
+  </Option>
+  <Option title="An optimisation score for existing pages (like Surfer)">
+    Useful, but it only tunes pages that already exist. Users still have to research and write. Rejected as the core, though a visibility grader became a supporting tool.
+  </Option>
+  <Option title="An end-to-end, grounded production pipeline" chosen>
+    Harder to build, but it owns the whole job from keyword to publish-ready page, and grounding gives a clear quality edge over generic AI writing. Chosen.
+  </Option>
+</Options>
+
+## What I built
+
+<Figure src="/products/rankflowhq.jpg" alt="RankFlowHQ homepage with the no-signup interactive demo" caption="The live homepage: one keyword in, a first result without signing up" />
+
+**1. A staged pipeline instead of a chat box.** Every article goes through the same stages: keyword and intent-aligned supporting terms → clustering → SERP research → outline → draft with citations → SEO packaging (title, meta description, FAQs, internal links). Fixed stages make quality repeatable and debuggable: when an output is weak, I can see *which stage* failed.
+
+<Callout type="decision">
+**Ground the draft in retrieved research, with citations.** The model writes from sources the pipeline fetched, not from its memory. This is the main defence against invented facts, and citations let users check claims instead of trusting them.
+</Callout>
+
+**2. Time-to-value before signup.** The homepage has an interactive demo: enter one keyword and see output right away, no account needed. A sample of a full keyword → outline → article run is shown on the page too.
+
+<Callout type="decision">
+**No-signup demo.** For a new AI tool, trust comes from seeing a real result before handing over an email. Asking for a signup first would filter out exactly the sceptical users I most needed to convince.
+</Callout>
+
+**3. Tools for volume.** A **bulk article agent** runs the pipeline on many topics and saves drafts to the user's account; **keyword clustering** supports topic planning; a **search visibility grader** checks existing pages.
+
+**4. Dogfooding in a vertical I know.** The [Education Hub](https://education.rankflowhq.com/) applies the engine to education news: RSS and sitemap aggregation, a Google Trends explorer, AI repurposing and indexable news pages. Education is the domain I've worked in for 5 years, so I can judge output quality like an expert.
+
+## Positioning
+
+| Alternative | What it does | RankFlowHQ's angle |
+|---|---|---|
+| ChatGPT | Brainstorming and one-off drafts | A repeatable publishing pipeline with standards |
+| Surfer SEO | Scores and tunes an existing page | Runs the program: research → production → optimisation |
+| Jasper | Marketing copy | Built for search outcomes: intent, structure, clusters |
+
+## Trade-offs
+
+<Callout type="tradeoff">
+**Grounding vs. speed.** Retrieval and citation checks add time and cost to every article. I accepted that for the full pipeline, because one invented statistic can sink a page.
+</Callout>
+
+<Callout type="tradeoff">
+**Breadth vs. depth as a solo builder.** I chose a few connected tools (pipeline, bulk agent, clustering, grader) over many shallow features, and used AI-assisted coding to build faster than one person normally could.
+</Callout>
+
+## How I evaluate it
+
+I use the framework from my article [How I evaluate LLM features before they ship](/writing/how-i-evaluate-llm-features): pass/fail criteria (correct, complete, structured, usable), a test set of typical, hard and adversarial keywords, failure modes grouped by cause, and cost per *good* article rather than per request.
+
+## What I learned
+
+- **Distribution is part of the product.** Building it was the easier half; getting the right users to try it is the harder one. That's why the no-signup demo and the Education Hub exist.
+- **The pipeline is the moat, not the model.** Models improve for everyone. Research quality, structure standards and grounding are what make the output consistently publishable.
+- **Being my own first user is an advantage.** Years of running SEO platforms meant I knew which outputs would actually rank and which would only look good.
+
+## What's next
+
+- Publish a formal evaluation report (pass rate, unsupported-claim rate, cost per article).
+- Track activation: the % of demo users who run a full article.
+- Learn from user edits: feed corrected drafts back as examples to improve future output.

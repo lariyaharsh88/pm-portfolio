@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { pageMetadata } from "@/lib/site"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
@@ -58,16 +59,26 @@ function ProductSection({ product, priority }: { product: Product; priority: boo
             <h2 className="text-3xl text-fg md:text-5xl">{product.name}</h2>
             <p className="mt-4 text-lg text-muted">{product.tagline}</p>
           </div>
-          <a
-            href={product.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: product.accent }}
-          >
-            Visit {product.urlLabel}
-            <ArrowUpRight className="size-4" />
-          </a>
+          <div className="flex flex-wrap gap-3">
+            {"caseStudy" in product && product.caseStudy ? (
+              <Link
+                href={product.caseStudy}
+                className="inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg transition-colors hover:border-accent/50 hover:bg-accent-soft"
+              >
+                Read the case study
+              </Link>
+            ) : null}
+            <a
+              href={product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: product.accent }}
+            >
+              Visit {product.urlLabel}
+              <ArrowUpRight className="size-4" />
+            </a>
+          </div>
         </div>
 
         <Reveal>

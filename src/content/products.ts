@@ -5,6 +5,7 @@ export type Product = {
   urlLabel: string
   tagline: string
   screenshot: string
+  caseStudy?: string
   accent: string
   problem: string
   users: string
@@ -22,6 +23,7 @@ export const products = [
     urlLabel: "rankflowhq.com",
     tagline: "An AI SEO workflow that takes a keyword to a publish-ready, cited article in one guided pipeline.",
     screenshot: "/products/rankflowhq.jpg",
+    caseStudy: "/work/rankflowhq",
     accent: "#0369a1",
     problem:
       "SEO teams stitch together chat prompts, keyword tools, optimizers and docs. Handoffs are slow, quality is inconsistent, and nothing scales past a few articles a week.",
