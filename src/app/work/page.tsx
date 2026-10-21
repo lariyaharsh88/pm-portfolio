@@ -6,7 +6,7 @@ import { getPublishedCaseStudies, toCaseMeta } from "@/lib/case-studies"
 export const metadata: Metadata = pageMetadata({
   title: "Case Studies",
   description:
-    "Product case studies by Harsh Lariya: a lead platform that cut delivery from 1–2 hours to 5 minutes, and a content platform scaled to 300K+ indexed pages.",
+    "Product case studies by Harsh Lariya: a lead platform that cut delivery from 1–2 hours to 5 minutes, a content platform scaled to 300K+ indexed pages, and independent AI and decision-system builds.",
   path: "/work",
 })
 
