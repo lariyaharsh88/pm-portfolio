@@ -10,5 +10,5 @@
   <rect width="1600" height="900" fill="url(#g2)"/>
   <text x="120" y="400" fill="#fff" fill-opacity=".55" font-family="ui-monospace,Menlo,monospace" font-size="34" letter-spacing="6">AGENT STORE · SELF-OPTIMISING E-COMMERCE</text>
   <text x="120" y="540" fill="#fff" font-family="Inter,Helvetica,Arial,sans-serif" font-weight="700" font-size="150" letter-spacing="-4">Agents shop. Agents run it.</text>
-  <text x="120" y="620" fill="#fff" fill-opacity=".7" font-family="Inter,Helvetica,Arial,sans-serif" font-size="44">JSON API + MCP · Thompson-sampling experiments · every action audited</text>
+  <text x="120" y="620" fill="#fff" fill-opacity=".7" font-family="Inter,Helvetica,Arial,sans-serif" font-size="44">JSON API + MCP · bandit experiments · every action audited</text>
 </svg>

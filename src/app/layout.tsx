@@ -28,6 +28,7 @@ const interTight = Inter_Tight({
 })
 
 const jetbrainsMono = JetBrains_Mono({
+  preload: false,
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",

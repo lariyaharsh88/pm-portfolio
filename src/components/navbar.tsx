@@ -116,7 +116,7 @@ export function Navbar({ hasResume = false }: { hasResume?: boolean }) {
         >
           <Link
             href="/"
-            aria-label="Harsh Lariya, home"
+            aria-label="Harsh Lariya, Product Manager · Applied AI. Home"
             className="group flex items-center gap-2.5 rounded-full py-1 pr-3 pl-1 text-fg"
           >
             <span
