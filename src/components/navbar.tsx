@@ -116,9 +116,9 @@ export function Navbar({ hasResume = false }: { hasResume?: boolean }) {
         >
           <Link
             href="/"
-            aria-label="Harsh Lariya, Product Manager · Applied AI. Home"
             className="group flex items-center gap-2.5 rounded-full py-1 pr-3 pl-1 text-fg"
           >
+            <span className="sr-only">Home: </span>
             <span
               aria-hidden
               className="flex h-9 w-9 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--accent),#a78bfa)] font-mono text-[13px] font-semibold text-white shadow-[0_6px_20px_-8px_var(--accent)] transition-transform duration-300 group-hover:-rotate-6"
