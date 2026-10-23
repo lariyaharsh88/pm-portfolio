@@ -38,7 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # harsh-portfolio
 
-Personal portfolio of Harsh Lariya, Product Manager. Live at https://pm-portfolio-khaki.vercel.app
+Personal portfolio of Harsh Lariya, Product Manager. Live at https://harshlariya.in
 
 Next.js App Router, TypeScript, Tailwind v4, Motion, Lenis, MDX case studies via next-mdx-remote.
 
@@ -59,4 +59,4 @@ npm run build      # must pass with zero TS/ESLint errors before deploying
 
 ## Deploy
 
-Vercel, root of this repo. Env: `NEXT_PUBLIC_SITE_URL` (set to the custom domain once bought).
+Vercel, root of this repo. Env: `NEXT_PUBLIC_SITE_URL` (https://harshlariya.in).
