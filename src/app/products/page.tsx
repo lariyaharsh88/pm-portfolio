@@ -28,7 +28,7 @@ export default function ProductsPage() {
           className="mt-4 max-w-4xl text-4xl text-balance text-fg sm:text-6xl"
         />
         <p className="mt-5 max-w-2xl text-lg text-muted">
-          Three live products where I owned everything: the problem, positioning, scope, AI design and the build itself.
+          Six live products where I owned everything: the problem, positioning, scope, AI design and the build itself.
         </p>
         <nav aria-label="Products" className="mt-8 flex flex-wrap gap-2">
           {products.map((product) => (

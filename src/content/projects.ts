@@ -43,11 +43,11 @@ export const projects = [
   },
   {
     slug: "products",
-    title: "AI products I've built and shipped",
-    outcome: "RankFlowHQ (AI SEO workflow), its Education Hub, and HarshOnRoads (grounded AI trip planner). All three are live.",
+    title: "Products I've built and shipped",
+    outcome: "RankFlowHQ (AI SEO workflow), its Education Hub, HarshOnRoads (grounded AI trip planner), Kundli Jyoti, PayHours Calc and AniLumi. All six are live.",
     tags: ["Applied AI", "Independent", "Live"],
     metrics: [
-      { value: "3", label: "live products" },
+      { value: "6", label: "live products" },
       { value: "0→1", label: "idea to shipped, solo" },
     ],
     href: "/products",

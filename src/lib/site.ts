@@ -35,7 +35,7 @@ export const site = {
   title: "Harsh Lariya | Product Manager · Data Platforms & Applied AI",
   role: "Product Manager · Data Platforms & Applied AI",
   description:
-    "Harsh Lariya is a Product Manager with 5 years in EdTech & B2B SaaS. Led a lead platform that handled 78M+ records and 600+ clients, and shipped 3 AI products.",
+    "Harsh Lariya is a Product Manager with 5 years in EdTech & B2B SaaS. Led a lead platform that handled 78M+ records and 600+ clients, and shipped 6 live products.",
   email: "lariyaharsh88@gmail.com",
   linkedin: "https://www.linkedin.com/in/harshlariya/",
   github: "https://github.com/lariyaharsh88",
