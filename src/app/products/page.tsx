@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
+import { Tilt } from "@/components/motion/Tilt"
 import { FlowDiagram } from "@/components/products/flow-diagram"
 import { Container } from "@/components/ui/Container"
 import { products, type Product } from "@/content/products"
@@ -82,12 +83,13 @@ function ProductSection({ product, priority }: { product: Product; priority: boo
         </div>
 
         <Reveal>
+          <Tilt className="mt-10">
           <a
             href={product.url}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="view"
-            className="group mt-10 block overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-[0_30px_80px_-48px_rgba(0,0,0,0.55)]"
+            className="group block overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-[0_30px_80px_-48px_rgba(0,0,0,0.55)]"
           >
             <div className="flex items-center gap-2 border-b border-border px-4 py-3">
               <span className="h-2.5 w-2.5 rounded-full bg-border" />
@@ -107,6 +109,7 @@ function ProductSection({ product, priority }: { product: Product; priority: boo
               className="w-full transition-transform duration-500 group-hover:scale-[1.015] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </a>
+          </Tilt>
         </Reveal>
 
         <div className="mt-14 grid gap-10 md:grid-cols-2">

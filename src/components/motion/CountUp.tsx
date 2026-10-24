@@ -1,7 +1,8 @@
 "use client"
 
-import { useMemo, type ReactNode } from "react"
+import { useEffect, useMemo, useState, type ReactNode } from "react"
 import { cn } from "@/lib/cn"
+import { useEnterView } from "@/lib/use-enter-view"
 
 type TextSegment = { kind: "text"; text: string }
 type NumberSegment = { kind: "number"; value: number; decimals: number }
@@ -62,17 +63,34 @@ function parseMetric(value: number | string): Segment[] {
 
 export function CountUp({ value, prefix, suffix, className }: CountUpProps) {
   const segments = useMemo(() => parseMetric(value), [value])
+  const [ref, state] = useEnterView<HTMLSpanElement>(0.5)
+  // 1 = final value; server and above-the-fold renders never animate.
+  const [progress, setProgress] = useState(1)
+
+  useEffect(() => {
+    if (state === "waiting") setProgress(0)
+    if (state !== "entered") return
+    const duration = 1400
+    let start: number | undefined
+    let frame = requestAnimationFrame(function tick(now) {
+      start ??= now
+      const t = Math.min((now - start) / duration, 1)
+      setProgress(1 - Math.pow(1 - t, 3))
+      if (t < 1) frame = requestAnimationFrame(tick)
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [state])
 
   const content: ReactNode[] = segments.map((segment, index) => {
     if (segment.kind === "text") {
       return <span key={index}>{segment.text}</span>
     }
 
-    return <span key={index}>{formatNumber(segment.value, segment.decimals)}</span>
+    return <span key={index}>{formatNumber(segment.value * progress, segment.decimals)}</span>
   })
 
   return (
-    <span className={cn("font-mono tabular-nums", className)}>
+    <span ref={ref} className={cn("font-mono tabular-nums", className)}>
       {prefix}
       {content}
       {suffix}

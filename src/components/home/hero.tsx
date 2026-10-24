@@ -103,7 +103,7 @@ export function Hero({
         className="pointer-events-none absolute bottom-[6%] left-[28%] hidden md:block"
         style={{ x: x3, y: y3 }}
       >
-        <div className="blob-drift h-64 w-64 rounded-full bg-[#7a7af8]/30 blur-2xl [animation-delay:-13s] motion-reduce:animate-none md:blur-3xl" />
+        <div className="blob-drift h-64 w-64 rounded-full bg-[#7a7af8]/30 dark:bg-[#f59e0b]/20 blur-2xl [animation-delay:-13s] motion-reduce:animate-none md:blur-3xl" />
       </m.div>
 
       <Container className="relative py-20">
@@ -131,12 +131,10 @@ export function Hero({
             </p>
           </div>
         </Reveal>
-        <SplitText
-          as="h1"
-          instant
-          text={site.headline}
-          className="mt-6 max-w-4xl text-4xl text-balance text-fg sm:text-5xl md:text-6xl"
-        />
+        <h1 className="mt-6 max-w-4xl font-heading text-4xl font-semibold tracking-[-0.035em] text-balance text-fg sm:text-5xl md:text-[4.25rem] md:leading-[1.02]">
+          I build data-heavy products that turn messy workflows into{" "}
+          <span className="hero-accent font-serif font-normal tracking-[-0.01em]">measurable growth.</span>
+        </h1>
         <Reveal instant>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Product Manager at KollegeApply, previously Collegedunia. 5 years

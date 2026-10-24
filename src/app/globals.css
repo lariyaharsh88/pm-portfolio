@@ -16,14 +16,15 @@
 }
 
 .dark {
-  --bg: #09090b;
-  --bg-elevated: #111114;
-  --fg: #f4f4f5;
-  --muted: #a0a0ab;
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #5b5bf7;
-  --accent-ink: #a5a5fb;
-  --accent-soft: rgba(91, 91, 247, 0.18);
+  --bg: #070a17;
+  --bg-elevated: #0e1326;
+  --fg: #f5f1ea;
+  --muted: #a3a6b8;
+  --border: rgba(255, 255, 255, 0.09);
+  --accent: #c2410c;
+  --accent-ink: #fdba74;
+  --accent-soft: rgba(249, 115, 22, 0.16);
+  --glow: rgba(249, 115, 22, 0.35);
   color-scheme: dark;
 }
 
@@ -39,6 +40,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
 }
 
 html {
@@ -303,3 +305,52 @@ button:focus-visible {
   }
 }
 
+
+/* Italic serif accent in the hero headline; warm gradient in dark mode. */
+.hero-accent {
+  color: var(--accent-ink);
+}
+
+.dark .hero-accent {
+  background: linear-gradient(100deg, #fdba74 10%, #fb923c 55%, #f5f1ea 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark mode: faint starfield and a warm horizon glow behind every page, CSS only. */
+.dark body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 68% 9%, rgba(255, 255, 255, 0.4), transparent 60%),
+    radial-gradient(1.5px 1.5px at 84% 32%, rgba(255, 255, 255, 0.5), transparent 60%),
+    radial-gradient(1px 1px at 34% 46%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(1px 1px at 52% 72%, rgba(255, 255, 255, 0.4), transparent 60%),
+    radial-gradient(1.5px 1.5px at 6% 82%, rgba(255, 255, 255, 0.45), transparent 60%),
+    radial-gradient(1px 1px at 92% 88%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(60rem 30rem at 50% -10%, rgba(249, 115, 22, 0.1), transparent 70%);
+  background-size: 420px 420px, 420px 420px, 420px 420px, 420px 420px, 420px 420px, 420px 420px, 420px 420px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
+}
+
+.dark .btn-shine {
+  box-shadow: 0 10px 30px -10px var(--glow);
+}
+
+/* Product screenshots: gentle 3D tilt that follows the pointer. */
+.tilt {
+  transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+  will-change: transform;
+}
+
+.dark .tilt:hover {
+  box-shadow: 0 40px 90px -50px var(--glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt {
+    transform: none;
+  }
+}
