@@ -140,8 +140,8 @@ export function Hero({
         <Reveal instant>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Product Manager at KollegeApply, previously Collegedunia. 5 years
-            in EdTech & B2B SaaS. I have also shipped 3 applied-AI products, focused on
-            evaluation, reliability and cost.
+            in EdTech & B2B SaaS. I have also shipped 6 live products of my own, from AI
+            SEO to programmatic search sites.
           </p>
         </Reveal>
         <Reveal instant>
