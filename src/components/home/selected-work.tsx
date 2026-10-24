@@ -20,7 +20,6 @@ const bars: Record<string, number[]> = {
   "lead-management-platform": [78, 70, 58, 46, 36, 28, 22, 18],
   "content-growth-platform": [28, 38, 48, 58, 74, 92, 66, 42, 48],
   products: [22, 48, 30, 64, 42, 70, 55, 84],
-  "restock-engine": [88, 72, 54, 40, 30, 22, 14, 8],
 }
 
 export function SelectedWork() {
@@ -98,10 +97,6 @@ const screenshots: Record<string, { src: string; alt: string }> = {
   "content-growth-platform": {
     src: "/case-studies/student-compare.svg",
     alt: "College comparison page built on the shared data layer",
-  },
-  "restock-engine": {
-    src: "/case-studies/restock-cover.svg",
-    alt: "ReStock: perishable waste cut from 45% to 0.4% at the same fill rate",
   },
 }
 

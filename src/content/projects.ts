@@ -53,16 +53,4 @@ export const projects = [
     href: "/products",
     tint: "violet",
   },
-  {
-    slug: "restock-engine",
-    title: "ReStock: an order list a shop owner can argue with",
-    outcome: "An explainable replenishment engine, benchmarked on a simulator before any pilot: same fill rate as the best spreadsheet with 66% less inventory.",
-    tags: ["Decision Systems", "Evals", "Independent"],
-    metrics: [
-      { value: "45% → 0.4%", label: "perishable waste as a share of purchases" },
-      { value: "+22%", label: "gross margin under an 80% cash cap" },
-    ],
-    href: "/work/restock-engine",
-    tint: "amber",
-  },
 ] as const satisfies readonly Project[]

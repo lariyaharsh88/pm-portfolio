@@ -37,8 +37,6 @@ const publishedOrder = [
   "lead-management-platform",
   "content-growth-platform",
   "rankflowhq",
-  "restock-engine",
-  "agent-store",
   "harshonroads",
 ]
 
