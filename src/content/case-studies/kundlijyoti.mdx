@@ -1,0 +1,69 @@
+---
+title: "Kundli Jyoti: an astrology app that computes first and explains second"
+slug: "kundlijyoti"
+summary: "How I built Kundli Jyoti, a Vedic astrology PWA for Indian users: real planetary computation under every reading, an AI layer that only explains, birth data kept on the device, and a free pilot before switching on payments."
+role: "Founder-PM: research, product, design and build"
+company: "Independent product"
+timeline: "Independent · live and ongoing"
+team: "Solo (AI-assisted coding)"
+tags: ["AI Product Management", "Consumer", "Trust & Safety", "0→1", "Monetisation"]
+accent: "#ea580c"
+cover: "/products/kundlijyoti.jpg"
+status: "published"
+metrics:
+  - { value: "12", label: "daily rashifal signs, refreshed hourly" }
+  - { value: "27", label: "nakshatra pages" }
+  - { value: "₹199", label: "planned report price, after the free pilot" }
+  - { value: "0", label: "birth details sent to a server for the kundli" }
+---
+
+{/* Add pilot numbers here once measured: weekly users, return rate, reports generated. */}
+
+## Summary
+
+**Kundli Jyoti** is a Vedic astrology app live at [kundlijyoti.com](https://kundlijyoti.com/). It computes kundli, kundli matching and dasha timelines from real planetary positions, then explains them in plain language. An assistant called **Ask Jyoti** answers follow-up questions. It installs as a PWA, supports family profiles and shares to WhatsApp.
+
+## The problem
+
+Astrology is a huge category in India, and most apps follow the same playbook: show a frightening dosha, then sell a ₹5,000 gemstone or a paid call. Users can't tell what was calculated and what was invented. Generic AI chatbots make it worse, because they will happily make up a planetary placement.
+
+<Callout type="insight">
+The opportunity wasn't a better horoscope. It was a reading people could trust, from an app that wasn't trying to scare them into paying.
+</Callout>
+
+## Who it's for
+
+Indian users who want a kundli, a marriage match or a daily rashifal without a sales pitch: young adults checking compatibility, families keeping profiles for parents and children, and regular rashifal readers.
+
+## Key product decisions
+
+<Callout type="decision">
+**Computed, not guessed.** Every reading starts from calculated planetary positions. The language model only explains the result, so it can't invent a placement. Ask Jyoti runs on a rule-based astrologer, and the LLM layer is added on top only when a provider is configured.
+</Callout>
+
+<Callout type="decision">
+**Privacy as the pitch.** The kundli is computed on the device and birth details stay there. In a category known for upselling, trust is the main point of difference.
+</Callout>
+
+<Options>
+  <Option title="Charge from day one">
+    Faster revenue, but no clean read on whether people value the product or just clicked once.
+  </Option>
+  <Option title="Free pilot, then a ₹199 report" chosen>
+    Razorpay checkout is built but switched off. I measure reach and return visits first, and only turn on the ₹199 detailed report once people come back on their own.
+  </Option>
+</Options>
+
+<Callout type="tradeoff">
+A free pilot delays revenue. I accepted that so the pricing decision rests on real retention, not a guess.
+</Callout>
+
+## Growth
+
+Daily rashifal for 12 signs, panchang for 12 cities and 27 nakshatra pages refresh hourly. They match what people search for every day, which gives users a reason to return and gives search engines fresh pages. WhatsApp sharing turns each kundli match into an invitation.
+
+## What's next
+
+- Measure the pilot: weekly users, return rate and reports requested.
+- Turn on the ₹199 report once retention justifies it.
+- Add Hindi-first readings and more regional languages.

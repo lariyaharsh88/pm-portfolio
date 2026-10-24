@@ -127,6 +127,7 @@ export const products = [
     urlLabel: "kundlijyoti.com",
     tagline: "A Vedic astrology app that computes kundli, matching and dasha from real planetary positions, then explains them in plain language.",
     screenshot: "/products/kundlijyoti.jpg",
+    caseStudy: "/work/kundlijyoti",
     accent: "#ea580c",
     problem:
       "Astrology apps in India lean on fear and upsells: a scary dosha, then a ₹5,000 gemstone. Users can't tell what was calculated and what was made up.",
@@ -161,6 +162,7 @@ export const products = [
     urlLabel: "payhourscalc.com",
     tagline: "Fast, private calculators for US hourly workers and small-business payroll, built as a programmatic SEO site.",
     screenshot: "/products/payhours.jpg",
+    caseStudy: "/work/payhourscalc",
     accent: "#0d7354",
     problem:
       "People searching for a time card or overtime calculator land on slow, ad-stuffed pages that get edge cases wrong, like overnight shifts or state overtime rules.",

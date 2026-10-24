@@ -1,0 +1,65 @@
+---
+title: "PayHours Calc: choosing a niche from keyword data, then building for speed"
+slug: "payhourscalc"
+summary: "How I picked a US payroll-calculator niche from keyword data, scoped ten calculators that get the edge cases right, and shipped 300+ static pages on Cloudflare's edge as a programmatic SEO product."
+role: "Founder-PM: research, product and build"
+company: "Independent product"
+timeline: "Independent · live and ongoing"
+team: "Solo (AI-assisted coding)"
+tags: ["SEO", "Programmatic SEO", "Market Research", "0→1"]
+accent: "#0d7354"
+cover: "/products/payhours.jpg"
+status: "published"
+metrics:
+  - { value: "~900K", label: "US monthly searches across the keyword cluster" }
+  - { value: "10", label: "calculators at launch" }
+  - { value: "51", label: "state overtime rule sets" }
+  - { value: "300+", label: "static pages served from the edge" }
+---
+
+{/* Add Search Console numbers here once measured: impressions, clicks, top pages. */}
+
+## Summary
+
+**PayHours Calc** is a set of fast, private calculators for US hourly workers and small-business payroll, live at [payhourscalc.com](https://payhourscalc.com/). It covers time cards, hours, overtime, hourly-to-salary, pay raises, military time and 2026 military pay.
+
+## The problem
+
+People searching for a time card or overtime calculator land on slow, ad-stuffed pages. Many get the edge cases wrong: overnight shifts that cross midnight, unpaid breaks, or state overtime rules that differ from the federal rule.
+
+## Choosing the niche
+
+<Callout type="decision">
+**Keyword data before code.** I picked the niche from Google Keyword Planner data: about 900K US searches a month across the cluster, low ad competition, and weak existing results for pages like the pay raise calculator.
+</Callout>
+
+<Options>
+  <Option title="One big all-in-one calculator">
+    Simpler to build, but it would rank for almost none of the specific searches people type.
+  </Option>
+  <Option title="Focused calculators plus programmatic pages" chosen>
+    Ten calculators, each matched to a search intent, plus 200+ generated pages such as "$25 an hour is how much a year" that answer the exact question.
+  </Option>
+</Options>
+
+## Getting the details right
+
+- Overtime rules for all 51 jurisdictions (50 states and DC), not just the federal rule.
+- Pay tables for 25 military grades.
+- Overnight shifts and breaks handled in the time card calculator.
+
+## Built for speed
+
+<Callout type="decision">
+**Static and fast.** Every page is pre-rendered and served from Cloudflare's edge. The calculators load instantly, run in the browser with no account or upload, and hosting costs almost nothing.
+</Callout>
+
+<Callout type="tradeoff">
+Static pages mean no saved history or accounts. For a quick calculation, speed and privacy matter more than saving.
+</Callout>
+
+## What's next
+
+- Track impressions and clicks in Search Console and expand the pages that win.
+- Add ads once traffic is steady.
+- Add calculators where the keyword data shows demand.
