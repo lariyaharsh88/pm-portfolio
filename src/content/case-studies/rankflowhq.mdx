@@ -13,8 +13,8 @@ status: "published"
 metrics:
   - { value: "0→1", label: "idea to live product, solo" }
   - { value: "6", label: "pipeline stages, keyword to publish" }
-  - { value: "0", label: "signups needed to see a first result" }
-  - { value: "3", label: "live AI products I have shipped" }
+  - { value: "~3 min", label: "keyword to researched, SEO-ready article" }
+  - { value: "5", label: "free articles before paying ($49/mo Pro)" }
 ---
 
 {/* Add real usage and evaluation numbers here once measured: articles generated, signups, pass rate, cost per article. */}
@@ -59,7 +59,7 @@ Users didn't need another way to *generate text*. They needed a **repeatable pro
 
 ## What I built
 
-<Figure src="/products/rankflowhq.jpg" alt="RankFlowHQ homepage with the no-signup interactive demo" caption="The live homepage: one keyword in, a first result without signing up" />
+<Figure src="/products/rankflowhq.jpg" alt="RankFlowHQ homepage: type a keyword, get a researched, SEO-ready article" caption="The live homepage: one keyword box, one button, a full article in about 3 minutes" />
 
 **1. A staged pipeline instead of a chat box.** Every article goes through the same stages: keyword and intent-aligned supporting terms → clustering → SERP research → outline → draft with citations → SEO packaging (title, meta description, FAQs, internal links). Fixed stages make quality repeatable and debuggable: when an output is weak, I can see *which stage* failed.
 
@@ -67,13 +67,13 @@ Users didn't need another way to *generate text*. They needed a **repeatable pro
 **Ground the draft in retrieved research, with citations.** The model writes from sources the pipeline fetched, not from its memory. This is the main defence against invented facts, and citations let users check claims instead of trusting them.
 </Callout>
 
-**2. Time-to-value before signup.** The homepage has an interactive demo: enter one keyword and see output right away, no account needed. A sample of a full keyword → outline → article run is shown on the page too.
+**2. One job on the homepage.** The first version led with a platform pitch and a no-signup teaser demo. The current homepage does one thing: type a keyword, press "Write my article", and get a long-form draft with sources, an SEO title and a meta description in about 3 minutes. A full sample run (keywords → outline → article) sits below it so people see the output before they start.
 
 <Callout type="decision">
-**No-signup demo.** For a new AI tool, trust comes from seeing a real result before handing over an email. Asking for a signup first would filter out exactly the sceptical users I most needed to convince.
+**From a teaser demo to a real result behind a free account.** The teaser showed a fragment, which proved the idea but not the value. Now a free account (email only, no card) unlocks 5 full articles that are saved to a dashboard. That's enough to judge the real output, and it gives me an account to measure activation and convert to Pro at $49/month.
 </Callout>
 
-**3. Tools for volume.** A **bulk article agent** runs the pipeline on many topics and saves drafts to the user's account; **keyword clustering** supports topic planning; a **search visibility grader** checks existing pages.
+**3. Tools around the core job.** A **bulk article agent** runs the pipeline on many topics; **repurpose from URL** rewrites an existing page into a new article; and a free **AI SEO toolkit** (keyword clustering, visibility grader, off-page and outreach helpers) brings in search traffic that leads to the writer.
 
 **4. Dogfooding in a vertical I know.** The [Education Hub](https://education.rankflowhq.com/) applies the engine to education news: RSS and sitemap aggregation, a Google Trends explorer, AI repurposing and indexable news pages. Education is the domain I've worked in for 5 years, so I can judge output quality like an expert.
 
@@ -101,12 +101,12 @@ I use the framework from my article [How I evaluate LLM features before they shi
 
 ## What I learned
 
-- **Distribution is part of the product.** Building it was the easier half; getting the right users to try it is the harder one. That's why the no-signup demo and the Education Hub exist.
+- **Distribution is part of the product.** Building it was the easier half; getting the right users to try it is the harder one. That's why the homepage was cut down to a single action, and why the free tools and the Education Hub exist.
 - **The pipeline is the moat, not the model.** Models improve for everyone. Research quality, structure standards and grounding are what make the output consistently publishable.
 - **Being my own first user is an advantage.** Years of running SEO platforms meant I knew which outputs would actually rank and which would only look good.
 
 ## What's next
 
 - Publish a formal evaluation report (pass rate, unsupported-claim rate, cost per article).
-- Track activation: the % of demo users who run a full article.
+- Track activation and conversion: the % of new accounts that finish a first article, and how many of those upgrade to Pro after the 5 free ones.
 - Learn from user edits: feed corrected drafts back as examples to improve future output.

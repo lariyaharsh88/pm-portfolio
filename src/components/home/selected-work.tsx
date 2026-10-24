@@ -93,7 +93,7 @@ const screenshots: Record<string, { src: string; alt: string }> = {
   },
   products: {
     src: "/products/rankflowhq.jpg",
-    alt: "RankFlowHQ homepage with the no-signup interactive demo",
+    alt: "RankFlowHQ homepage: type a keyword, get a researched, SEO-ready article",
   },
   "content-growth-platform": {
     src: "/case-studies/student-compare.svg",
