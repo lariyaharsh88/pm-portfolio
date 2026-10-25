@@ -1,0 +1,9 @@
+# Netlify build settings (Next.js runtime is detected automatically).
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_PUBLIC_SITE_URL = "https://harshlariya.in"
+  NEXT_TELEMETRY_DISABLED = "1"
