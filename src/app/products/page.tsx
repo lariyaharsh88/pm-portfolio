@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
 import { Tilt } from "@/components/motion/Tilt"
 import { FlowDiagram } from "@/components/products/flow-diagram"
+import { TemplatesStrip } from "@/components/products/templates-strip"
 import { Container } from "@/components/ui/Container"
 import { products, type Product } from "@/content/products"
 
@@ -47,6 +48,7 @@ export default function ProductsPage() {
       {products.map((product, index) => (
         <ProductSection key={product.slug} product={product} priority={index === 0} />
       ))}
+      <TemplatesStrip />
     </main>
   )
 }

@@ -43,6 +43,9 @@ export function Footer() {
             >
               GitHub
             </a>
+            <a href="/products#templates" className="transition-colors duration-300 hover:text-fg">
+              Templates
+            </a>
           </div>
           <Clock />
         </div>
