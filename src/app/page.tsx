@@ -13,6 +13,9 @@ const LogoMarquee = dynamic(() =>
 const Testimonials = dynamic(() =>
   import("@/components/home/testimonials").then((mod) => mod.Testimonials),
 )
+const ProductIndex = dynamic(() =>
+  import("@/components/home/product-index").then((mod) => mod.ProductIndex),
+)
 const HowIWork = dynamic(() => import("@/components/home/how-i-work").then((mod) => mod.HowIWork))
 const CtaBand = dynamic(() => import("@/components/home/cta-band").then((mod) => mod.CtaBand))
 
@@ -35,6 +38,7 @@ export default async function Home() {
       <Metrics />
       <LogoMarquee />
       <SelectedWork />
+      <ProductIndex />
       <Testimonials />
       <HowIWork />
       <CtaBand />

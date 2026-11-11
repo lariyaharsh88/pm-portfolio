@@ -15,7 +15,7 @@ export function Footer() {
           {site.email}
         </a>
         <div className="mt-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex items-center gap-6 text-sm text-muted">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
             <a
               href={site.linkedin}
               target="_blank"
@@ -54,6 +54,11 @@ export function Footer() {
         </div>
         <p className="mt-8 font-mono text-xs text-muted">© 2026</p>
       </Container>
+      <div aria-hidden className="overflow-hidden select-none">
+        <p className="footer-wordmark -mb-[0.12em] text-center font-heading leading-[0.8] font-semibold tracking-[-0.06em] whitespace-nowrap">
+          Harsh Lariya
+        </p>
+      </div>
     </footer>
   )
 }

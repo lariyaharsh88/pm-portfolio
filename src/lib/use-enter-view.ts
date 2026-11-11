@@ -23,7 +23,9 @@ export function useEnterView<T extends Element>(amount = 0.25) {
           io.disconnect()
         }
       },
-      { threshold: amount },
+      // The huge top margin counts anything already scrolled past as "entered",
+      // so a fast jump down the page never leaves content hidden above the viewport.
+      { threshold: 0, rootMargin: `100000px 0px -${Math.round(amount * 40)}% 0px` },
     )
     io.observe(el)
     return () => io.disconnect()

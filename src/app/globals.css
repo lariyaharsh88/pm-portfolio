@@ -354,3 +354,20 @@ button:focus-visible {
     transform: none;
   }
 }
+
+/* Oversized sign-off name in the footer, faded into the page. */
+.footer-wordmark {
+  font-size: 16.5vw;
+  background: linear-gradient(to bottom, var(--fg) 0%, color-mix(in srgb, var(--fg) 0%, transparent) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.14;
+}
+
+.dark .footer-wordmark {
+  background: linear-gradient(to bottom, #fdba74 0%, transparent 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.35;
+}
