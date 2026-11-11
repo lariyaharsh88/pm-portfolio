@@ -25,6 +25,8 @@ export const testimonials: readonly Testimonial[] = [
     quote:
       "Really loved the idea! The design is clean, smooth and user-friendly. Great work on the overall experience and attention to detail.",
     name: "Pari Sharma",
+    role: "Junior Developer",
+    relationship: "Teammate",
     photo: "/testimonials/pari-sharma.webp",
     linkedin: "https://www.linkedin.com/in/pari-sharma-92713b2a3",
   },
