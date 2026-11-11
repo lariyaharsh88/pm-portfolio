@@ -78,6 +78,16 @@ Static pages mean no saved history or accounts. For a quick calculation, speed a
 | Hosting | Cloudflare Workers static assets | Served from the edge at near-zero cost |
 | SEO | Programmatic pages, sitemap, Search Console and Bing | 415 pages that each match a real search |
 
+## What Bing shows so far
+
+<Figure src="/case-studies/consoles/payhours-bing.webp" alt="Bing Webmaster Tools for payhourscalc.com: 0 clicks, 51 impressions, starting 3 November" caption="Bing Webmaster Tools: the first 51 impressions, all from early November. No clicks yet." />
+
+<BarList data="payhoursBingQueries" />
+
+These numbers are tiny, and I'm showing them because they're honest. Two weeks after launch, Bing had shown PayHours 51 times and sent no clicks yet. The signal is in *what* people searched: almost all of it was **military minutes conversion charts**: tables that turn minutes into hundredths of an hour for payroll, at an average position around 6. That's a narrower, more specific need than the broad "hours calculator" searches I built for.
+
+**Next step:** a dedicated, printable military-minutes conversion chart page, since that's the search showing up first, and Google Search Console tracking for the same pages to see whether the pattern holds there.
+
 ## Mistakes and what I learned
 
 - **I almost shipped placeholder tax numbers.** Three states (Arizona, Maine, South Carolina) first used a temporary standard-deduction value. I caught it by checking every figure against the official state sources, then added the citation to each state page. **Lesson:** for money calculators, every number needs a source on the page.

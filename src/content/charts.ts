@@ -88,6 +88,18 @@ export const barCharts: Record<string, BarSeries> = {
       { label: "Bangladesh", value: 39 },
     ],
   },
+  payhoursBingQueries: {
+    title: "Top Bing searches for PayHours Calc",
+    source: "Bing Webmaster Tools, 23 Oct – 8 Nov 2026",
+    unit: "impressions",
+    items: [
+      { label: "military minutes conversion chart", value: 21 },
+      { label: "military minute conversion chart", value: 3 },
+      { label: "military minutes conversion chart images", value: 2 },
+      { label: "military hundreths", value: 2 },
+      { label: "1 hour and 75 mins in decimal military time", value: 2 },
+    ],
+  },
   kundliQueries: {
     title: "Top Google searches for Kundli Jyoti",
     source: "Google Search Console, last 3 months",
