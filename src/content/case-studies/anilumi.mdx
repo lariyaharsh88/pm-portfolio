@@ -168,7 +168,9 @@ Bing moved the other way. It sent **140 clicks from 4,200 impressions (3.3% CTR)
 ## Mistakes and what I learned
 
 <Callout type="tradeoff">
-**I moved hosts three times in ten days, and Google noticed.** AniLumi went from Vercel to Render to Cloudflare between 23 October and 2 November. During the moves, Google hit 316 pages that returned server errors. Its traffic dropped the same day, and it hasn't recovered yet. I can't prove the errors were the only cause, but the timing matches.
+**I moved hosts three times in ten days, during the most fragile week.** AniLumi went from Vercel to Render to Cloudflare between 23 October and 2 November, and Google hit 316 pages that returned server errors. Google traffic dropped on 1 November and hasn't recovered yet.
+
+**But I can't blame the moves alone.** My calculator site, [PayHours](/work/payhourscalc), lost almost all its Google impressions on 30 October with no deploy at all. Two new sites falling in the same few days points to Google pulling back the extra visibility it often gives brand-new sites, while the server errors gave it a reason not to trust AniLumi. The honest answer is: probably both, and I can't separate them.
 </Callout>
 
 - **Lesson: pick the host before launch, and migrate behind a stable URL.** Test the new host fully, then switch DNS in one step. Never let crawlers see a half-moved site. A re-check of the failing pages is now running in Search Console.

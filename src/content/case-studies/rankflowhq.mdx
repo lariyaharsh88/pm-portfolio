@@ -162,6 +162,18 @@ The AI writes a strong first draft; a person decides what gets published. The pr
 **The gap I found:** the quality gate exists on the server, but the editor doesn't run it when a user saves. Today the "check" step depends on the user's own judgement. Wiring the gate into the editor, showing the issues inline, and blocking publish only on errors (not warnings) is the first fix on the roadmap.
 </Callout>
 
+## What Google shows: the uncomfortable number
+
+<Figure src="/case-studies/consoles/rankflowhq-indexing.webp" alt="Search Console page indexing for rankflowhq.com: 8 indexed, 71 not indexed" caption="Search Console for all of rankflowhq.com: Google has indexed 8 pages and set aside 71." />
+
+An SEO product should be able to win search for itself. Across all of rankflowhq.com (the app, the free tools and the Education Hub), Google has indexed **8 pages out of 79** and shown the site **29 times in three months**, with **no clicks**. The biggest group of excluded pages, 31, is "crawled, currently not indexed": Google read them and decided they weren't worth keeping.
+
+<Callout type="insight">
+I built a tool that writes search-ready articles, but I didn't prove it on my own domain first. Google's verdict on my own pages is the most honest evaluation the product has had, and it says the output isn't yet distinctive enough to rank on its own.
+</Callout>
+
+**What I'm changing:** fewer, deeper pages with first-hand data instead of more generated ones; a human edit on every published page; and using the indexing rate of my own pages as a product metric, not just articles generated.
+
 ## Evaluation: what exists, and what I found missing
 
 When I audited my own pipeline for this case study, I found gaps that matter more than any new feature:

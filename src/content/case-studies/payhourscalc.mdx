@@ -78,6 +78,18 @@ Static pages mean no saved history or accounts. For a quick calculation, speed a
 | Hosting | Cloudflare Workers static assets | Served from the edge at near-zero cost |
 | SEO | Programmatic pages, sitemap, Search Console and Bing | 415 pages that each match a real search |
 
+## What Google shows
+
+<Figure src="/case-studies/consoles/payhours-gsc.webp" alt="Google Search Console for payhourscalc.com: 4 clicks, 5.99K impressions, rising to about 1,300 a day then dropping to near zero on 30 October" caption="Google Search Console, last 3 months: a fast first week, then almost nothing from 30 October." />
+
+<DailyTrend data="payhoursGoogle" />
+
+<BarList data="payhoursGoogleQueries" />
+
+In its first week, PayHours went from nothing to about **1,300 impressions a day** and **5,990 in total**, with 320 pages indexed. The programmatic pages did their job: "$150 an hour is how much a year" and "$55k a year is how much an hour" ranked around **position 8–10**, on page one.
+
+Then on **30 October impressions fell to almost zero**, and nothing had been deployed since 28 October. My other new site, AniLumi, dropped within a day of it. My best explanation is that Google gives brand-new sites a short burst of visibility to test them, then pulls back until they earn trust. The 4 clicks from 5,990 impressions (0.1% CTR) show the test didn't go well: pages were shown, but rarely chosen.
+
 ## What Bing shows so far
 
 <Figure src="/case-studies/consoles/payhours-bing.webp" alt="Bing Webmaster Tools for payhourscalc.com: 0 clicks, 51 impressions, starting 3 November" caption="Bing Webmaster Tools: the first 51 impressions, all from early November. No clicks yet." />
@@ -90,6 +102,8 @@ These numbers are tiny, and I'm showing them because they're honest. Two weeks a
 
 ## Mistakes and what I learned
 
+- **I treated the first week as a trend.** A new site's early impressions are Google testing it. Real performance shows up over months, so I now judge launches on 60+ days of data.
+- **Ranking isn't the same as being chosen.** Pages reached page one but earned a 0.1% click-through rate. Titles and descriptions need to promise the exact answer, like "$150/hour = $312,000/year", not a generic calculator.
 - **I almost shipped placeholder tax numbers.** Three states (Arizona, Maine, South Carolina) first used a temporary standard-deduction value. I caught it by checking every figure against the official state sources, then added the citation to each state page. **Lesson:** for money calculators, every number needs a source on the page.
 - **A CDN setting changed who could crawl the site.** Cloudflare's managed robots.txt blocks AI crawlers by default. I only noticed after launch. **Lesson:** check robots.txt on the live site, not just in the code.
 - **I can't show real traffic yet.** PayHours lives in a separate Cloudflare account, and I hadn't switched on its visitor analytics, so I only have Search Console data. **Lesson:** turn on analytics before the first visitor, in the same place as your other sites.

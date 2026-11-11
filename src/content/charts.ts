@@ -22,7 +22,7 @@ export const dailyCharts: Record<string, DailySeries> = {
       { key: "clicks", label: "Clicks" },
       { key: "impressions", label: "Impressions" },
     ],
-    events: [{ date: "2026-11-01", label: "Host move, 5xx errors" }],
+    events: [{ date: "2026-11-01", label: "Drop: host move + new-site pullback" }],
     points: [
       day("2026-10-22", 0, 0), day("2026-10-23", 0, 3), day("2026-10-24", 3, 272), day("2026-10-25", 9, 1824),
       day("2026-10-26", 12, 4002), day("2026-10-27", 38, 8013), day("2026-10-28", 62, 11167), day("2026-10-29", 68, 12812),
@@ -43,6 +43,22 @@ export const dailyCharts: Record<string, DailySeries> = {
       day("2026-10-28", 0, 0), day("2026-10-29", 0, 6), day("2026-10-30", 0, 54), day("2026-10-31", 0, 62),
       day("2026-11-01", 2, 181), day("2026-11-02", 0, 197), day("2026-11-03", 4, 145), day("2026-11-04", 44, 781),
       day("2026-11-05", 35, 820), day("2026-11-06", 26, 705), day("2026-11-07", 15, 592), day("2026-11-08", 14, 662),
+    ],
+  },
+  payhoursGoogle: {
+    title: "PayHours Calc on Google, daily",
+    source: "Google Search Console, 21 Oct – 9 Nov 2026",
+    metrics: [
+      { key: "impressions", label: "Impressions" },
+      { key: "clicks", label: "Clicks" },
+    ],
+    events: [{ date: "2026-10-30", label: "Drop, no deploy that day" }],
+    points: [
+      day("2026-10-21", 0, 0), day("2026-10-22", 0, 2), day("2026-10-23", 1, 240), day("2026-10-24", 0, 693),
+      day("2026-10-25", 1, 856), day("2026-10-26", 1, 1056), day("2026-10-27", 0, 1292), day("2026-10-28", 1, 1271),
+      day("2026-10-29", 0, 548), day("2026-10-30", 0, 2), day("2026-10-31", 0, 4), day("2026-11-01", 0, 3),
+      day("2026-11-02", 0, 1), day("2026-11-03", 0, 2), day("2026-11-04", 0, 2), day("2026-11-05", 0, 5),
+      day("2026-11-06", 0, 1), day("2026-11-07", 0, 5), day("2026-11-08", 0, 3), day("2026-11-09", 0, 3),
     ],
   },
   kundliGoogle: {
@@ -86,6 +102,20 @@ export const barCharts: Record<string, BarSeries> = {
       { label: "India", value: 323 },
       { label: "Pakistan", value: 81 },
       { label: "Bangladesh", value: 39 },
+    ],
+  },
+  payhoursGoogleQueries: {
+    title: "Top Google searches for PayHours Calc",
+    source: "Google Search Console, last 3 months",
+    unit: "impressions",
+    items: [
+      { label: "150 an hour is how much a year", value: 86 },
+      { label: "military time converter", value: 40 },
+      { label: "$55k a year is how much an hour", value: 37 },
+      { label: "$150 an hour is how much a year", value: 33 },
+      { label: "$12.50 an hour is how much a year", value: 26 },
+      { label: "military time conversion chart", value: 24 },
+      { label: "pay raise calculator", value: 20 },
     ],
   },
   payhoursBingQueries: {
