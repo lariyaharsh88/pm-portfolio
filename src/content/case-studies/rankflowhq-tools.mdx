@@ -1,0 +1,84 @@
+---
+title: "RankFlowHQ Tools: free tools as a growth channel"
+slug: "rankflowhq-tools"
+summary: "I built a hub of 15 free SEO and website tools to bring search traffic to RankFlowHQ. Then I rated my own first version 5.5 out of 10 and rebuilt it in five phases: trust and speed, content, more tools, deeper features, and measurement."
+role: "Founder-PM: product, design and build"
+company: "Independent product"
+timeline: "Nov 2026 · live"
+team: "Solo (AI-assisted coding)"
+tags: ["Growth / SEO", "Product-led Growth", "0→1", "B2B SaaS"]
+accent: "#0284c7"
+cover: "/products/tools.jpg"
+status: "published"
+metrics:
+  - { value: "15", label: "free tools in four categories" }
+  - { value: "0", label: "sign-ups needed to use any tool" }
+  - { value: "5", label: "improvement phases shipped in one week" }
+  - { value: "~550", label: "words of how-to guide on every tool page" }
+---
+
+## Summary
+
+[RankFlowHQ Tools](https://tools.rankflowhq.com/) is a set of 15 free tools for people who run websites: keyword ideas, a website health checker, meta tag and schema tools, a headline analyzer, an OG image maker and more. It's the top of the funnel for [RankFlowHQ](/work/rankflowhq), my paid AI article writer.
+
+The idea is simple. People search for "free keyword tool" or "check my website" every day. If my tool solves that problem well, some of those people will try the paid product.
+
+## The problem
+
+Getting the first users for RankFlowHQ was the hard part. Paid ads are expensive in SEO software, and "AI article writer" is a crowded search. But the people who need RankFlowHQ also have smaller, frequent jobs: checking a redirect, writing a meta description, finding keywords. Those searches are easier to rank for, and the people searching are exactly my users.
+
+<Callout type="insight">
+A free tool that solves a small problem today earns the trust to sell a bigger solution tomorrow.
+</Callout>
+
+## What I built
+
+<Figure src="/products/tools.jpg" alt="RankFlowHQ Tools homepage listing free SEO tools" caption="The hub: 15 tools grouped by job, with no sign-up, no watermark and no limits." />
+
+Fifteen tools in four groups:
+
+| Group | Tools |
+|---|---|
+| SEO | Keyword Ideas, SERP Snippet Preview, Meta Tag Checker, Schema Markup Generator |
+| Content & copy | Word Counter, Headline Analyzer, URL Slug Generator, UTM Link Builder |
+| Site health | Website Checker, Redirect Checker, Robots.txt Tester, XML Sitemap Validator |
+| Design & files | OG Image Generator, Logo & Favicon Maker, PDF Tools |
+
+<Figure src="/case-studies/tools/keyword-ideas.jpg" alt="Keyword Ideas tool showing 522 ideas for 'trip planner' grouped by intent" caption="Keyword Ideas: one seed keyword returns hundreds of real searches, sorted by intent and topic cluster, with a content brief to copy." />
+
+<Figure src="/case-studies/tools/website-checker.jpg" alt="Website Checker showing a health score of 82 for harshlariya.in with three issues" caption="Website Checker: one check covers uptime, speed, SSL, DNS, email security and SEO basics, with a score and a plain list of what to fix." />
+
+## How I improved it: from 5.5 to 9
+
+After the first version went live, I reviewed it honestly and rated it **5.5 out of 10**. The tools worked, but they were thin, some results were wrong for non-US users, and I had no way to know if anyone used them. I fixed it in five phases:
+
+1. **Trust and speed.** Security headers and caching. I also found that keyword ideas were coming back for the wrong country. The fix was a different Google endpoint, the only one that respects the country setting from where my server runs.
+2. **Content.** A ~550-word guide on every tool page, how-to and breadcrumb structured data, and shareable result links, so someone can send a teammate their exact result.
+3. **Breadth.** Ten new tools, taking the hub from five to fifteen.
+4. **Depth.** Keyword intents, topic clusters and a content brief. A health score for the website checker, plus DNS, SPF/DMARC, crawl-file checks and an on-demand PageSpeed test.
+5. **Measurement.** Usage events for every tool and an email sign-up, so I can see which tools people use and start building an audience.
+
+<Callout type="decision">
+**Most tools run in the browser.** The word counter, PDF tools and image makers never upload anything. That's a privacy promise I can put on the page, and it keeps server costs near zero.
+</Callout>
+
+<Callout type="decision">
+**No sign-up, ever, for free tools.** A sign-up wall would kill the main job of the hub, which is earning trust and search traffic. Email capture is optional and offered after the result, not before it.
+</Callout>
+
+<Figure src="/case-studies/tools/og-image.jpg" alt="OG Image Generator for making link preview images" caption="Design tools broaden the audience beyond SEO specialists to anyone who runs a website." />
+
+## How I'll judge it
+
+The tools were rebuilt in early November 2026, so it's too early for traffic numbers. These are the metrics I set up to track:
+
+- **Search impressions and clicks** per tool page (Search Console).
+- **Tool runs per visit**, to see which tools people actually use.
+- **Click-through to RankFlowHQ**, the number that tells me whether the hub is doing its job.
+- **Email sign-ups per 100 tool runs.**
+
+## What I learned
+
+- **Rate your own work before users do.** Calling my first version a 5.5 gave me a clear list of what to fix, instead of guessing.
+- **Small bugs can quietly break a product.** The wrong-country keyword results would never have shown up in a demo. I only caught them by testing like a user outside the US.
+- **Measure from day one.** I added tracking in the last phase. Next time it goes in the first one.

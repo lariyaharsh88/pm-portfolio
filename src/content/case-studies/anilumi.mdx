@@ -1,0 +1,101 @@
+---
+title: "AniLumi: an anime site that found its audience in Hindi"
+slug: "anilumi"
+summary: "I built AniLumi to answer the questions anime fans actually search for: what airs tonight, what order to watch a franchise in, and where to watch it. The first week of real analytics showed something I didn't plan for: most of my users are on phones in India, looking for Hindi dubs."
+role: "Founder-PM: research, product, design and build"
+company: "Independent product"
+timeline: "Oct 2026 · live and growing"
+team: "Solo (AI-assisted coding)"
+tags: ["Consumer", "Growth / SEO", "0→1", "Data Products"]
+accent: "#db2777"
+cover: "/products/anilumi.jpg"
+status: "published"
+metrics:
+  - { value: "255", label: "real visits on day one of tracking (10 Nov 2026)" }
+  - { value: "68%", label: "of visitors on mobile" }
+  - { value: "~80%", label: "of visitors from India, Pakistan and Bangladesh" }
+  - { value: "53", label: "franchise watch-order guides" }
+---
+
+## Summary
+
+[AniLumi](https://anilumi.in/) is an anime discovery site. It shows what's airing this week in your own time zone, builds watch-order guides for long franchises, and tells you where to watch each show. I built it solo in October 2026 and launched it on my own domain.
+
+The most useful thing I learned came after launch. When I switched on proper analytics, about 80% of visitors were from South Asia and two-thirds were on phones. The most visited page was the Hindi dub list. I had built for a global fan, and the audience told me who it actually was.
+
+## The problem
+
+Anime fans keep asking the same few questions:
+
+- What's airing tonight, and what time is that for me?
+- I want to start *Naruto*. What order do I watch it in, and what can I skip?
+- How long will it take to finish?
+- Where can I legally watch it?
+
+The answers exist, but they're spread across wikis, Reddit threads and streaming apps. Most anime sites are built for people who already know the scene. Newcomers end up with 20 tabs open.
+
+<Callout type="insight">
+Every one of those questions is a search people type into Google. If each answer is a fast, clear page, search does the distribution for me.
+</Callout>
+
+## What I built
+
+<Figure src="/case-studies/anilumi/schedule.jpg" alt="AniLumi weekly schedule showing 25 episodes this week with a bar chart by day" caption="The weekly schedule: every airing show with Japan time and the viewer's local time side by side." />
+
+**1. A schedule in your time zone.** Anime air times are in Japan time, which confuses everyone outside Japan. The schedule shows both, with next-episode countdowns and a chart of the busiest days.
+
+<Figure src="/case-studies/anilumi/watch-order.jpg" alt="Naruto watch order page with core entries, extras and filler advice" caption="Watch-order guides are generated from franchise data, then improved with editor notes on filler and canon." />
+
+**2. Watch orders built automatically.** I generate the order from franchise relationship data, so a new season shows up without anyone editing the page. On top of that, I wrote notes for 53 popular franchises: which episodes are filler, which films are canon, and where to start.
+
+<Figure src="/case-studies/anilumi/anime-page.jpg" alt="Anime detail page with score, binge time, where to watch and watch order" caption="Each show page answers the next question too: binge time, where to watch, and where it sits in the watch order." />
+
+**3. One page per question.** Each show has pages for how long it takes to watch, a parents' guide, next-season news, cast and opening songs. These match the long-tail questions people search for, and they link to each other so one visit turns into several.
+
+**4. Tools that keep people around.** A "what to watch tonight" picker, a binge planner, tier lists, a quiz and a personal watchlist. None of them need an account. The list is saved on the device, so there's no sign-up wall.
+
+## Key product decisions
+
+<Callout type="decision">
+**Two data sources, and fail gracefully.** Kitsu gives me the catalogue and AniList fills in air times that Kitsu is missing. When an upstream API went down during the build, I made the site show a "data is temporarily unavailable" state instead of a 404. A false 404 tells Google the page is gone, which would quietly destroy search rankings.
+</Callout>
+
+<Callout type="decision">
+**Follow Google's rules even when they cost clicks.** I removed star ratings from the structured data because Google's policy only allows ratings you collect from your own users. The stars would have looked good in search results, but they weren't mine to show.
+</Callout>
+
+<Options>
+  <Option title="Stay on a free host">
+    Zero cost, but slow cold starts on the first visit, which hurts both users and rankings.
+  </Option>
+  <Option title="Move to Cloudflare Workers (paid plan)" chosen>
+    I measured about 90 ms of server time per uncached page, which is far over the free plan's 10 ms limit. The paid plan is about $5 a month and serves pages from the edge close to users in India.
+  </Option>
+</Options>
+
+## What the data showed
+
+<Figure src="/case-studies/anilumi/mobile.jpg" alt="AniLumi homepage on a phone" caption="Most visitors arrive on a phone, so the mobile layout is the main layout." />
+
+The first full day of clean analytics (10 November 2026, bots excluded):
+
+| Signal | Number |
+|---|---|
+| Visits | 255 |
+| Page views | 612 |
+| Mobile share | 68% |
+| Top countries | India 323 views, Pakistan 81, Bangladesh 39 |
+| Top page | Hindi dub list (98 views, plus 35 on its Hindi-language version) |
+| Top referrers | Bing, Baidu, Google |
+
+<Callout type="insight">
+I hadn't treated Hindi dubs as a core feature. The data says it's the main reason people come. My next roadmap starts there: more Hindi pages, dub release alerts, and a mobile-first layout for the dub list.
+</Callout>
+
+**Earlier mistake I caught.** My hosting dashboard first showed 1.6 million requests in nine days. It looked like a hit, but it wasn't. Almost all of it was scrapers and the site's own cache traffic. I switched to browser-based analytics that only count real visitors, and the honest number was a few hundred a day. I'd rather plan around the real number.
+
+## What's next
+
+- Grow the Hindi dub section: more titles, a Hindi landing page per show, and alerts when a new dub drops.
+- Add Search Console data to see which questions bring people in, then build more pages like them.
+- Turn on affiliate links (manga and merchandise) once traffic is steady, and measure revenue per visit.

@@ -14,7 +14,7 @@ import { products, type Product } from "@/content/products"
 export const metadata: Metadata = pageMetadata({
   title: "AI Products",
   description:
-    "Independent AI products Harsh Lariya designed, built and shipped: RankFlowHQ (AI SEO workflow), its Education Hub, HarshOnRoads (grounded trip planner), Kundli Jyoti (AI astrologer), PayHours Calc (US payroll calculator) and AniLumi (anime discovery).",
+    "Independent AI products Harsh Lariya designed, built and shipped: RankFlowHQ (AI SEO workflow), its free SEO tools hub and Education Hub, HarshOnRoads (grounded trip planner), Kundli Jyoti (AI astrologer), PayHours Calc (US payroll calculator) and AniLumi (anime discovery).",
   path: "/products",
 })
 
@@ -30,7 +30,7 @@ export default function ProductsPage() {
           className="mt-4 max-w-4xl text-4xl text-balance text-fg sm:text-6xl"
         />
         <p className="mt-5 max-w-2xl text-lg text-muted">
-          Six live products where I owned everything: the problem, positioning, scope, AI design and the build itself.
+          Seven live products where I owned everything: the problem, positioning, scope, AI design and the build itself.
         </p>
         <nav aria-label="Products" className="mt-8 flex flex-wrap gap-2">
           {products.map((product) => (

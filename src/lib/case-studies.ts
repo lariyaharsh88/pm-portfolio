@@ -37,7 +37,11 @@ const publishedOrder = [
   "lead-management-platform",
   "content-growth-platform",
   "rankflowhq",
+  "anilumi",
+  "rankflowhq-tools",
   "harshonroads",
+  "kundlijyoti",
+  "payhourscalc",
 ]
 
 export type CaseStudyMeta = Omit<CaseStudy, "content" | "hasTodo">

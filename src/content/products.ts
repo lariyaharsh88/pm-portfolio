@@ -85,6 +85,37 @@ export const products = [
     ],
   },
   {
+    slug: "rankflowhq-tools",
+    name: "RankFlowHQ Free Tools",
+    url: "https://tools.rankflowhq.com/",
+    urlLabel: "tools.rankflowhq.com",
+    tagline: "15 free SEO, content and website tools with no sign-up. Built as the top of the funnel for RankFlowHQ.",
+    screenshot: "/products/tools.jpg",
+    caseStudy: "/work/rankflowhq-tools",
+    accent: "#0284c7",
+    problem:
+      "People who run websites search every day for quick fixes: keyword ideas, a redirect check, a meta description. Most free tools hide results behind a sign-up or a watermark.",
+    users: "Bloggers, small-business owners, marketers and freelancers, the same people who need RankFlowHQ.",
+    flow: ["Search a small problem", "Free tool solves it", "How-to guide", "Optional email", "Try RankFlowHQ"],
+    features: [
+      "15 tools in four groups: SEO, content & copy, site health, design & files",
+      "Keyword ideas with intents, topic clusters and a ready content brief",
+      "Website checker with a health score, SSL, DNS, SPF/DMARC and an on-demand PageSpeed test",
+      "Most tools run in the browser, so files and text are never uploaded",
+      "A how-to guide and shareable result link on every tool page",
+    ],
+    decisions: [
+      {
+        title: "Free tools as a growth channel",
+        body: "Small, frequent searches are easier to rank for than \"AI article writer\", and the people searching are exactly RankFlowHQ's users.",
+      },
+      {
+        title: "Rate it honestly, then rebuild",
+        body: "I scored my first version 5.5 out of 10 and fixed it in five phases: trust and speed, content, ten more tools, deeper features, and measurement.",
+      },
+    ],
+  },
+  {
     slug: "harshonroads",
     name: "HarshOnRoads",
     url: "https://www.harshonroads.com/",
@@ -172,7 +203,7 @@ export const products = [
       "10 calculators: time card, hours, overtime, hourly↔salary, pay raise, military time and 2026 military pay",
       "Overtime rules for all 51 states and pay tables for 25 military grades",
       "200+ programmatic pages such as \"$25 an hour is how much a year\"",
-      "300+ static pages served from Cloudflare's edge, no account and no upload needed",
+      "415 static pages served from Cloudflare's edge, including 2026 state paycheck and tax pages, no account and no upload needed",
     ],
     decisions: [
       {
@@ -192,21 +223,27 @@ export const products = [
     urlLabel: "anilumi.in",
     tagline: "An anime discovery site: airing schedule in your time zone, seasonal charts, auto-built watch orders and a binge planner.",
     screenshot: "/products/anilumi.jpg",
+    caseStudy: "/work/anilumi",
     accent: "#db2777",
     problem:
       "Fans juggle wikis, Reddit threads and streaming apps to answer simple questions: what airs tonight, what order to watch a franchise in, and how long it will take.",
-    users: "Anime fans, from newcomers asking where to start to regulars tracking the current season.",
+    users: "Anime fans, from newcomers asking where to start to regulars tracking the current season. Analytics showed most visitors are on phones in India, Pakistan and Bangladesh, looking for Hindi dubs.",
     flow: ["Kitsu + AniList data", "Hourly refresh", "Schedules & charts", "Watch orders & tools"],
     features: [
       "Weekly schedule in local time with next-episode countdowns",
       "Watch-order pages built from franchise relationships, with 53 editor notes",
       "Binge planner, \"what to watch tonight\" picker, tier lists and a watchlist that needs no sign-up",
       "Character, studio, voice-actor and genre-trend pages, plus RSS and iCal feeds",
+      "255 real visits on the first day of tracking (10 Nov 2026): 68% mobile, top page the Hindi dub list",
     ],
     decisions: [
       {
         title: "Two data sources, graceful fallback",
         body: "Kitsu supplies the catalogue and AniList fills in airing times Kitsu lacks. When an upstream API goes down, the site degrades instead of showing false 404s.",
+      },
+      {
+        title: "Let the data pick the roadmap",
+        body: "I built for a global fan. Analytics showed a South Asian mobile audience searching for Hindi dubs, so that's where the next features go.",
       },
       {
         title: "Long-tail pages as the growth engine",
