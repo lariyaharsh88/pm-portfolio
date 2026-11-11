@@ -34,7 +34,7 @@ export function Callout({
           <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
             {kind.label}
           </p>
-          <div className="mt-1 text-sm leading-relaxed text-fg [&_p]:m-0">{children}</div>
+          <div className="mt-1 text-sm leading-relaxed text-fg [&_p]:m-0 [&_p+p]:mt-3">{children}</div>
         </div>
       </aside>
     </Reveal>

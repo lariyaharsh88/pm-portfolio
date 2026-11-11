@@ -11,7 +11,7 @@ accent: "#db2777"
 cover: "/products/anilumi.webp"
 status: "published"
 metrics:
-  - { value: "255", label: "real visits on day one of tracking (10 Nov 2026)" }
+  - { value: "367", label: "real visits in a day (11 Nov 2026), up from 255 on day one" }
   - { value: "68%", label: "of visitors on mobile" }
   - { value: "~80%", label: "of visitors from India, Pakistan and Bangladesh" }
   - { value: "3.9K", label: "pages indexed by Google" }
@@ -147,6 +147,14 @@ The first full day of clean analytics (10 November 2026, bots excluded):
 I hadn't treated Hindi dubs as a core feature. The data says it's the main reason people come. My next roadmap starts there: more Hindi pages, dub release alerts, and a mobile-first layout for the dub list.
 </Callout>
 
+The next day (11 November) brought **367 visits**, up from 255, with the same South Asian, mobile-first mix.
+
+### What I did in the next 48 hours
+
+- **Grew the verified Hindi dub list from 69 to 125 franchises.** Each one is confirmed on the streaming service's own India page (Netflix India, Apple TV India, Crunchyroll) or in Indian anime news. Fan wikis don't count, because a wrong "yes, it's in Hindi" costs more trust than a missing title. I also re-checked the 30 most popular "no Hindi dub" shows; none had changed.
+- **Fixed the slowest part of the page.** Cloudflare's real-user data put the 75th-percentile load (LCP) at 3.0 seconds on anime pages, and the slowest element was a decorative blurred background: a 120 KB image that ends up as a colour wash. I swapped it for an 11 KB thumbnail that blurs to the same look.
+- **Batched releases.** Both changes ship together in the next scheduled release, because every deploy empties the page cache and makes the first visits slow.
+
 ## What Google and Bing show
 
 <Figure src="/case-studies/consoles/anilumi-gsc.webp" alt="Google Search Console for anilumi.in: 353 clicks and 71.9K impressions, rising to about 90 clicks a day by 31 October, then dropping to near zero" caption="Google Search Console, last 3 months: from zero to ~90 clicks a day in a week, then a sudden drop on 1 November." />
@@ -180,6 +188,7 @@ Bing moved the other way. It sent **140 clicks from 4,200 impressions (3.3% CTR)
 
 ## What's next
 
-- Grow the Hindi dub section: more titles, a Hindi landing page per show, and alerts when a new dub drops.
+- Measure the release: LCP before and after, and whether the 56 new Hindi dub titles start earning search impressions.
+- Add a Hindi landing page per dubbed show, and alerts when a new dub drops.
 - Add Search Console data to see which questions bring people in, then build more pages like them.
 - Turn on affiliate links (manga and merchandise) once traffic is steady, and measure revenue per visit.
