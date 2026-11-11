@@ -138,9 +138,10 @@ The first full day of clean analytics (10 November 2026, bots excluded):
 | Visits | 255 |
 | Page views | 612 |
 | Mobile share | 68% |
-| Top countries | India 323 views, Pakistan 81, Bangladesh 39 |
 | Top page | Hindi dub list (98 views, plus 35 on its Hindi-language version) |
 | Top referrers | Bing, Baidu, Google |
+
+<BarList data="anilumiCountries" />
 
 <Callout type="insight">
 I hadn't treated Hindi dubs as a core feature. The data says it's the main reason people come. My next roadmap starts there: more Hindi pages, dub release alerts, and a mobile-first layout for the dub list.
@@ -150,11 +151,17 @@ I hadn't treated Hindi dubs as a core feature. The data says it's the main reaso
 
 <Figure src="/case-studies/consoles/anilumi-gsc.webp" alt="Google Search Console for anilumi.in: 353 clicks and 71.9K impressions, rising to about 90 clicks a day by 31 October, then dropping to near zero" caption="Google Search Console, last 3 months: from zero to ~90 clicks a day in a week, then a sudden drop on 1 November." />
 
+<DailyTrend data="anilumiGoogle" />
+
 In its first week on Google, AniLumi went from nothing to about **90 clicks and 17,900 impressions a day** (31 October). Google indexed **3,923 pages**. Then, from 1 November, impressions fell to around 130 a day.
 
 <Figure src="/case-studies/consoles/anilumi-gsc-indexing.webp" alt="Search Console page indexing reasons for anilumi.in, including 316 pages with server errors (5xx)" caption="The indexing report explains the drop: 316 pages returned server errors (5xx) when Google tried to crawl them." />
 
 <Figure src="/case-studies/consoles/anilumi-bing.webp" alt="Bing Webmaster Tools for anilumi.in: 140 clicks, 4.2K impressions, 3.33% CTR, rising from 3 November" caption="Bing Webmaster Tools over the same weeks: 140 clicks at a 3.3% click-through rate, led by Hindi dub searches." />
+
+<DailyTrend data="anilumiBing" />
+
+<BarList data="anilumiBingQueries" />
 
 Bing moved the other way. It sent **140 clicks from 4,200 impressions (3.3% CTR)**, and the top searches were "anime dub hindi", "anime hindi" and "hindi dubbed anime". Bing and the analytics agree on who the audience is.
 

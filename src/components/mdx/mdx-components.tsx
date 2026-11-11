@@ -12,6 +12,8 @@ import { CaseTable, CaseTd, CaseTh } from "@/components/mdx/table"
 import { Timeline } from "@/components/mdx/timeline"
 import { WorkflowCompare } from "@/components/mdx/workflow-compare"
 import { ProductDeck } from "@/components/products/product-deck"
+import { DailyTrend } from "@/components/mdx/daily-trend"
+import { BarList } from "@/components/mdx/bar-list"
 
 export const mdxComponents = {
   h2: CaseH2,
@@ -31,4 +33,6 @@ export const mdxComponents = {
   DataLayerDiagram,
   SessionsChart,
   ProductDeck,
+  DailyTrend,
+  BarList,
 }
