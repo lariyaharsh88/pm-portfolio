@@ -371,3 +371,14 @@ button:focus-visible {
   background-clip: text;
   opacity: 0.35;
 }
+
+/* Deck PDFs: one 16:9 slide per page, no site chrome. */
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  html, body { background: #0b1020 !important; }
+  body::after { display: none; }
+  .deck-print-page { width: 1280px; height: 720px; break-after: page; }
+  .deck-print-page:last-child { break-after: auto; }
+  .deck-print-page > div { height: 100%; border-radius: 0; aspect-ratio: auto; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

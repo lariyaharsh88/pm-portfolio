@@ -104,7 +104,7 @@ export function Navbar({ hasResume = false }: { hasResume?: boolean }) {
 
   return (
     <>
-      <div inert={open} className="fixed inset-x-0 top-0 z-[66] flex justify-center">
+      <div inert={open} className="fixed inset-x-0 top-0 z-[66] flex justify-center print:hidden">
         <nav
           aria-label="Primary"
           className={cn(

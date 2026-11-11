@@ -5,7 +5,7 @@ import { site } from "@/lib/site"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border print:hidden">
       <Container className="py-20 md:py-28">
         <SplitText
           text="Let's build something."

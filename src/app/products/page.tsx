@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
 import { Tilt } from "@/components/motion/Tilt"
 import { FlowDiagram } from "@/components/products/flow-diagram"
+import { ProductDeck } from "@/components/products/product-deck"
 import { TemplatesStrip } from "@/components/products/templates-strip"
 import { Container } from "@/components/ui/Container"
 import { products, type Product } from "@/content/products"
@@ -113,6 +114,8 @@ function ProductSection({ product, priority }: { product: Product; priority: boo
           </a>
           </Tilt>
         </Reveal>
+
+        <ProductDeck slug={product.slug} />
 
         <div className="mt-14 grid gap-10 md:grid-cols-2">
           <div>

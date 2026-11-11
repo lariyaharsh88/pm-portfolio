@@ -8,7 +8,7 @@ const neutral = `${roundButton} border border-border bg-bg-elevated text-fg`
 /** Floating contact dock, bottom-right on every page: call, email, WhatsApp. */
 export function ContactDock() {
   return (
-    <div className="fixed right-5 bottom-5 z-[60] flex flex-col items-center gap-3 md:right-6 md:bottom-6">
+    <div className="fixed right-5 bottom-5 z-[60] flex flex-col items-center gap-3 md:right-6 md:bottom-6 print:hidden">
       <a href={site.phone} aria-label={`Call Harsh on ${site.phoneLabel}`} title={`Call ${site.phoneLabel}`} className={neutral}>
         <Phone className="size-5" aria-hidden />
       </a>

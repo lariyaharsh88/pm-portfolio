@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "resume": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --no-pdf-header-footer --print-to-pdf=public/Harsh_Lariya_Resume.pdf \"file://$PWD/resume/resume.html\""
+    "resume": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --no-pdf-header-footer --print-to-pdf=public/Harsh_Lariya_Resume.pdf \"file://$PWD/resume/resume.html\"",
+    "decks": "sh scripts/build-decks.sh"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",

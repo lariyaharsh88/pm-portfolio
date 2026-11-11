@@ -11,6 +11,7 @@ import { StatusBreakdown } from "@/components/mdx/status-breakdown"
 import { CaseTable, CaseTd, CaseTh } from "@/components/mdx/table"
 import { Timeline } from "@/components/mdx/timeline"
 import { WorkflowCompare } from "@/components/mdx/workflow-compare"
+import { ProductDeck } from "@/components/products/product-deck"
 
 export const mdxComponents = {
   h2: CaseH2,
@@ -29,4 +30,5 @@ export const mdxComponents = {
   StatusBreakdown,
   DataLayerDiagram,
   SessionsChart,
+  ProductDeck,
 }
