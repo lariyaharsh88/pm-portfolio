@@ -61,6 +61,16 @@ export const dailyCharts: Record<string, DailySeries> = {
       day("2026-11-06", 0, 1), day("2026-11-07", 0, 5), day("2026-11-08", 0, 3), day("2026-11-09", 0, 3),
     ],
   },
+  harshonroadsGoogle: {
+    title: "HarshOnRoads on Google, daily",
+    source: "Google Search Console, 16 Sep – 9 Nov 2026",
+    metrics: [
+      { key: "impressions", label: "Impressions" },
+      { key: "clicks", label: "Clicks" },
+    ],
+    events: [{ date: "2026-10-16", label: "Steady climb begins" }],
+    points: [day("2026-09-16", 0, 0), day("2026-09-17", 0, 0), day("2026-09-18", 0, 0), day("2026-09-19", 0, 4), day("2026-09-20", 2, 7), day("2026-09-21", 1, 11), day("2026-09-22", 2, 14), day("2026-09-23", 0, 10), day("2026-09-24", 0, 7), day("2026-09-25", 0, 9), day("2026-09-26", 0, 3), day("2026-09-27", 0, 8), day("2026-09-28", 2, 10), day("2026-09-29", 0, 6), day("2026-09-30", 0, 6), day("2026-10-01", 0, 5), day("2026-10-02", 0, 14), day("2026-10-03", 0, 12), day("2026-10-04", 0, 4), day("2026-10-05", 0, 2), day("2026-10-06", 0, 1), day("2026-10-07", 0, 4), day("2026-10-08", 0, 1), day("2026-10-09", 0, 2), day("2026-10-10", 0, 1), day("2026-10-11", 0, 6), day("2026-10-12", 0, 9), day("2026-10-13", 0, 12), day("2026-10-14", 1, 19), day("2026-10-15", 0, 29), day("2026-10-16", 3, 114), day("2026-10-17", 1, 179), day("2026-10-18", 1, 189), day("2026-10-19", 3, 224), day("2026-10-20", 0, 227), day("2026-10-21", 0, 208), day("2026-10-22", 1, 168), day("2026-10-23", 1, 195), day("2026-10-24", 3, 245), day("2026-10-25", 4, 221), day("2026-10-26", 3, 201), day("2026-10-27", 2, 287), day("2026-10-28", 1, 356), day("2026-10-29", 0, 346), day("2026-10-30", 1, 307), day("2026-10-31", 2, 229), day("2026-11-01", 6, 299), day("2026-11-02", 1, 253), day("2026-11-03", 1, 263), day("2026-11-04", 1, 233), day("2026-11-05", 2, 222), day("2026-11-06", 2, 271), day("2026-11-07", 2, 248), day("2026-11-08", 1, 209), day("2026-11-09", 6, 323)],
+  },
   kundliGoogle: {
     title: "Kundli Jyoti on Google, daily",
     source: "Google Search Console, 23 Oct – 9 Nov 2026",
@@ -102,6 +112,20 @@ export const barCharts: Record<string, BarSeries> = {
       { label: "India", value: 323 },
       { label: "Pakistan", value: 81 },
       { label: "Bangladesh", value: 39 },
+    ],
+  },
+  harshonroadsQueries: {
+    title: "Top Google searches for HarshOnRoads",
+    source: "Google Search Console, last 3 months",
+    unit: "impressions",
+    items: [
+      { label: "best time to visit shangarh", value: 73 },
+      { label: "route optimiser", value: 73 },
+      { label: "route optimizer", value: 72 },
+      { label: "shangarh best time to visit", value: 51 },
+      { label: "optimize my route", value: 43 },
+      { label: "shangarh in november", value: 39 },
+      { label: "places to visit near delhi in january", value: 11 },
     ],
   },
   payhoursGoogleQueries: {
