@@ -14,7 +14,7 @@ import { products, type Product } from "@/content/products"
 export const metadata: Metadata = pageMetadata({
   title: "AI Products",
   description:
-    "Independent AI products Harsh Lariya designed, built and shipped: RankFlowHQ (AI SEO workflow), its free SEO tools hub and Education Hub, HarshOnRoads (grounded trip planner), Kundli Jyoti (AI astrologer), PayHours Calc (US payroll calculator) and AniLumi (anime discovery).",
+    "Independent products Harsh Lariya designed, built and shipped: Kundli Jyoti (AI astrologer), AniLumi (anime discovery), PayHours Calc (US payroll calculator), RankFlowHQ Free Tools, the Education Hub, HarshOnRoads (grounded trip planner) and RankFlowHQ (AI SEO writer).",
   path: "/products",
 })
 

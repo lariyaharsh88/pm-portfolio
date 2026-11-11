@@ -44,7 +44,7 @@ export const projects = [
   {
     slug: "products",
     title: "Products I've built and shipped",
-    outcome: "RankFlowHQ and its free tools hub, the Education Hub, HarshOnRoads, Kundli Jyoti, PayHours Calc and AniLumi. All seven are live.",
+    outcome: "Kundli Jyoti, AniLumi, PayHours Calc, RankFlowHQ Free Tools, the Education Hub, HarshOnRoads and RankFlowHQ. All seven are live.",
     tags: ["Applied AI", "Independent", "Live"],
     metrics: [
       { value: "7", label: "live products" },
