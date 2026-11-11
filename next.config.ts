@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? "https://harshlariya.in",
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID ?? "G-M1TMGXZ1CH",
+    NEXT_PUBLIC_BING_SITE_VERIFICATION: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ?? "B8100B616DF480DE7EE0C3E9FEC893CC",
   },
   trailingSlash: false,
   images: {
