@@ -1,6 +1,7 @@
 {
   // Static export (next build → out/) served as Workers static assets.
   "name": "harshlariya",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   "routes": [
     { "pattern": "harshlariya.in", "custom_domain": true },
@@ -8,6 +9,8 @@
   ],
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   }
