@@ -112,7 +112,7 @@ export function Hero({
         <Reveal instant>
           <div className="flex flex-wrap items-center gap-3">
             <Image
-              src="/me-headshot.jpg"
+              src="/me-headshot-112.webp"
               alt={site.name}
               width={56}
               height={56}
@@ -204,7 +204,7 @@ function HeroPortrait({
           transition={{ duration: reduced ? 0 : 1.15, ease }}
         >
           <Image
-            src="/me.jpg"
+            src="/me.webp"
             alt={site.name}
             fill
             priority

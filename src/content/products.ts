@@ -22,9 +22,9 @@ export const products = [
     url: "https://kundlijyoti.com/",
     urlLabel: "kundlijyoti.com",
     tagline: "A Vedic astrology app that computes kundli, matching and dasha from real planetary positions, then explains them in plain language.",
-    screenshot: "/products/kundlijyoti.jpg",
+    screenshot: "/products/kundlijyoti.webp",
     caseStudy: "/work/kundlijyoti",
-    accent: "#ea580c",
+    accent: "#c2410c",
     problem:
       "Astrology apps in India lean on fear and upsells: a scary dosha, then a ₹5,000 gemstone. Users can't tell what was calculated and what was made up.",
     users: "Indian users who want a kundli, a marriage match or a daily rashifal without a sales pitch.",
@@ -57,7 +57,7 @@ export const products = [
     url: "https://anilumi.in/",
     urlLabel: "anilumi.in",
     tagline: "An anime discovery site: airing schedule in your time zone, seasonal charts, auto-built watch orders and a binge planner.",
-    screenshot: "/products/anilumi.jpg",
+    screenshot: "/products/anilumi.webp",
     caseStudy: "/work/anilumi",
     accent: "#db2777",
     problem:
@@ -92,7 +92,7 @@ export const products = [
     url: "https://payhourscalc.com/",
     urlLabel: "payhourscalc.com",
     tagline: "Fast, private calculators for US hourly workers and small-business payroll, built as a programmatic SEO site.",
-    screenshot: "/products/payhours.jpg",
+    screenshot: "/products/payhours.webp",
     caseStudy: "/work/payhourscalc",
     accent: "#0d7354",
     problem:
@@ -122,9 +122,9 @@ export const products = [
     url: "https://tools.rankflowhq.com/",
     urlLabel: "tools.rankflowhq.com",
     tagline: "15 free SEO, content and website tools with no sign-up. Built as the top of the funnel for RankFlowHQ.",
-    screenshot: "/products/tools.jpg",
+    screenshot: "/products/tools.webp",
     caseStudy: "/work/rankflowhq-tools",
-    accent: "#0284c7",
+    accent: "#0369a1",
     problem:
       "People who run websites search every day for quick fixes: keyword ideas, a redirect check, a meta description. Most free tools hide results behind a sign-up or a watermark.",
     users: "Bloggers, small-business owners, marketers and freelancers, the same people who need RankFlowHQ.",
@@ -153,7 +153,7 @@ export const products = [
     url: "https://education.rankflowhq.com/",
     urlLabel: "education.rankflowhq.com",
     tagline: "An automated news and trends stack that turns education headlines into indexable, SEO-ready stories.",
-    screenshot: "/products/education.jpg",
+    screenshot: "/products/education.webp",
     accent: "#4f46e5",
     problem:
       "Education news moves fast. Editorial teams manually check sources, miss trending searches, and publish too late to rank.",
@@ -182,7 +182,7 @@ export const products = [
     url: "https://www.harshonroads.com/",
     urlLabel: "harshonroads.com",
     tagline: "An India trip planner that builds itineraries from verified destination data first, and clearly labels anything AI-researched.",
-    screenshot: "/products/harshonroads.jpg",
+    screenshot: "/products/harshonroads.webp",
     caseStudy: "/work/harshonroads",
     accent: "#b45309",
     problem:
@@ -218,7 +218,7 @@ export const products = [
     url: "https://app.rankflowhq.com/",
     urlLabel: "app.rankflowhq.com",
     tagline: "Type a keyword, get a researched, SEO-ready article: RankFlowHQ reads what already ranks on Google, then writes a cited long-form draft in about 3 minutes.",
-    screenshot: "/products/rankflowhq.jpg",
+    screenshot: "/products/rankflowhq.webp",
     caseStudy: "/work/rankflowhq",
     accent: "#0369a1",
     problem:

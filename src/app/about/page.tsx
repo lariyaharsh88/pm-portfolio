@@ -117,7 +117,7 @@ export default async function AboutPage() {
           <h2 className="text-2xl text-fg">Moments</h2>
           <figure className="mt-6 max-w-sm overflow-hidden rounded-3xl border border-border bg-bg-elevated">
             <Image
-              src="/ignite-2026.jpg"
+              src="/ignite-2026.webp"
               alt="Harsh Lariya at IGNITE 2026, a KollegeApply and Sportsdunia event"
               width={1126}
               height={2000}
@@ -220,7 +220,7 @@ function Portrait({ blur }: { blur: string }) {
     <figure className="group relative mx-auto w-full max-w-md">
       <div className="overflow-hidden rounded-[1.75rem] border border-border bg-bg-elevated">
         <Image
-          src="/me.jpg"
+          src="/me.webp"
           alt={site.name}
           width={700}
           height={875}

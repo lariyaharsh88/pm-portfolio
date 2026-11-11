@@ -91,7 +91,7 @@ const screenshots: Record<string, { src: string; alt: string }> = {
     alt: "Lead distribution console with masked contact details and per-record status",
   },
   products: {
-    src: "/products/rankflowhq.jpg",
+    src: "/products/rankflowhq.webp",
     alt: "RankFlowHQ homepage: type a keyword, get a researched, SEO-ready article",
   },
   "content-growth-platform": {

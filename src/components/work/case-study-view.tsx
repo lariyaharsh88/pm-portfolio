@@ -106,7 +106,7 @@ export function CaseStudyView({
                 <dt>
                   <CountUp value={metric.value} className="text-2xl text-fg md:text-3xl" />
                 </dt>
-                <dd className="mt-1 text-sm text-muted">{metric.label}</dd>
+                <dd className="mt-1 text-sm text-fg/80">{metric.label}</dd>
               </div>
             ))}
           </dl>

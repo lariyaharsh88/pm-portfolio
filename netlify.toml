@@ -1,9 +1,46 @@
-# Netlify build settings (Next.js runtime is detected automatically).
+# The site is a static export (next.config.ts: output "export"), so Netlify serves
+# plain files from its edge with no server function in the request path.
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "22"
   NEXT_PUBLIC_SITE_URL = "https://harshlariya.in"
   NEXT_TELEMETRY_DISABLED = "1"
+
+[[redirects]]
+  from = "/rankflowhq"
+  to = "/products"
+  status = 301
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Generated metadata images are written without a file extension.
+[[headers]]
+  for = "/icon"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[headers]]
+  for = "/apple-icon"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[headers]]
+  for = "/opengraph-image"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[headers]]
+  for = "/work/*/opengraph-image"
+  [headers.values]
+    Content-Type = "image/png"

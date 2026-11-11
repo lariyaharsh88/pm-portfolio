@@ -18,7 +18,8 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
-export const instant = false
+
+export const dynamicParams = false
 
 export function generateStaticParams() {
   const studies =

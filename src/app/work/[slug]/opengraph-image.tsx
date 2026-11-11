@@ -1,7 +1,12 @@
+export const dynamic = "force-static"
 import { ImageResponse } from "next/og"
-import { getCaseStudy } from "@/lib/case-studies"
+import { getCaseStudy, getPublishedCaseStudies } from "@/lib/case-studies"
 import { clip, ogCard } from "@/lib/og"
 import { site } from "@/lib/site"
+
+export function generateStaticParams() {
+  return getPublishedCaseStudies().map((study) => ({ slug: study.slug }))
+}
 
 export const alt = "Case study by Harsh Lariya"
 export const size = { width: 1200, height: 630 }

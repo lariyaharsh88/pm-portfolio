@@ -1,3 +1,4 @@
+export const dynamic = "force-static"
 import type { MetadataRoute } from "next"
 import { getPublishedCaseStudies } from "@/lib/case-studies"
 import { siteUrl } from "@/lib/site"

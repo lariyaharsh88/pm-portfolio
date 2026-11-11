@@ -2,14 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  output: "export",
+  trailingSlash: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
-  cacheComponents: true,
-  async redirects() {
-    return [{ source: "/rankflowhq", destination: "/products", permanent: true }]
-  },
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {

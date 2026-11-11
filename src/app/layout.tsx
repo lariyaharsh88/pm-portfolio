@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Instrument_Serif, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { Footer } from "@/components/footer"
 import { LinkTracker } from "@/components/link-tracker"
 import { ContactDock } from "@/components/contact-dock"
@@ -24,7 +23,7 @@ const inter = Inter({
 const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter-tight",
-  display: "swap",
+  display: "optional",
 })
 
 const instrumentSerif = Instrument_Serif({
@@ -32,14 +31,14 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: "italic",
   variable: "--font-serif",
-  display: "swap",
+  display: "optional",
 })
 
 const jetbrainsMono = JetBrains_Mono({
   preload: false,
   subsets: ["latin"],
   variable: "--font-jetbrains",
-  display: "swap",
+  display: "optional",
 })
 
 export const metadata: Metadata = {
@@ -80,6 +79,12 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
 }
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
@@ -107,13 +112,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           </MotionProvider>
         </ThemeProvider>
         <ContactDock />
-        {process.env.VERCEL ? (
-          <>
-            <Analytics />
-            <LinkTracker />
-            <SpeedInsights />
-          </>
-        ) : null}
+        <GoogleAnalytics />
+        <LinkTracker />
       </body>
     </html>
   )
