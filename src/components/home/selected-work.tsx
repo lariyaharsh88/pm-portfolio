@@ -20,6 +20,7 @@ const bars: Record<string, number[]> = {
   "lead-management-platform": [78, 70, 58, 46, 36, 28, 22, 18],
   "content-growth-platform": [28, 38, 48, 58, 74, 92, 66, 42, 48],
   products: [22, 48, 30, 64, 42, 70, 55, 84],
+  "product-strategy": [30, 52, 44, 68, 58, 82, 74, 90],
 }
 
 export function SelectedWork() {
@@ -90,9 +91,13 @@ const screenshots: Record<string, { src: string; alt: string }> = {
     src: "/case-studies/lms-console.svg",
     alt: "Lead distribution console with masked contact details and per-record status",
   },
-  products: {
+  "rankflowhq-ai": {
     src: "/products/rankflowhq.webp",
     alt: "RankFlowHQ homepage: type a keyword, get a researched, SEO-ready article",
+  },
+  products: {
+    src: "/products/kundlijyoti.webp",
+    alt: "Kundli Jyoti homepage, one of seven independent products",
   },
   "content-growth-platform": {
     src: "/case-studies/student-compare.svg",

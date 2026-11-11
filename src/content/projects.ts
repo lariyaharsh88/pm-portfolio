@@ -42,6 +42,30 @@ export const projects = [
     tint: "emerald",
   },
   {
+    slug: "rankflowhq-ai",
+    title: "RankFlowHQ: building, guarding and auditing an AI writing product",
+    outcome: "An 8-step grounded pipeline from keyword to cited article, with model fallbacks, a quality gate, cost limits, and an honest audit of what my evaluation was missing.",
+    tags: ["AI Product Management", "LLM Evaluation", "0→1"],
+    metrics: [
+      { value: "~3 min", label: "keyword to researched, SEO-ready article" },
+      { value: "7", label: "Gemini models in the automatic fallback chain" },
+    ],
+    href: "/work/rankflowhq",
+    tint: "indigo",
+  },
+  {
+    slug: "product-strategy",
+    title: "Choosing what to build: my products as a portfolio of bets",
+    outcome: "How I scored opportunities, launched the cheapest tests first, decided what not to build, and let real data change two roadmaps within days.",
+    tags: ["Product Strategy", "Prioritisation", "Market Sizing"],
+    metrics: [
+      { value: "3", label: "new products launched in three days" },
+      { value: "~900K", label: "monthly US searches behind the PayHours niche" },
+    ],
+    href: "/work/product-strategy",
+    tint: "amber",
+  },
+  {
     slug: "products",
     title: "Products I've built and shipped",
     outcome: "Kundli Jyoti, AniLumi, PayHours Calc, RankFlowHQ Free Tools, the Education Hub, HarshOnRoads and RankFlowHQ. All seven are live.",
