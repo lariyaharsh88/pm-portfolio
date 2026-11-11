@@ -1,18 +1,18 @@
 ---
-title: "RankFlowHQ: building a grounded AI SEO product, solo"
+title: "RankFlowHQ: building, guarding and auditing a grounded AI writing product"
 slug: "rankflowhq"
 summary: "I designed, built and launched RankFlowHQ on my own: a Generative AI workflow that takes a keyword to a cited, publish-ready article. The product decisions were about trust, time-to-value and positioning, not just prompts."
 role: "Founder-PM: product, design and build"
 company: "Independent product"
 timeline: "Independent · live and ongoing"
 team: "Solo (AI-assisted coding)"
-tags: ["Generative AI", "0→1", "AI Product Management", "B2B SaaS"]
+tags: ["AI Product Management", "Generative AI", "LLM Evaluation", "0→1", "B2B SaaS"]
 accent: "#0369a1"
 cover: "/products/rankflowhq.webp"
 status: "published"
 metrics:
   - { value: "0→1", label: "idea to live product, solo" }
-  - { value: "6", label: "pipeline stages, keyword to publish" }
+  - { value: "8", label: "pipeline steps, each able to fail without stopping the article" }
   - { value: "~3 min", label: "keyword to researched, SEO-ready article" }
   - { value: "5", label: "free articles before paying ($49/mo Pro)" }
 ---
@@ -92,33 +92,90 @@ Users didn't need another way to *generate text*. They needed a **repeatable pro
 | Layer | Choice | Why |
 |---|---|---|
 | Framework | Next.js 15, React, TypeScript, Tailwind CSS | One codebase for the marketing site, the app and the dashboard |
-| Database | PostgreSQL (Supabase) with Prisma | Users, articles and usage limits |
+| Database | PostgreSQL (Supabase) with Prisma | Users, articles and usage counters |
 | Auth | NextAuth | Email accounts for the free plan |
-| LLMs | Groq and Google Gemini | Fast, low-cost drafting |
-| Research | Serper (Google results), Cheerio page parsing, Google Trends | Drafts are based on what actually ranks |
+| Drafting model | Google Gemini (2.0 Flash first, with a 7-model fallback chain) | Long context for research-heavy prompts at low cost |
+| Optional models | Groq (Llama 3.3 70B) and OpenRouter, in a side-by-side "multi" mode | Compare outputs across providers on the same inputs |
+| Research | Tavily web research, Serper for Google results and "People also ask" | Drafts start from what ranks and what people ask, not the model's memory |
 | Editor and export | Tiptap rich-text editor, Markdown, DOCX export | Users edit and take articles anywhere |
 | Hosting | Cloudflare Workers via OpenNext, at app.rankflowhq.com | Global edge hosting |
 
-## Architecture
+## Architecture: the AI pipeline
 
-1. **Research:** fetch the top Google results and "People also ask" for the keyword, then read and summarise each ranking page.
-2. **Plan:** build supporting keywords and an outline from that research.
-3. **Write:** draft section by section from the retrieved sources, keeping citations.
-4. **Package:** add the SEO title, meta description, FAQs and internal links, then save to the dashboard.
+Each article runs through eight steps. Every step catches its own errors and falls back to a simpler result, so one failed call degrades the article instead of killing it.
+
+| # | Step | What happens | If it fails |
+|---|---|---|---|
+| 1 | Keywords | Two Google searches plus a Gemini call turn the topic into primary and supporting keywords | Simple keyword set from the topic |
+| 2 | Research | Two Tavily searches (the topic, and "statistics" for it): up to 16 sources, deduplicated | Article proceeds with less evidence |
+| 3 | SERP | Top 8 Google results, "People also ask", related searches, featured snippet | Outline relies on research only |
+| 4 | Queries | Gemini clusters the questions people search | Uses related searches + PAA directly |
+| 5 | Outline | Gemini writes a fixed structure: one H1, 5–6 H2s with 2–3 H3s each, 5 FAQs, conclusion | A stub outline |
+| 6 | Draft | Gemini writes the article, streamed live, citing statistics inline and ending with a Sources section | Error shown inline |
+| 7 | SEO package | Title, meta description and schema from the finished draft | Article saved without the package |
+| 8 | Enrich (optional) | Comparison tables, images and charts for up to 10 sections | Skipped |
+
+## Model choices
+
+<Callout type="decision">
+**Gemini first, with an automatic fallback chain.** The draft prompt can carry up to 14,000 characters of research plus a 12,000-character outline, so a long-context, low-cost model fits best. When a model is rate-limited (HTTP 429), the code waits under a second and tries the next Gemini model, so a busy model doesn't fail the user's run.
+</Callout>
+
+- **Why not one big premium model?** Cost per article matters on a free plan with 5 articles. A cheaper long-context model with good research inputs beats an expensive model writing from memory.
+- **Why keep Groq and OpenRouter at all?** A "multi" mode runs them side by side with Gemini on the same inputs. It's my comparison bench for choosing models, not the default path.
+- **Prompt budget is explicit.** Research, outline and search-query blocks are each capped and marked as truncated, so long inputs never silently push out the instructions.
+
+## Guardrails: grounding, quality and cost
+
+**Grounding.** The model gets the research block and must cite statistics inline as *[Source: domain]* and end with a Sources section of at least four authoritative links.
+
+**Quality gate.** Every draft can be scored by a rule-based checker before publishing:
+
+| Check | Rule |
+|---|---|
+| Length | Error below 900 words |
+| Keyword stuffing | Error above 3.2% primary-keyword density |
+| Structure | Warning below 3 H2 sections; warning if any section is under 120 words |
+| Usefulness | Warnings for fewer than 2 tables or a missing FAQ schema |
+| Linking | Flags under 2 external or under 3 internal links |
+| AI tone | Flags common AI-cliché phrases |
+| Duplicates | Warns when a draft's heading skeleton matches an earlier draft |
+
+**Cost and abuse controls.** Monthly runs per plan (guest 2, free 5, Pro 300), hourly limits per user, sign-in required for paid routes, and a stricter hourly cap on the article step itself. Users who bring their own Gemini key skip the monthly quota, which keeps heavy users from costing me money.
+
+## Evaluation: what exists, and what I found missing
+
+When I audited my own pipeline for this case study, I found gaps that matter more than any new feature:
+
+- **Citations are requested, not verified.** Nothing checks that the cited sources were actually in the research, or that the claims match them.
+- **No offline test set.** Quality is judged by the rule-based gate and by reading drafts, not against a fixed set of keywords.
+- **No model logging.** The app doesn't record which model produced which article, so a quality change after a fallback can't be traced.
+- **No timeouts on external calls.** A slow research or model call can hang a step.
+
+<Callout type="insight">
+The quality gate checks the *shape* of an article. It can't tell whether the facts are right. For an AI writing tool, that's the gap that decides whether users trust it.
+</Callout>
+
+**The evaluation plan, before the next feature:**
+
+| Metric | How it's measured | Target |
+|---|---|---|
+| Citation validity | Share of inline citations whose domain appears in the research sources | ≥ 95% |
+| Unsupported claims | Statistics in the draft with no matching research snippet (sampled, human-checked) | ≤ 1 per article |
+| Gate pass rate | Drafts with no quality-gate errors on a fixed set of 30 keywords (typical, hard, adversarial) | ≥ 90% |
+| Fallback rate | Runs where Gemini fell back to a second model, from new per-run logs | Tracked weekly |
+| Cost per good article | Model + research cost divided by drafts that pass the gate | Tracked, then reduced |
+| Time to draft | Keyword to finished draft | ~3 minutes, p90 under 5 |
 
 ## Trade-offs
 
 <Callout type="tradeoff">
-**Grounding vs. speed.** Retrieval and citation checks add time and cost to every article. I accepted that for the full pipeline, because one invented statistic can sink a page.
+**Grounding vs. speed.** Live web research adds time and cost to every article. I accepted that for the full pipeline, because one invented statistic can sink a page.
 </Callout>
 
 <Callout type="tradeoff">
 **Breadth vs. depth as a solo builder.** I chose a few connected tools (pipeline, bulk agent, clustering, grader) over many shallow features, and used AI-assisted coding to build faster than one person normally could.
 </Callout>
-
-## How I evaluate it
-
-I use the framework from my article [How I evaluate LLM features before they ship](/writing/how-i-evaluate-llm-features): pass/fail criteria (correct, complete, structured, usable), a test set of typical, hard and adversarial keywords, failure modes grouped by cause, and cost per *good* article rather than per request.
 
 ## Mistakes and what I learned
 
@@ -131,6 +188,7 @@ I use the framework from my article [How I evaluate LLM features before they shi
 
 ## What's next
 
-- Publish a formal evaluation report (pass rate, unsupported-claim rate, cost per article).
+- Close the gaps from the audit: an automatic citation check against the research sources, per-run model logging, and timeouts on every external call.
+- Build the 30-keyword test set and publish the first evaluation report (gate pass rate, citation validity, unsupported claims, cost per good article).
 - Track activation and conversion: the % of new accounts that finish a first article, and how many of those upgrade to Pro after the 5 free ones.
 - Learn from user edits: feed corrected drafts back as examples to improve future output.

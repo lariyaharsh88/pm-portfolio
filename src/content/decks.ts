@@ -142,7 +142,7 @@ export const decks: readonly Deck[] = [
     monetisation: "Freemium: 5 free articles with no card, then Pro at $49/month for unlimited articles and deeper research.",
     decisions: [
       { title: "A pipeline, not a chat box", tradeoff: "Less flexible, but repeatable quality at volume." },
-      { title: "Grounding with citations", tradeoff: "Slower and costlier per article, far fewer invented facts." },
+      { title: "Grounding with citations", tradeoff: "Slower and costlier per article, but fewer chances to invent facts." },
       { title: "One job on the homepage", tradeoff: "Hides other features, lifts first-run clarity." },
     ],
     roadmap: { now: "Measure activation and Pro conversion", next: "Publish an evaluation report (pass rate, cost per article)", later: "Learn from user edits to improve drafts" },
