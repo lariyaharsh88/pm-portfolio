@@ -19,7 +19,7 @@ export default function ResumePage() {
         <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">Resume</p>
         <h1 className="mt-3 max-w-3xl text-4xl text-fg md:text-6xl">The PDF.</h1>
         <div className="mt-6 max-w-xl space-y-3 text-base leading-relaxed text-muted">
-          <p>Product work at KollegeApply and Collegedunia, plus the applied-AI projects beside it.</p>
+          <p>Product work at KollegeApply and Collegedunia, plus the seven live products I built on my own.</p>
           <p>This is the same file linked from the rest of the site.</p>
         </div>
         <div className="mt-8">
