@@ -32,7 +32,7 @@ const principles = [
 
 export function HowIWork() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-12 md:py-16">
       <Container>
         <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">
           How I work

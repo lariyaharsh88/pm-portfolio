@@ -26,7 +26,7 @@ const metrics = [
 
 export function Metrics() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-12 md:py-16">
       <Container>
         <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">
           Impact

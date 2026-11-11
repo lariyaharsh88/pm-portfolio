@@ -28,7 +28,7 @@ export function ProductIndex() {
   }
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-12 md:py-16">
       <Container>
         <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">Index · {products.length} live products</p>
         <SplitText text="Things I've shipped on my own." className="mt-4 max-w-3xl text-4xl text-balance text-fg md:text-6xl" />

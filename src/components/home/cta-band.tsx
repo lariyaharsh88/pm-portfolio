@@ -8,7 +8,7 @@ import { site } from "@/lib/site"
 
 export function CtaBand() {
   return (
-    <section className="pb-24 md:pb-32">
+    <section className="pt-4 pb-16 md:pb-20">
       <Container>
         <div className="relative isolate overflow-hidden rounded-3xl p-[1.5px]">
           <div

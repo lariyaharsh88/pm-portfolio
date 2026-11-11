@@ -161,7 +161,7 @@ export function Hero({
             <SocialLinks withLabel />
           </div>
         </Reveal>
-        <div className="mt-16 flex items-center gap-3 text-muted md:mt-24">
+        <div className="mt-10 flex items-center gap-3 text-muted md:mt-14">
           <div
             aria-hidden
             className="flex h-9 w-5 items-start justify-center rounded-full border border-fg/25 p-1"

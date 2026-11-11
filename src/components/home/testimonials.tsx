@@ -88,14 +88,14 @@ export function Testimonials() {
   if (testimonials.length === 0) return null
 
   return (
-    <section className="py-24">
+    <section className="py-12 md:py-16">
       <Container>
         <p className="font-mono text-xs tracking-widest text-muted uppercase">Kind words</p>
         <h2 className="mt-3 text-3xl text-fg md:text-4xl">What people I&apos;ve worked with say</h2>
       </Container>
       {testimonials.length < MARQUEE_MIN ? (
         <Container>
-          <div className="mt-12 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {testimonials.map((item) => (
               <Quote key={item.name} item={item} className="w-full" />
             ))}
@@ -103,7 +103,7 @@ export function Testimonials() {
         </Container>
       ) : (
         <>
-          <div className="mt-12 hidden md:block">
+          <div className="mt-8 hidden md:block">
             <Marquee duration={50}>
               {testimonials.map((item) => (
                 <Quote key={item.name} item={item} />

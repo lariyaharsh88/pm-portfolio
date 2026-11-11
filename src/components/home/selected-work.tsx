@@ -25,7 +25,7 @@ const bars: Record<string, number[]> = {
 
 export function SelectedWork() {
   return (
-    <section id="work" className="scroll-mt-28 py-24 md:py-32">
+    <section id="work" className="scroll-mt-28 py-12 md:py-16">
       <Container>
         <p className="font-mono text-xs tracking-[0.16em] text-muted uppercase">
           Selected work
