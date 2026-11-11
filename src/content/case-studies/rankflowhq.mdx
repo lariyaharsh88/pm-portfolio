@@ -102,6 +102,8 @@ Users didn't need another way to *generate text*. They needed a **repeatable pro
 
 ## Architecture: the AI pipeline
 
+<PipelineDiagram />
+
 Each article runs through eight steps. Every step catches its own errors and falls back to a simpler result, so one failed call degrades the article instead of killing it.
 
 | # | Step | What happens | If it fails |
@@ -142,6 +144,23 @@ Each article runs through eight steps. Every step catches its own errors and fal
 | Duplicates | Warns when a draft's heading skeleton matches an earlier draft |
 
 **Cost and abuse controls.** Monthly runs per plan (guest 2, free 5, Pro 300), hourly limits per user, sign-in required for paid routes, and a stricter hourly cap on the article step itself. Users who bring their own Gemini key skip the monthly quota, which keeps heavy users from costing me money.
+
+## Human in the loop
+
+The AI writes a strong first draft; a person decides what gets published. The product is designed around that split:
+
+1. **Draft:** the pipeline streams the article live, so the user sees it being written instead of waiting on a blank screen.
+2. **Edit:** the draft opens in a rich-text editor. The homepage and FAQ tell users to treat it as a first draft and add their own experience, examples and opinions, because that's what makes content rank and convert.
+3. **Check:** a rule-based quality gate scores the draft for length, keyword stuffing, thin sections, missing tables or FAQ schema, weak linking, AI-cliché phrasing and duplicate outlines. The server can block a save when the draft fails.
+4. **Publish:** the user saves to their dashboard, exports Markdown or DOCX, or copies it out.
+
+<Callout type="decision">
+**Why keep a human in the loop at all?** The model can't know the user's real experience, and search engines reward first-hand detail. Positioning the output as a first draft sets the right expectation and puts the final judgement with the person accountable for the page.
+</Callout>
+
+<Callout type="tradeoff">
+**The gap I found:** the quality gate exists on the server, but the editor doesn't run it when a user saves. Today the "check" step depends on the user's own judgement. Wiring the gate into the editor, showing the issues inline, and blocking publish only on errors (not warnings) is the first fix on the roadmap.
+</Callout>
 
 ## Evaluation: what exists, and what I found missing
 
@@ -188,7 +207,7 @@ The quality gate checks the *shape* of an article. It can't tell whether the fac
 
 ## What's next
 
-- Close the gaps from the audit: an automatic citation check against the research sources, per-run model logging, and timeouts on every external call.
+- Close the gaps from the audit: run the quality gate inside the editor, add an automatic citation check against the research sources, log which model wrote each article, and add timeouts on every external call.
 - Build the 30-keyword test set and publish the first evaluation report (gate pass rate, citation validity, unsupported claims, cost per good article).
 - Track activation and conversion: the % of new accounts that finish a first article, and how many of those upgrade to Pro after the 5 free ones.
 - Learn from user edits: feed corrected drafts back as examples to improve future output.

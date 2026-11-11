@@ -14,6 +14,7 @@ import { WorkflowCompare } from "@/components/mdx/workflow-compare"
 import { ProductDeck } from "@/components/products/product-deck"
 import { DailyTrend } from "@/components/mdx/daily-trend"
 import { BarList } from "@/components/mdx/bar-list"
+import { PipelineDiagram } from "@/components/mdx/pipeline-diagram"
 
 export const mdxComponents = {
   h2: CaseH2,
@@ -35,4 +36,5 @@ export const mdxComponents = {
   ProductDeck,
   DailyTrend,
   BarList,
+  PipelineDiagram,
 }
