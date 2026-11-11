@@ -7,8 +7,8 @@ const W = 680
 const H = 280
 const pad = { l: 48, r: 16, t: 36, b: 30 }
 const fmt = new Intl.NumberFormat("en-IN")
-const dateLabel = (iso: string) =>
-  new Date(`${iso}T00:00:00`).toLocaleDateString("en-GB", { day: "numeric", month: "short" })
+const fmtDate = (iso: string, monthly?: boolean) =>
+  new Date(`${iso}T00:00:00`).toLocaleDateString("en-GB", monthly ? { month: "short", year: "numeric" } : { day: "numeric", month: "short" })
 
 function niceMax(v: number) {
   if (v <= 0) return 1
@@ -62,7 +62,7 @@ export function DailyTrend({ data }: { data: string }) {
           <figcaption id={titleId} className="text-base font-medium text-fg">{series.title}</figcaption>
           <p className="mt-1 text-sm text-muted">
             <span className="font-mono text-fg">{fmt.format(total)}</span> {metricLabel.toLowerCase()} · peak{" "}
-            <span className="font-mono text-fg">{fmt.format(values[peakIndex])}</span> on {dateLabel(pts[peakIndex].date)}
+            <span className="font-mono text-fg">{fmt.format(values[peakIndex])}</span> on {fmtDate(pts[peakIndex].date, series.monthly)}
           </p>
         </div>
         {series.metrics.length > 1 ? (
@@ -122,7 +122,7 @@ export function DailyTrend({ data }: { data: string }) {
           <path d={line} fill="none" stroke="var(--study-accent, var(--accent))" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
           {[0, Math.floor((pts.length - 1) / 2), pts.length - 1].map((i) => (
             <text key={i} x={x(i)} y={H - 8} textAnchor={i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle"} fontSize="11" fill="var(--muted)" fontFamily="var(--font-mono), monospace">
-              {dateLabel(pts[i].date)}
+              {fmtDate(pts[i].date, series.monthly)}
             </text>
           ))}
           {a !== null ? (
@@ -139,7 +139,7 @@ export function DailyTrend({ data }: { data: string }) {
             style={{ left: `${tipLeft}%`, transform: `translateX(${tipLeft > 60 ? "-105%" : "5%"})` }}
             role="status"
           >
-            <p className="text-xs text-muted">{dateLabel(pts[a].date)}</p>
+            <p className="text-xs text-muted">{fmtDate(pts[a].date, series.monthly)}</p>
             {series.metrics.map((m) => (
               <p key={m.key} className="mt-0.5 flex items-center gap-2">
                 <span className="inline-block h-0.5 w-3 rounded" style={{ background: m.key === metric ? "var(--study-accent, var(--accent))" : "var(--muted)" }} />
@@ -168,7 +168,7 @@ export function DailyTrend({ data }: { data: string }) {
             <tbody>
               {pts.map((p) => (
                 <tr key={p.date} className="border-t border-border text-fg">
-                  <td className="py-1 pr-3">{dateLabel(p.date)}</td>
+                  <td className="py-1 pr-3">{fmtDate(p.date, series.monthly)}</td>
                   {series.metrics.map((m) => <td key={m.key} className="py-1 pr-3 text-right">{fmt.format(p.values[m.key] ?? 0)}</td>)}
                 </tr>
               ))}
