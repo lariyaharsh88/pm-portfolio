@@ -68,7 +68,7 @@ export function CaseStudyView({
             className="mt-4 max-w-4xl text-4xl text-balance text-fg md:text-6xl"
           />
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{study.summary}</p>
-          <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-3xl border border-border bg-bg-elevated">
+          <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-3xl border border-border bg-bg-elevated">
             <Image
               src={study.cover}
               alt={study.title}
@@ -76,7 +76,7 @@ export function CaseStudyView({
               priority
               unoptimized={study.cover.endsWith(".svg")}
               sizes="(min-width: 1152px) 1100px, 100vw"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
         </Container>

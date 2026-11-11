@@ -1,7 +1,6 @@
 "use client"
 
 import { AnimatePresence, m } from "motion/react"
-import Image from "next/image"
 import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { createPortal } from "react-dom"
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe"
@@ -28,7 +27,6 @@ export function Figure({
   const client = useIsClient()
   const reduced = useReducedMotionSafe()
   const closeRef = useRef<HTMLButtonElement>(null)
-  const unoptimized = src.endsWith(".svg")
 
   useEffect(() => {
     if (!open) return
@@ -57,14 +55,15 @@ export function Figure({
         data-cursor="view"
         aria-label={alt ? `Enlarge ${alt}` : "Enlarge image"}
       >
-        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-bg-elevated">
-          <Image
+        <div className="overflow-hidden rounded-2xl border border-border bg-bg-elevated">
+          {/* Natural aspect ratio: screenshots are never cropped. Tall ones are capped and centred. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={src}
             alt={alt}
-            fill
-            unoptimized={unoptimized}
-            sizes="(min-width: 768px) 720px, 100vw"
-            className="object-cover transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            loading="lazy"
+            decoding="async"
+            className="mx-auto block h-auto max-h-[80vh] w-auto max-w-full transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         </div>
       </button>
@@ -96,21 +95,15 @@ export function Figure({
                     Close
                   </button>
                   <m.div
-                    className="relative aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-2xl bg-bg-elevated"
+                    className="relative max-h-[90vh] max-w-6xl overflow-hidden rounded-2xl bg-bg-elevated"
                     initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
                     transition={{ duration: reduced ? 0 : 0.3, ease }}
                     onClick={(event) => event.stopPropagation()}
                   >
-                    <Image
-                      src={src}
-                      alt={alt}
-                      fill
-                      unoptimized={unoptimized}
-                      sizes="100vw"
-                      className="object-cover"
-                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt={alt} className="block h-auto max-h-[90vh] w-auto max-w-full object-contain" />
                   </m.div>
                 </m.div>
               ) : null}

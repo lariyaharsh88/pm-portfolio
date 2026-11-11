@@ -132,7 +132,7 @@ export function deckSlides(deck: Deck, product: Product): SlideDef[] {
 export function Slide({ kicker, children, accent, index, total }: { kicker: string; children: ReactNode; accent: string; index: number; total: number }) {
   return (
     <div
-      className="relative flex aspect-video w-full flex-col overflow-hidden rounded-2xl p-[2.2em] text-white"
+      className="relative flex h-full min-h-[56vw] w-full flex-col overflow-hidden rounded-2xl p-[2.2em] pb-[3em] text-white sm:aspect-video sm:min-h-0"
       style={{ background: `radial-gradient(110% 120% at 100% 0%, color-mix(in srgb, ${accent} 85%, #0b1020), #0b1020 62%)` }}
     >
       <p className="font-mono text-[0.68em] tracking-[0.16em] uppercase opacity-70">{kicker}</p>

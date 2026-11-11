@@ -28,9 +28,9 @@ export default function ResumePage() {
           </Magnetic>
         </div>
         <iframe
-          src={resumeHref}
+          src={`${resumeHref}#view=FitH&toolbar=0`}
           title="Harsh Lariya resume PDF"
-          className="mt-10 hidden h-[80vh] w-full rounded-3xl border border-border bg-bg-elevated md:block"
+          className="mx-auto mt-10 hidden aspect-[1/1.414] w-full max-w-4xl rounded-3xl border border-border bg-bg-elevated md:block"
         />
         <p className="mt-8 text-base text-muted md:hidden">
           <ResumeTextLink location="resume-mobile" className="text-base">

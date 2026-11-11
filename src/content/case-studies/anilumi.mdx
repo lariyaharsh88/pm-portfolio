@@ -14,7 +14,7 @@ metrics:
   - { value: "255", label: "real visits on day one of tracking (10 Nov 2026)" }
   - { value: "68%", label: "of visitors on mobile" }
   - { value: "~80%", label: "of visitors from India, Pakistan and Bangladesh" }
-  - { value: "53", label: "franchise watch-order guides" }
+  - { value: "3.9K", label: "pages indexed by Google" }
 ---
 
 ## Summary
@@ -94,7 +94,28 @@ The first full day of clean analytics (10 November 2026, bots excluded):
 I hadn't treated Hindi dubs as a core feature. The data says it's the main reason people come. My next roadmap starts there: more Hindi pages, dub release alerts, and a mobile-first layout for the dub list.
 </Callout>
 
-**Earlier mistake I caught.** My hosting dashboard first showed 1.6 million requests in nine days. It looked like a hit, but it wasn't. Almost all of it was scrapers and the site's own cache traffic. I switched to browser-based analytics that only count real visitors, and the honest number was a few hundred a day. I'd rather plan around the real number.
+## What Google and Bing show
+
+<Figure src="/case-studies/consoles/anilumi-gsc.webp" alt="Google Search Console for anilumi.in: 353 clicks and 71.9K impressions, rising to about 90 clicks a day by 31 October, then dropping to near zero" caption="Google Search Console, last 3 months: from zero to ~90 clicks a day in a week, then a sudden drop on 1 November." />
+
+In its first week on Google, AniLumi went from nothing to about **90 clicks and 17,900 impressions a day** (31 October). Google indexed **3,923 pages**. Then, from 1 November, impressions fell to around 130 a day.
+
+<Figure src="/case-studies/consoles/anilumi-gsc-indexing.webp" alt="Search Console page indexing reasons for anilumi.in, including 316 pages with server errors (5xx)" caption="The indexing report explains the drop: 316 pages returned server errors (5xx) when Google tried to crawl them." />
+
+<Figure src="/case-studies/consoles/anilumi-bing.webp" alt="Bing Webmaster Tools for anilumi.in: 140 clicks, 4.2K impressions, 3.33% CTR, rising from 3 November" caption="Bing Webmaster Tools over the same weeks: 140 clicks at a 3.3% click-through rate, led by Hindi dub searches." />
+
+Bing moved the other way. It sent **140 clicks from 4,200 impressions (3.3% CTR)**, and the top searches were "anime dub hindi", "anime hindi" and "hindi dubbed anime". Bing and the analytics agree on who the audience is.
+
+## Mistakes and what I learned
+
+<Callout type="tradeoff">
+**I moved hosts three times in ten days, and Google noticed.** AniLumi went from Vercel to Render to Cloudflare between 23 October and 2 November. During the moves, Google hit 316 pages that returned server errors. Its traffic dropped the same day, and it hasn't recovered yet. I can't prove the errors were the only cause, but the timing matches.
+</Callout>
+
+- **Lesson: pick the host before launch, and migrate behind a stable URL.** Test the new host fully, then switch DNS in one step. Never let crawlers see a half-moved site. A re-check of the failing pages is now running in Search Console.
+- **Lesson: one search engine is not a strategy.** Bing kept sending visitors while Google traffic was down. I now submit every site to both on day one.
+- **Lesson: don't trust the first dashboard you open.** My hosting dashboard showed 1.6 million requests; real visitors were a few hundred a day. I only plan from analytics that exclude bots.
+- **Lesson: let users tell you who they are.** I built for a global anime fan. Bing queries and analytics both said "Indian viewer looking for Hindi dubs", so the roadmap now starts there.
 
 ## What's next
 

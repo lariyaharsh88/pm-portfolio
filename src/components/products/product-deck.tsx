@@ -55,7 +55,7 @@ export function ProductDeck({ slug }: { slug: string }) {
           if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1) }
           if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1) }
         }}
-        className="flex snap-x snap-mandatory overflow-x-auto rounded-2xl text-[9px] [scrollbar-width:none] focus-visible:outline-2 focus-visible:outline-accent-ink sm:text-[13px] lg:text-[16px] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory overflow-x-auto rounded-2xl text-[11px] [scrollbar-width:none] focus-visible:outline-2 focus-visible:outline-accent-ink sm:text-[13px] lg:text-[16px] [&::-webkit-scrollbar]:hidden"
       >
         {slides.map((s, i) => (
           <div key={i} className="w-full shrink-0 snap-start" aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>

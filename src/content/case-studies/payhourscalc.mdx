@@ -60,6 +60,13 @@ People searching for a time card or overtime calculator land on slow, ad-stuffed
 Static pages mean no saved history or accounts. For a quick calculation, speed and privacy matter more than saving.
 </Callout>
 
+## Mistakes and what I learned
+
+- **I almost shipped placeholder tax numbers.** Three states (Arizona, Maine, South Carolina) first used a temporary standard-deduction value. I caught it by checking every figure against the official state sources, then added the citation to each state page. **Lesson:** for money calculators, every number needs a source on the page.
+- **A CDN setting changed who could crawl the site.** Cloudflare's managed robots.txt blocks AI crawlers by default. I only noticed after launch. **Lesson:** check robots.txt on the live site, not just in the code.
+- **I can't show real traffic yet.** PayHours lives in a separate Cloudflare account, and I hadn't switched on its visitor analytics, so I only have Search Console data. **Lesson:** turn on analytics before the first visitor, in the same place as your other sites.
+- **I picked the wrong Cloudflare project type at first.** The first deploy failed because the setup tried to run a server for a fully static site. **Lesson:** match the hosting model to the build output before deploying.
+
 ## What's next
 
 - Track impressions and clicks in Search Console and expand the pages that win.
