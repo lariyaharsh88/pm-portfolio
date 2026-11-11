@@ -45,7 +45,7 @@ export function CaseStudyView({
       style={{ "--study-accent": study.accent } as CSSProperties}
     >
       <header
-        className="pb-8"
+        className="-mt-24 pt-32 pb-8 md:pt-36"
         style={{
           background: `radial-gradient(80% 70% at 0% 0%, color-mix(in srgb, ${study.accent} 34%, transparent), transparent 62%)`,
         }}
