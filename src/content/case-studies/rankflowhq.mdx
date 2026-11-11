@@ -87,6 +87,25 @@ Users didn't need another way to *generate text*. They needed a **repeatable pro
 | Surfer SEO | Scores and tunes an existing page | Runs the program: research → production → optimisation |
 | Jasper | Marketing copy | Built for search outcomes: intent, structure, clusters |
 
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Framework | Next.js 15, React, TypeScript, Tailwind CSS | One codebase for the marketing site, the app and the dashboard |
+| Database | PostgreSQL (Supabase) with Prisma | Users, articles and usage limits |
+| Auth | NextAuth | Email accounts for the free plan |
+| LLMs | Groq and Google Gemini | Fast, low-cost drafting |
+| Research | Serper (Google results), Cheerio page parsing, Google Trends | Drafts are based on what actually ranks |
+| Editor and export | Tiptap rich-text editor, Markdown, DOCX export | Users edit and take articles anywhere |
+| Hosting | Cloudflare Workers via OpenNext, at app.rankflowhq.com | Global edge hosting |
+
+## Architecture
+
+1. **Research:** fetch the top Google results and "People also ask" for the keyword, then read and summarise each ranking page.
+2. **Plan:** build supporting keywords and an outline from that research.
+3. **Write:** draft section by section from the retrieved sources, keeping citations.
+4. **Package:** add the SEO title, meta description, FAQs and internal links, then save to the dashboard.
+
 ## Trade-offs
 
 <Callout type="tradeoff">

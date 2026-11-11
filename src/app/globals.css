@@ -382,3 +382,42 @@ button:focus-visible {
   .deck-print-page > div { height: 100%; border-radius: 0; aspect-ratio: auto; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* Case-study tables: in a narrow column each row becomes a card, so no column hides off-screen. */
+.case-prose {
+  container-type: inline-size;
+}
+
+@container (max-width: 560px) {
+  .case-table-wrap table,
+  .case-table-wrap tbody,
+  .case-table-wrap tr,
+  .case-table-wrap td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .case-table-wrap thead {
+    display: none;
+  }
+  .case-table-wrap tr {
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.6rem;
+    background: var(--bg-elevated);
+  }
+  .case-table-wrap td {
+    border: 0 !important;
+    padding: 0.15rem 0 !important;
+    background: transparent !important;
+  }
+  .case-table-wrap td:first-child {
+    font-weight: 600;
+    color: var(--fg);
+  }
+  .case-table-wrap td:nth-child(n + 3) {
+    color: var(--muted);
+    font-size: 0.92em;
+  }
+}

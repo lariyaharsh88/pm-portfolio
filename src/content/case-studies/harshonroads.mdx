@@ -108,6 +108,17 @@ All three personas share one fear: **planning a trip that doesn't work in realit
 | Verified vs. AI-researched plan share | How much of demand the verified data covers |
 | Reported wrong places or timings | The trust metric; target near zero for verified plans |
 
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Framework | Next.js 16, React, TypeScript | Fast destination pages that rank, plus the planner app |
+| Content | MDX | Destination guides and itineraries written like documents |
+| Database | Neon (serverless PostgreSQL) | The verified destination database the planner draws from |
+| AI | Google Gemini 2.0 Flash | Turns verified places into a day-by-day plan, in English or Hindi |
+| Validation | Zod | The AI's output must match the expected plan shape before it's shown |
+| Hosting | Netlify | Simple deploys for a content-heavy site |
+
 ## Key product decisions
 
 <Options>

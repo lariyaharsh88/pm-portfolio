@@ -40,6 +40,31 @@ The answers exist, but they're spread across wikis, Reddit threads and streaming
 Every one of those questions is a search people type into Google. If each answer is a fast, clear page, search does the distribution for me.
 </Callout>
 
+## My role and timeline
+
+I did everything: research, product decisions, design, build, SEO and launch. I used AI-assisted coding to move fast.
+
+| Date (2026) | Milestone |
+|---|---|
+| 21 Oct | First version: schedule, seasonal charts, top lists, anime pages |
+| 22 Oct | Watch-order guides, episode pages, watchlist, domain anilumi.in |
+| 23 Oct | Live on Vercel; Google starts sending visitors |
+| 28 Oct | Filler and manga-continuation pages, monthly data refresh |
+| 31 Oct | Peak on Google: ~90 clicks and 17.9K impressions in a day |
+| 1–2 Nov | Moved to Render, then Cloudflare Workers; Google traffic drops |
+| 10 Nov | Bot-free analytics show the real audience: South Asian, mobile, Hindi dubs |
+
+## Market and competitors
+
+| Product | What it does well | Where AniLumi is different |
+|---|---|---|
+| MyAnimeList | Huge database and community lists | Answers the next question on one page: watch order, binge time, where to watch |
+| AniList | Clean tracking and airing data | No sign-up needed; schedules in your local time |
+| Fandom wikis | Deep lore per franchise | Fast, ad-light pages with a clear "start here" |
+| Reddit threads | Honest fan advice | Structured and always up to date |
+
+None of them focus on the Hindi-dub viewer, which is the audience that found AniLumi.
+
 ## What I built
 
 <Figure src="/case-studies/anilumi/schedule.webp" alt="AniLumi weekly schedule showing 25 episodes this week with a bar chart by day" caption="The weekly schedule: every airing show with Japan time and the viewer's local time side by side." />
@@ -55,6 +80,33 @@ Every one of those questions is a search people type into Google. If each answer
 **3. One page per question.** Each show has pages for how long it takes to watch, a parents' guide, next-season news, cast and opening songs. These match the long-tail questions people search for, and they link to each other so one visit turns into several.
 
 **4. Tools that keep people around.** A "what to watch tonight" picker, a binge planner, tier lists, a quiz and a personal watchlist. None of them need an account. The list is saved on the device, so there's no sign-up wall.
+
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Framework | Next.js 15 (App Router), React, TypeScript | Server-rendered pages that Google can read, with incremental regeneration |
+| Styling and motion | Tailwind CSS 4, Motion | Fast to build; animations kept transform-only so they don't hurt load speed |
+| Data | Kitsu API, AniList GraphQL (Jikan as optional fallback) | Free, no-key catalogue; AniList fills in air times Kitsu lacks |
+| Database | MongoDB Atlas | Ratings and community data, switched off cleanly when not configured |
+| Hosting | Cloudflare Workers via OpenNext, R2 cache, Durable Object queue | Edge pages close to users in India; ~90 ms of server time per page needed the paid plan |
+| Automation | GitHub Actions | CI tests, a monthly data refresh and cache warm-up after each deploy |
+| Measurement | Google Search Console, Bing Webmaster Tools, Cloudflare Web Analytics | Search demand plus bot-free visitor numbers |
+| Extras | Generated OG images, RSS and iCal feeds, embed widget | Every page shares well and can be followed |
+
+## Architecture
+
+1. **Fetch:** a single adapter talks to Kitsu and AniList, normalises the data and rewrites short-lived image links into stable ones.
+2. **Render:** pages are built on the server and cached at the edge, then refreshed on a schedule (hourly for airing data).
+3. **Fail safely:** if an upstream API is down, pages show a "temporarily unavailable" state instead of a 404, so search rankings aren't lost.
+4. **Personalise on the device:** the watchlist and preferences live in the browser, so there's no account and no personal data on a server.
+
+## SEO and growth strategy
+
+- **One question, one page.** Each show gets pages for watch order, binge time, parents' guide, next season, cast and opening songs, all matching real searches.
+- **Internal links turn one visit into several.** Every answer links to the next likely question.
+- **Structured data, but only what's allowed.** Breadcrumbs and video schema are in; star ratings were removed because Google only allows ratings you collect yourself.
+- **Two search engines from day one.** Bing turned out to drive the Hindi-dub audience.
 
 ## Key product decisions
 

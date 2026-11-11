@@ -39,6 +39,34 @@ The opportunity wasn't a better horoscope. It was a reading people could trust, 
 
 Indian users who want a kundli, a marriage match or a daily rashifal without a sales pitch: young adults checking compatibility, families keeping profiles for parents and children, and regular rashifal readers.
 
+## Market and competitors
+
+| Product | Model | Where Kundli Jyoti is different |
+|---|---|---|
+| AstroTalk-style apps | Paid chats and calls with astrologers | No upsell; the reading itself is the product |
+| AstroSage, Clickastro | Free charts, paid reports and remedies | Plain-language explanations instead of jargon and fear |
+| Generic AI chatbots | Fluent answers | Positions are computed, so the AI can't invent a placement |
+
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Framework | Next.js 16, React, TypeScript | Static pages for SEO plus server routes for the AI chat |
+| Astronomy | astronomy-engine | Real planetary positions computed on the device |
+| AI layer | Rule-based astrologer, with Anthropic Claude or other providers added when configured | Works with no paid key; the model only explains computed results |
+| Visuals | Three.js (React Three Fiber), GSAP, Lenis | The 3D sky, with a lighter CSS version for low-end phones |
+| Validation and tests | Zod, Vitest | Safe inputs and tested chart maths |
+| Payments | Razorpay with signed unlock tokens (built, switched off) | Ready to charge once retention is proven |
+| Growth and measurement | PostHog, web push, Search Console | Funnel tracking and return visits |
+| Hosting | Cloudflare Workers via OpenNext (Vercel as fallback) | Fast in India, low cost |
+
+## Architecture
+
+1. **Input:** birth date, time and place stay in the browser.
+2. **Compute:** the app calculates planetary positions, houses, nakshatra and dasha on the device.
+3. **Interpret:** a rule-based engine turns positions into readings; an AI model can rewrite them in friendlier language but can't change the facts.
+4. **Share:** results become a WhatsApp card and a shareable image, and family profiles are saved on the device.
+
 ## Key product decisions
 
 <Callout type="decision">

@@ -60,6 +60,24 @@ People searching for a time card or overtime calculator land on slow, ad-stuffed
 Static pages mean no saved history or accounts. For a quick calculation, speed and privacy matter more than saving.
 </Callout>
 
+## Market and competitors
+
+| Product | Strength | Where PayHours is different |
+|---|---|---|
+| Calculator.net, Omni Calculator | Huge range of calculators | Built only for hourly pay, with state-specific rules |
+| PaycheckCity, ADP / Gusto free tools | Payroll brands | No sign-up or lead form; pages print clean |
+| Spreadsheets | Flexible | Handles overnight shifts and overtime automatically |
+
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Framework | Next.js 15 static export, React, TypeScript | Every page pre-rendered, no server needed |
+| Styling | Tailwind CSS 4 | Fast to build, small CSS |
+| Data | JSON tables for 2026 state tax rules and military pay, each with an official source | Numbers you can verify on the page |
+| Hosting | Cloudflare Workers static assets | Served from the edge at near-zero cost |
+| SEO | Programmatic pages, sitemap, Search Console and Bing | 415 pages that each match a real search |
+
 ## Mistakes and what I learned
 
 - **I almost shipped placeholder tax numbers.** Three states (Arizona, Maine, South Carolina) first used a temporary standard-deduction value. I caught it by checking every figure against the official state sources, then added the citation to each state page. **Lesson:** for money calculators, every number needs a source on the page.

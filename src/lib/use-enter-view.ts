@@ -16,19 +16,34 @@ export function useEnterView<T extends Element>(amount = 0.25) {
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
     if (el.getBoundingClientRect().top < window.innerHeight) return
     setState("waiting")
+
+    let done = false
+    const enter = () => {
+      if (done) return
+      done = true
+      setState("entered")
+      io.disconnect()
+      window.removeEventListener("scroll", onScroll)
+    }
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setState("entered")
-          io.disconnect()
-        }
+        if (entry.isIntersecting) enter()
       },
       // The huge top margin counts anything already scrolled past as "entered",
       // so a fast jump down the page never leaves content hidden above the viewport.
       { threshold: 0, rootMargin: `100000px 0px -${Math.round(amount * 40)}% 0px` },
     )
+    // Safety net: observers can be paused (background tabs, embedded views), so a plain
+    // scroll check also reveals anything that has reached the screen.
+    const onScroll = () => {
+      if (el.getBoundingClientRect().top < window.innerHeight * (1 - amount * 0.4)) enter()
+    }
     io.observe(el)
-    return () => io.disconnect()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => {
+      io.disconnect()
+      window.removeEventListener("scroll", onScroll)
+    }
   }, [amount])
 
   return [ref, state] as const
