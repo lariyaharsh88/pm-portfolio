@@ -26,7 +26,12 @@ export function CtaBand() {
               </Magnetic>
               <Magnetic>
                 <Button href={site.phone} variant="secondary">
-                  Call
+                  Call {site.phoneLabel}
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button href={site.phone2} variant="secondary">
+                  Call {site.phone2Label}
                 </Button>
               </Magnetic>
               <Magnetic>

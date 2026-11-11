@@ -41,6 +41,8 @@ export const site = {
   github: "https://github.com/lariyaharsh88",
   phone: "tel:+918882332594",
   phoneLabel: "+91 88823 32594",
+  phone2: "tel:+918448249662",
+  phone2Label: "+91 84482 49662",
   emailLink: `mailto:lariyaharsh88@gmail.com?subject=${encodeURIComponent("Product Manager opportunity")}`,
   whatsapp: `https://wa.me/918882332594?text=${encodeURIComponent(
     "Hi Harsh, I saw your portfolio and would like to talk about a Product Manager role.",

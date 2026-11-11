@@ -51,6 +51,7 @@ const contacts = [
   { label: "Email", href: `mailto:${site.email}` },
   { label: "WhatsApp", href: site.whatsapp, external: true },
   { label: `Call ${site.phoneLabel}`, href: site.phone },
+  { label: `Call ${site.phone2Label}`, href: site.phone2 },
   { label: "LinkedIn", href: site.linkedin, external: true },
   { label: "GitHub", href: site.github, external: true },
   { label: "YouTube", href: "https://www.youtube.com/@Harshonroads", external: true },

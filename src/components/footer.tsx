@@ -25,7 +25,10 @@ export function Footer() {
               LinkedIn
             </a>
             <a href={site.phone} className="transition-colors duration-300 hover:text-fg">
-              Call
+              {site.phoneLabel}
+            </a>
+            <a href={site.phone2} className="transition-colors duration-300 hover:text-fg">
+              {site.phone2Label}
             </a>
             <a
               href={site.whatsapp}
