@@ -131,15 +131,19 @@ export function Hero({
             </p>
           </div>
         </Reveal>
-        <h1 className="mt-6 max-w-4xl font-heading text-4xl font-semibold tracking-[-0.035em] text-balance text-fg sm:text-5xl md:text-[4.25rem] md:leading-[1.02]">
+        <p className="mt-6 font-mono text-xs tracking-[0.16em] text-muted uppercase sm:text-sm">
+          Product Manager · Data Platforms, Growth &amp; Applied AI
+        </p>
+        <h1 className="mt-3 max-w-4xl font-heading text-4xl font-semibold tracking-[-0.035em] text-balance text-fg sm:text-5xl md:text-[4.25rem] md:leading-[1.02]">
           I build data-heavy products that turn messy workflows into{" "}
           <span className="hero-accent font-serif font-normal tracking-[-0.01em]">measurable growth.</span>
         </h1>
         <Reveal instant>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Product Manager at KollegeApply, previously Collegedunia. 5 years
-            in EdTech & B2B SaaS. I have also shipped 7 live products of my own, from AI
-            SEO to programmatic search sites.
+            5+ years across EdTech and B2B SaaS at KollegeApply and Collegedunia: 0→1
+            platforms, workflows automated from hours to minutes, and growth to 300K+
+            indexed pages. On my own I&apos;ve shipped 7 live products, including AI tools
+            built to be grounded, evaluated and cheap to run.
           </p>
         </Reveal>
         <Reveal instant>

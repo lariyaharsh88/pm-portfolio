@@ -36,6 +36,7 @@ export type CaseStudy = {
 const publishedOrder = [
   "lead-management-platform",
   "content-growth-platform",
+  "product-strategy",
   // Independent products: same order as src/content/products.ts.
   "kundlijyoti",
   "anilumi",

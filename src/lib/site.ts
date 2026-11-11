@@ -32,8 +32,8 @@ export function pageMetadata({
 export const site = {
   name: "Harsh Lariya",
   headline: "I build data-heavy products that turn messy workflows into measurable growth.",
-  title: "Harsh Lariya | Product Manager · Data Platforms & Applied AI",
-  role: "Product Manager · Data Platforms & Applied AI",
+  title: "Harsh Lariya | Product Manager · Data Platforms, Growth & Applied AI",
+  role: "Product Manager · Data Platforms, Growth & Applied AI",
   description:
     "Harsh Lariya is a Product Manager with 5 years in EdTech & B2B SaaS. Led a lead platform that handled 78M+ records and 600+ clients, and shipped 7 live products.",
   email: "lariyaharsh88@gmail.com",
