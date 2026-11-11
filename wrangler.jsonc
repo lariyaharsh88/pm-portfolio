@@ -2,6 +2,10 @@
   // Static export (next build → out/) served as Workers static assets.
   "name": "harshlariya",
   "compatibility_date": "2026-11-01",
+  "routes": [
+    { "pattern": "harshlariya.in", "custom_domain": true },
+    { "pattern": "www.harshlariya.in", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./out",
     "html_handling": "drop-trailing-slash",
