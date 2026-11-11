@@ -128,6 +128,18 @@ export const barCharts: Record<string, BarSeries> = {
       { label: "places to visit near delhi in january", value: 11 },
     ],
   },
+  harshonroadsBingQueries: {
+    title: "Top Bing searches for HarshOnRoads",
+    source: "Bing Webmaster Tools, 24 Oct – 8 Nov 2026",
+    unit: "impressions",
+    items: [
+      { label: "delhi to shimla distance by road", value: 20 },
+      { label: "delhi to rishikesh distance by road", value: 17 },
+      { label: "delhi to jaipur distance by road", value: 3 },
+      { label: "road trips this weekend", value: 3 },
+      { label: "delhi to alwar distance by road", value: 3 },
+    ],
+  },
   payhoursGoogleQueries: {
     title: "Top Google searches for PayHours Calc",
     source: "Google Search Console, last 3 months",
