@@ -149,6 +149,17 @@ html.custom-cursor * {
   cursor: none !important;
 }
 
+/* A modal <dialog> sits in the browser's top layer, above the custom cursor, so it gets the native one. */
+html.custom-cursor dialog[open],
+html.custom-cursor dialog[open] * {
+  cursor: auto !important;
+}
+
+html.custom-cursor dialog[open] :is(a, button),
+html.custom-cursor dialog[open] :is(a, button) * {
+  cursor: pointer !important;
+}
+
 html.custom-cursor :is(input, textarea, select, [contenteditable="true"], [role="textbox"]),
 html.custom-cursor :is(input, textarea, select, [contenteditable="true"], [role="textbox"]) * {
   cursor: text !important;

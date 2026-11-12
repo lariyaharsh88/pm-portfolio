@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { m } from "motion/react"
 import { Marquee } from "@/components/motion/Marquee"
+import { LinkedInIcon } from "@/components/social-links"
 import { Container } from "@/components/ui/Container"
 import { testimonials, type Testimonial } from "@/content/testimonials"
 
@@ -18,9 +19,21 @@ function Byline({ item }: { item: Testimonial }) {
       )}
       <span>
         {item.linkedin ? (
-          <a href={item.linkedin} target="_blank" rel="noopener noreferrer" className="font-medium text-fg underline-offset-4 hover:underline">
-            {item.name}
-          </a>
+          <span className="flex items-center gap-1.5">
+            <a href={item.linkedin} target="_blank" rel="noopener noreferrer" className="font-medium text-fg underline-offset-4 hover:underline">
+              {item.name}
+            </a>
+            <a
+              href={item.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${item.name} on LinkedIn`}
+              title="View LinkedIn profile"
+              className="text-[#0a66c2] transition-opacity hover:opacity-80"
+            >
+              <LinkedInIcon className="size-4" />
+            </a>
+          </span>
         ) : (
           <span className="font-medium text-fg">{item.name}</span>
         )}
