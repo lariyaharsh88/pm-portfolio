@@ -81,8 +81,8 @@ function Quote({ item, className = "w-[22rem] shrink-0 md:w-[26rem]" }: { item: 
   )
 }
 
-/** Below this many quotes a moving marquee looks sparse and long quotes are hard to read, so they sit in a grid. */
-const MARQUEE_MIN = 4
+/** Below this many quotes they sit in a grid; a marquee of a few cards looks sparse, and Read more on moving cards is awkward. */
+const MARQUEE_MIN = 7
 
 export function Testimonials() {
   if (testimonials.length === 0) return null
