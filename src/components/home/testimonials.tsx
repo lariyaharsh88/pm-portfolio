@@ -12,37 +12,31 @@ const CLAMP_AT = 220
 
 function Byline({ item }: { item: Testimonial }) {
   return (
-    <div className="flex items-center gap-3 text-sm">
+    <div className="flex min-w-0 flex-1 items-center gap-3 text-sm">
       {item.photo && (
         // eslint-disable-next-line @next/next/no-img-element -- 160px static headshot
         <img src={item.photo} alt="" width={44} height={44} loading="lazy" className="size-11 shrink-0 rounded-full object-cover" />
       )}
-      <span>
-        {item.linkedin ? (
-          <span className="flex items-center gap-1.5">
-            <a href={item.linkedin} target="_blank" rel="noopener noreferrer" className="font-medium text-fg underline-offset-4 hover:underline">
-              {item.name}
-            </a>
-            <a
-              href={item.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${item.name} on LinkedIn`}
-              title="View LinkedIn profile"
-              className="text-[#0a66c2] transition-opacity hover:opacity-80"
-            >
-              <LinkedInIcon className="size-4" />
-            </a>
-          </span>
-        ) : (
-          <span className="font-medium text-fg">{item.name}</span>
-        )}
+      <span className="min-w-0 flex-1">
+        <span className="block font-medium text-fg">{item.name}</span>
         {(item.role || item.company || item.relationship) && (
           <span className="block text-muted">
             {[[item.role, item.company].filter(Boolean).join(", "), item.relationship].filter(Boolean).join(" · ")}
           </span>
         )}
       </span>
+      {item.linkedin && (
+        <a
+          href={item.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${item.name} on LinkedIn`}
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-fg transition-colors hover:border-[#0a66c2] hover:text-[#0a66c2]"
+        >
+          <LinkedInIcon className="size-4 text-[#0a66c2]" />
+          LinkedIn
+        </a>
+      )}
     </div>
   )
 }
