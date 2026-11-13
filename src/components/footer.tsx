@@ -54,6 +54,8 @@ export function Footer() {
         </div>
         <p className="mt-8 font-mono text-xs text-muted">© 2026</p>
       </Container>
+      {/* Sister sites */}
+      <p className="mx-auto max-w-6xl px-4 pb-6 text-xs opacity-75">More from Harsh Lariya: <a href="https://kundlijyoti.com" className="underline-offset-2 hover:underline">Kundli Jyoti (free kundli & panchang)</a> · <a href="https://payhourscalc.com" className="underline-offset-2 hover:underline">PayHours (US pay calculators)</a> · <a href="https://invoice.rankflowhq.com" className="underline-offset-2 hover:underline">BillKaro (GST invoice maker)</a> · <a href="https://tools.rankflowhq.com" className="underline-offset-2 hover:underline">Free SEO tools</a> · <a href="https://rankflowhq.com" className="underline-offset-2 hover:underline">RankFlowHQ (SEO agency)</a> · <a href="https://anilumi.in" className="underline-offset-2 hover:underline">AniLumi (anime guide)</a></p>
       <div aria-hidden className="overflow-hidden select-none">
         <p className="footer-wordmark -mb-[0.12em] text-center font-heading leading-[0.8] font-semibold tracking-[-0.06em] whitespace-nowrap">
           Harsh Lariya
