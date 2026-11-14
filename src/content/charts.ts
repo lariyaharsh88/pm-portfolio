@@ -50,11 +50,11 @@ export const dailyCharts: Record<string, DailySeries> = {
   },
   anilumiSignups: {
     title: "AniLumi email sign-ups, daily",
-    source: "AniLumi production database, 28 Oct – 14 Nov 2026 (14 Nov partial), own tests removed",
+    source: "AniLumi production database, 28 Oct – 13 Nov 2026, own tests removed",
     metrics: [{ key: "signups", label: "Sign-ups" }],
     events: [{ date: "2026-11-04", label: "Sticky bar and episode alerts" }],
     points: [
-      { date: "2026-10-28", values: { signups: 0 } }, { date: "2026-10-29", values: { signups: 1 } }, { date: "2026-10-30", values: { signups: 1 } }, { date: "2026-10-31", values: { signups: 0 } }, { date: "2026-11-01", values: { signups: 1 } }, { date: "2026-11-02", values: { signups: 0 } }, { date: "2026-11-03", values: { signups: 0 } }, { date: "2026-11-04", values: { signups: 1 } }, { date: "2026-11-05", values: { signups: 3 } }, { date: "2026-11-06", values: { signups: 4 } }, { date: "2026-11-07", values: { signups: 1 } }, { date: "2026-11-08", values: { signups: 3 } }, { date: "2026-11-09", values: { signups: 0 } }, { date: "2026-11-10", values: { signups: 1 } }, { date: "2026-11-11", values: { signups: 5 } }, { date: "2026-11-12", values: { signups: 8 } }, { date: "2026-11-13", values: { signups: 9 } }, { date: "2026-11-14", values: { signups: 3 } },
+      { date: "2026-10-28", values: { signups: 0 } }, { date: "2026-10-29", values: { signups: 1 } }, { date: "2026-10-30", values: { signups: 1 } }, { date: "2026-10-31", values: { signups: 0 } }, { date: "2026-11-01", values: { signups: 1 } }, { date: "2026-11-02", values: { signups: 0 } }, { date: "2026-11-03", values: { signups: 0 } }, { date: "2026-11-04", values: { signups: 1 } }, { date: "2026-11-05", values: { signups: 3 } }, { date: "2026-11-06", values: { signups: 4 } }, { date: "2026-11-07", values: { signups: 1 } }, { date: "2026-11-08", values: { signups: 3 } }, { date: "2026-11-09", values: { signups: 0 } }, { date: "2026-11-10", values: { signups: 1 } }, { date: "2026-11-11", values: { signups: 5 } }, { date: "2026-11-12", values: { signups: 8 } }, { date: "2026-11-13", values: { signups: 9 } },
     ],
   },
   payhoursGoogle: {
@@ -147,11 +147,11 @@ export const barCharts: Record<string, BarSeries> = {
   },
   anilumiSignupSources: {
     title: "Where AniLumi's sign-ups came from",
-    source: "AniLumi production database, to 14 Nov 2026, own tests removed",
+    source: "AniLumi production database, to 13 Nov 2026, own tests removed",
     unit: "sign-ups",
     items: [
-      { label: "Sticky bar on show pages", value: 20 },
-      { label: "Footer weekly digest", value: 13 },
+      { label: "Sticky bar on show pages", value: 18 },
+      { label: "Footer weekly digest", value: 12 },
       { label: "Episode alert", value: 4 },
       { label: "My List alerts", value: 3 },
       { label: "Filler guide", value: 1 },
