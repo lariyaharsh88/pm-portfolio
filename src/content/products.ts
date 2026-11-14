@@ -24,7 +24,7 @@ export const products = [
     url: "https://anilumi.in/",
     urlLabel: "anilumi.in",
     tagline: "An anime discovery site: airing schedule in your time zone, seasonal charts, auto-built watch orders and a binge planner.",
-    impact: "~2.65K real users in 28 days · 616 search clicks · 48 email sign-ups",
+    impact: "~2.65K real users in 28 days · 616 search clicks · 42 real email sign-ups",
     screenshot: "/products/anilumi.webp",
     caseStudy: "/work/anilumi",
     accent: "#db2777",
