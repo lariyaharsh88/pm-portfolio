@@ -96,8 +96,8 @@ const screenshots: Record<string, { src: string; alt: string }> = {
     alt: "RankFlowHQ homepage: type a keyword, get a researched, SEO-ready article",
   },
   products: {
-    src: "/products/kundlijyoti.webp",
-    alt: "Kundli Jyoti homepage, one of seven independent products",
+    src: "/products/anilumi.webp",
+    alt: "AniLumi homepage, the most-used of seven independent products",
   },
   "content-growth-platform": {
     src: "/case-studies/student-compare.svg",

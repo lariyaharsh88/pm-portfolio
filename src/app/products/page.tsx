@@ -15,7 +15,7 @@ import { products, type Product } from "@/content/products"
 export const metadata: Metadata = pageMetadata({
   title: "AI Products",
   description:
-    "Independent products Harsh Lariya designed, built and shipped: Kundli Jyoti (AI astrologer), AniLumi (anime discovery), PayHours Calc (US payroll calculator), RankFlowHQ Free Tools, the Education Hub, HarshOnRoads (grounded trip planner) and RankFlowHQ (AI SEO writer).",
+    "Independent products Harsh Lariya designed, built and shipped: AniLumi (anime discovery), Kundli Jyoti (AI astrologer), HarshOnRoads (grounded trip planner), RankFlowHQ (AI SEO writer), RankFlowHQ Free Tools, the Education Hub and PayHours Calc (US payroll calculator).",
   path: "/products",
 })
 
@@ -62,6 +62,7 @@ function ProductSection({ product, priority }: { product: Product; priority: boo
           <div className="max-w-2xl">
             <h2 className="text-3xl text-fg md:text-5xl">{product.name}</h2>
             <p className="mt-4 text-lg text-muted">{product.tagline}</p>
+            <p className="mt-3 font-mono text-sm text-accent-ink">{product.impact}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             {"caseStudy" in product && product.caseStudy ? (

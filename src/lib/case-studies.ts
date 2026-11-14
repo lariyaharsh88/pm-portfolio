@@ -37,13 +37,13 @@ const publishedOrder = [
   "lead-management-platform",
   "content-growth-platform",
   "product-strategy",
-  // Independent products: same order as src/content/products.ts.
-  "kundlijyoti",
+  // Independent products: same order as src/content/products.ts (by shown impact).
   "anilumi",
-  "payhourscalc",
-  "rankflowhq-tools",
+  "kundlijyoti",
   "harshonroads",
   "rankflowhq",
+  "rankflowhq-tools",
+  "payhourscalc",
 ]
 
 export type CaseStudyMeta = Omit<CaseStudy, "content" | "hasTodo">

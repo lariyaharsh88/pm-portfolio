@@ -4,6 +4,8 @@ export type Product = {
   url: string
   urlLabel: string
   tagline: string
+  /** One-line, verifiable result shown on cards. */
+  impact: string
   screenshot: string
   caseStudy?: string
   accent: string
@@ -17,46 +19,12 @@ export type Product = {
 // Only facts visible on the live products. Add real usage and eval numbers here once you can verify them.
 export const products = [
   {
-    slug: "kundlijyoti",
-    name: "Kundli Jyoti",
-    url: "https://kundlijyoti.com/",
-    urlLabel: "kundlijyoti.com",
-    tagline: "A Vedic astrology app that computes kundli, matching and dasha from real planetary positions, then explains them in plain language.",
-    screenshot: "/products/kundlijyoti.webp",
-    caseStudy: "/work/kundlijyoti",
-    accent: "#c2410c",
-    problem:
-      "Astrology apps in India lean on fear and upsells: a scary dosha, then a ₹5,000 gemstone. Users can't tell what was calculated and what was made up.",
-    users: "Indian users who want a kundli, a marriage match or a daily rashifal without a sales pitch.",
-    flow: ["Birth details", "Planetary computation", "Kundli & dasha", "Plain-language reading"],
-    features: [
-      "Free kundli, kundli matching and dasha timelines computed on the device",
-      "Daily rashifal for 12 signs, panchang for 12 cities and 27 nakshatra pages, refreshed hourly",
-      "Ask Jyoti chat backed by a rule-based astrologer, with an LLM layer when a provider is configured",
-      "Detailed kundli report, free during the beta",
-      "Installable PWA with family profiles and WhatsApp sharing",
-    ],
-    decisions: [
-      {
-        title: "Computed, not guessed",
-        body: "Every reading starts from calculated planetary positions. The language model only explains the result, so it can't invent a placement.",
-      },
-      {
-        title: "Free pilot before payments",
-        body: "Razorpay checkout is built but switched off. I'm measuring reach and retention first, and will only charge once people come back on their own.",
-      },
-      {
-        title: "Privacy as the pitch",
-        body: "Birth details stay on the user's device. In a category known for upselling, that trust is the main point of difference.",
-      },
-    ],
-  },
-  {
     slug: "anilumi",
     name: "AniLumi",
     url: "https://anilumi.in/",
     urlLabel: "anilumi.in",
     tagline: "An anime discovery site: airing schedule in your time zone, seasonal charts, auto-built watch orders and a binge planner.",
+    impact: "~2.65K real users in 28 days · 356 Google + 260 Bing clicks",
     screenshot: "/products/anilumi.webp",
     caseStudy: "/work/anilumi",
     accent: "#db2777",
@@ -87,93 +55,38 @@ export const products = [
     ],
   },
   {
-    slug: "payhourscalc",
-    name: "PayHours Calc",
-    url: "https://payhourscalc.com/",
-    urlLabel: "payhourscalc.com",
-    tagline: "Fast, private calculators for US hourly workers and small-business payroll, built as a programmatic SEO site.",
-    screenshot: "/products/payhours.webp",
-    caseStudy: "/work/payhourscalc",
-    accent: "#0d7354",
+    slug: "kundlijyoti",
+    name: "Kundli Jyoti",
+    url: "https://kundlijyoti.com/",
+    urlLabel: "kundlijyoti.com",
+    tagline: "A Vedic astrology app that computes kundli, matching and dasha from real planetary positions, then explains them in plain language.",
+    impact: "10.4K Google impressions in 3 weeks · weekly users +215%",
+    screenshot: "/products/kundlijyoti.webp",
+    caseStudy: "/work/kundlijyoti",
+    accent: "#c2410c",
     problem:
-      "People searching for a time card or overtime calculator land on slow, ad-stuffed pages that get edge cases wrong, like overnight shifts or state overtime rules.",
-    users: "US hourly workers, shift managers and small-business owners running payroll.",
-    flow: ["Keyword research", "Calculator", "Programmatic pages", "Search Console"],
+      "Astrology apps in India lean on fear and upsells: a scary dosha, then a ₹5,000 gemstone. Users can't tell what was calculated and what was made up.",
+    users: "Indian users who want a kundli, a marriage match or a daily rashifal without a sales pitch.",
+    flow: ["Birth details", "Planetary computation", "Kundli & dasha", "Plain-language reading"],
     features: [
-      "10 calculators: time card, hours, overtime, hourly↔salary, pay raise, military time and 2026 military pay",
-      "Overtime rules for all 51 states and pay tables for 25 military grades",
-      "200+ programmatic pages such as \"$25 an hour is how much a year\"",
-      "415 static pages served from Cloudflare's edge, including 2026 state paycheck and tax pages, no account and no upload needed",
+      "Free kundli, kundli matching and dasha timelines computed on the device",
+      "Daily rashifal for 12 signs, panchang for 12 cities and 27 nakshatra pages, refreshed hourly",
+      "Ask Jyoti chat backed by a rule-based astrologer, with an LLM layer when a provider is configured",
+      "Detailed kundli report, free during the beta",
+      "Installable PWA with family profiles and WhatsApp sharing",
     ],
     decisions: [
       {
-        title: "Keyword data before code",
-        body: "I picked the niche from Google Keyword Planner data: about 900K US searches a month across the cluster, low ad competition, and weak existing results for pages like the pay raise calculator.",
+        title: "Computed, not guessed",
+        body: "Every reading starts from calculated planetary positions. The language model only explains the result, so it can't invent a placement.",
       },
       {
-        title: "Static and fast",
-        body: "Every page is pre-rendered and served from the edge, so the calculators load instantly and hosting costs almost nothing.",
-      },
-    ],
-  },
-  {
-    slug: "rankflowhq-tools",
-    name: "RankFlowHQ Free Tools",
-    url: "https://tools.rankflowhq.com/",
-    urlLabel: "tools.rankflowhq.com",
-    tagline: "15 free SEO, content and website tools with no sign-up. Built as the top of the funnel for RankFlowHQ.",
-    screenshot: "/products/tools.webp",
-    caseStudy: "/work/rankflowhq-tools",
-    accent: "#0369a1",
-    problem:
-      "People who run websites search every day for quick fixes: keyword ideas, a redirect check, a meta description. Most free tools hide results behind a sign-up or a watermark.",
-    users: "Bloggers, small-business owners, marketers and freelancers, the same people who need RankFlowHQ.",
-    flow: ["Search a small problem", "Free tool solves it", "How-to guide", "Optional email", "Try RankFlowHQ"],
-    features: [
-      "15 tools in four groups: SEO, content & copy, site health, design & files",
-      "Keyword ideas with intents, topic clusters and a ready content brief",
-      "Website checker with a health score, SSL, DNS, SPF/DMARC and an on-demand PageSpeed test",
-      "Most tools run in the browser, so files and text are never uploaded",
-      "A how-to guide and shareable result link on every tool page",
-    ],
-    decisions: [
-      {
-        title: "Free tools as a growth channel",
-        body: "Small, frequent searches are easier to rank for than \"AI article writer\", and the people searching are exactly RankFlowHQ's users.",
+        title: "Free pilot before payments",
+        body: "Razorpay checkout is built but switched off. I'm measuring reach and retention first, and will only charge once people come back on their own.",
       },
       {
-        title: "Rate it honestly, then rebuild",
-        body: "I scored my first version 5.5 out of 10 and fixed it in five phases: trust and speed, content, ten more tools, deeper features, and measurement.",
-      },
-    ],
-  },
-  {
-    slug: "education-hub",
-    name: "RankFlowHQ Education Hub",
-    url: "https://education.rankflowhq.com/",
-    urlLabel: "education.rankflowhq.com",
-    caseStudy: "/work/rankflowhq",
-    tagline: "An automated news and trends stack that turns education headlines into indexable, SEO-ready stories.",
-    screenshot: "/products/education.webp",
-    accent: "#4f46e5",
-    problem:
-      "Education news moves fast. Editorial teams manually check sources, miss trending searches, and publish too late to rank.",
-    users: "Education publishers and content editors. It is also a live showcase of RankFlowHQ's pipeline in a vertical I know well.",
-    flow: ["Sitemaps & RSS", "Real-time scan", "News aggregator", "AI repurpose", "SEO publish"],
-    features: [
-      "News aggregator tracking established education domains via RSS and sitemaps",
-      "Education Google Trends explorer with geo presets and trend windows",
-      "Repurposed news published as crawlable, indexable pages under /news",
-      "Editor workspace to bulk-create and manage blog drafts",
-    ],
-    decisions: [
-      {
-        title: "Dogfooding in my own domain",
-        body: "I applied the RankFlowHQ engine to education, where I've spent 5 years building SEO and content platforms, so I could judge output quality like an expert instead of guessing.",
-      },
-      {
-        title: "Trends drive the queue",
-        body: "Pairing the aggregator with Google Trends means editors prioritize stories people are actively searching for, not just whatever was published most recently.",
+        title: "Privacy as the pitch",
+        body: "Birth details stay on the user's device. In a category known for upselling, that trust is the main point of difference.",
       },
     ],
   },
@@ -183,6 +96,7 @@ export const products = [
     url: "https://www.harshonroads.com/",
     urlLabel: "harshonroads.com",
     tagline: "An India trip planner that builds itineraries from verified destination data first, and clearly labels anything AI-researched.",
+    impact: "Steady 200–350 Google impressions a day · 264+ Shorts as distribution",
     screenshot: "/products/harshonroads.webp",
     caseStudy: "/work/harshonroads",
     accent: "#b45309",
@@ -219,6 +133,7 @@ export const products = [
     url: "https://app.rankflowhq.com/",
     urlLabel: "app.rankflowhq.com",
     tagline: "Type a keyword, get a researched, SEO-ready article: RankFlowHQ reads what already ranks on Google, then writes a cited long-form draft in about 3 minutes.",
+    impact: "Keyword → cited article in ~3 min · 7-model fallback chain",
     screenshot: "/products/rankflowhq.webp",
     caseStudy: "/work/rankflowhq",
     accent: "#0369a1",
@@ -249,6 +164,99 @@ export const products = [
       {
         title: "Free tools as the acquisition channel",
         body: "The free SEO toolkit and the Education Hub's news pages bring in search traffic. Five free articles and a $49 Pro plan turn that traffic into users.",
+      },
+    ],
+  },  {
+    slug: "rankflowhq-tools",
+    name: "RankFlowHQ Free Tools",
+    url: "https://tools.rankflowhq.com/",
+    urlLabel: "tools.rankflowhq.com",
+    tagline: "15 free SEO, content and website tools with no sign-up. Built as the top of the funnel for RankFlowHQ.",
+    impact: "15 free tools, no sign-up · rebuilt from 5.5/10 in 5 phases",
+    screenshot: "/products/tools.webp",
+    caseStudy: "/work/rankflowhq-tools",
+    accent: "#0369a1",
+    problem:
+      "People who run websites search every day for quick fixes: keyword ideas, a redirect check, a meta description. Most free tools hide results behind a sign-up or a watermark.",
+    users: "Bloggers, small-business owners, marketers and freelancers, the same people who need RankFlowHQ.",
+    flow: ["Search a small problem", "Free tool solves it", "How-to guide", "Optional email", "Try RankFlowHQ"],
+    features: [
+      "15 tools in four groups: SEO, content & copy, site health, design & files",
+      "Keyword ideas with intents, topic clusters and a ready content brief",
+      "Website checker with a health score, SSL, DNS, SPF/DMARC and an on-demand PageSpeed test",
+      "Most tools run in the browser, so files and text are never uploaded",
+      "A how-to guide and shareable result link on every tool page",
+    ],
+    decisions: [
+      {
+        title: "Free tools as a growth channel",
+        body: "Small, frequent searches are easier to rank for than \"AI article writer\", and the people searching are exactly RankFlowHQ's users.",
+      },
+      {
+        title: "Rate it honestly, then rebuild",
+        body: "I scored my first version 5.5 out of 10 and fixed it in five phases: trust and speed, content, ten more tools, deeper features, and measurement.",
+      },
+    ],
+  },
+  {
+    slug: "education-hub",
+    name: "RankFlowHQ Education Hub",
+    url: "https://education.rankflowhq.com/",
+    urlLabel: "education.rankflowhq.com",
+    caseStudy: "/work/rankflowhq",
+    tagline: "An automated news and trends stack that turns education headlines into indexable, SEO-ready stories.",
+    impact: "News → indexable SEO story, ranked by live search trends",
+    screenshot: "/products/education.webp",
+    accent: "#4f46e5",
+    problem:
+      "Education news moves fast. Editorial teams manually check sources, miss trending searches, and publish too late to rank.",
+    users: "Education publishers and content editors. It is also a live showcase of RankFlowHQ's pipeline in a vertical I know well.",
+    flow: ["Sitemaps & RSS", "Real-time scan", "News aggregator", "AI repurpose", "SEO publish"],
+    features: [
+      "News aggregator tracking established education domains via RSS and sitemaps",
+      "Education Google Trends explorer with geo presets and trend windows",
+      "Repurposed news published as crawlable, indexable pages under /news",
+      "Editor workspace to bulk-create and manage blog drafts",
+    ],
+    decisions: [
+      {
+        title: "Dogfooding in my own domain",
+        body: "I applied the RankFlowHQ engine to education, where I've spent 5 years building SEO and content platforms, so I could judge output quality like an expert instead of guessing.",
+      },
+      {
+        title: "Trends drive the queue",
+        body: "Pairing the aggregator with Google Trends means editors prioritize stories people are actively searching for, not just whatever was published most recently.",
+      },
+    ],
+  },
+  {
+    slug: "payhourscalc",
+    name: "PayHours Calc",
+    url: "https://payhourscalc.com/",
+    urlLabel: "payhourscalc.com",
+    tagline: "Fast, private calculators for US hourly workers and small-business payroll, built as a programmatic SEO site.",
+    impact: "415 pages targeting ~900K US monthly searches",
+    screenshot: "/products/payhours.webp",
+    caseStudy: "/work/payhourscalc",
+    accent: "#0d7354",
+    problem:
+      "People searching for a time card or overtime calculator land on slow, ad-stuffed pages that get edge cases wrong, like overnight shifts or state overtime rules.",
+    users: "US hourly workers, shift managers and small-business owners running payroll.",
+    flow: ["Keyword research", "Calculator", "Programmatic pages", "Search Console"],
+    features: [
+      "10 calculators: time card, hours, overtime, hourly↔salary, pay raise, military time and 2026 military pay",
+      "Overtime rules for all 51 states and pay tables for 25 military grades",
+      "200+ programmatic pages such as \"$25 an hour is how much a year\"",
+      "415 static pages served from Cloudflare's edge, including 2026 state paycheck and tax pages, no account and no upload needed",
+    ],
+    decisions: [
+      {
+        title: "Keyword data before code",
+        body: "I picked the niche from Google Keyword Planner data: about 900K US searches a month across the cluster, low ad competition, and weak existing results for pages like the pay raise calculator.",
+      },
+      {
+        title: "Static and fast",
+        body: "Every page is pre-rendered and served from the edge, so the calculators load instantly and hosting costs almost nothing.",
       },
     ],
   },

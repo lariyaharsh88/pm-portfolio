@@ -51,7 +51,7 @@ export function ProductIndex() {
                   >
                     {product.name}
                   </span>
-                  <span className="hidden text-sm text-muted md:block">{product.urlLabel}</span>
+                  <span className="hidden text-sm text-muted md:block">{product.impact}</span>
                   <ArrowUpRight className="size-5 text-muted transition-[color,rotate] duration-500 group-hover:rotate-45 group-hover:text-accent-ink" />
                 </a>
               </li>
