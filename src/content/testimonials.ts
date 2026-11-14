@@ -38,7 +38,7 @@ export const testimonials: readonly Testimonial[] = [
   },
   {
     quote:
-      "Really loved the idea! The design is clean, smooth and user-friendly. Great work on the overall experience and attention to detail.",
+      "I had a wonderful experience exploring this website, and I must say that the overall work is truly impressive. The design is modern, attractive, and very well-structured, with a great combination of creativity and functionality. The navigation is smooth and intuitive, making it easy for visitors to explore different sections without any confusion.\n\nI especially appreciate the attention given to small details, the overall presentation, and the user-friendly experience. Everything feels thoughtfully designed and well-executed. It's clear that a lot of effort, dedication, and hard work have gone into creating this platform. The website not only looks professional but also provides a seamless browsing experience.\n\nKeep up the fantastic work! Looking forward to seeing more amazing projects from you. Highly recommended!",
     name: "Pari Sharma",
     role: "Junior Developer",
     relationship: "Teammate",
