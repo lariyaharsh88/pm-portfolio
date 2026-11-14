@@ -152,6 +152,7 @@ export const products = [
     name: "RankFlowHQ Education Hub",
     url: "https://education.rankflowhq.com/",
     urlLabel: "education.rankflowhq.com",
+    caseStudy: "/work/rankflowhq",
     tagline: "An automated news and trends stack that turns education headlines into indexable, SEO-ready stories.",
     screenshot: "/products/education.webp",
     accent: "#4f46e5",

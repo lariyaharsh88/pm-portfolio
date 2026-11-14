@@ -14,7 +14,7 @@ metrics:
   - { value: "351", label: "real visits in a day (11 Nov 2026), up from 255 on day one" }
   - { value: "80%", label: "of visitors on mobile (11 Nov)" }
   - { value: "~80%", label: "of visitors from India, Pakistan and Bangladesh (10 Nov)" }
-  - { value: "3.9K", label: "pages indexed by Google" }
+  - { value: "~2.65K", label: "real users in 28 days (GA4, bots removed)" }
 ---
 
 ## Summary
@@ -166,13 +166,49 @@ In its first week on Google, AniLumi went from nothing to about **90 clicks and 
 
 <Figure src="/case-studies/consoles/anilumi-gsc-indexing.webp" alt="Search Console page indexing reasons for anilumi.in, including 316 pages with server errors (5xx)" caption="The indexing report explains the drop: 316 pages returned server errors (5xx) when Google tried to crawl them." />
 
-<Figure src="/case-studies/consoles/anilumi-bing.webp" alt="Bing Webmaster Tools for anilumi.in: 140 clicks, 4.2K impressions, 3.33% CTR, rising from 3 November" caption="Bing Webmaster Tools over the same weeks: 140 clicks at a 3.3% click-through rate, led by Hindi dub searches." />
+<Figure src="/case-studies/consoles/anilumi-bing.webp" alt="Bing Webmaster Tools for anilumi.in: 140 clicks, 4.2K impressions, 3.33% CTR, rising from 3 November" caption="Bing Webmaster Tools on 8 November: 140 clicks at a 3.3% click-through rate, led by Hindi dub searches. By 11 November it had reached 260 clicks." />
 
 <DailyTrend data="anilumiBing" />
 
 <BarList data="anilumiBingQueries" />
 
-Bing moved the other way. It sent **140 clicks from 4,200 impressions (3.3% CTR)**, and the top searches were "anime dub hindi", "anime hindi" and "hindi dubbed anime". Bing and the analytics agree on who the audience is.
+Bing moved the other way. By 11 November it had sent **260 clicks from 6,900 impressions (3.8% CTR)**, steady at 40–46 clicks a day. Almost every top search is about Hindi dubs: "anime dub hindi", "anime hindi dubbed", "anime in hindi", and "hindi dubbed anime" converts at 26%. Bing and the analytics agree on who the audience is.
+
+### Google over 28 days: where the clicks hide
+
+Google has sent **356 clicks from 71,900 impressions** over the last 28 days, but the **CTR is only 0.5%** at an average position of 11. Three patterns stand out:
+
+- **Mobile ranks, desktop doesn't.** 77% of clicks come from phones, at an average position of 8.6. On desktop it's 16.8, page 2.
+- **The long tail works.** Clicks come from character birthday pages (31 October: 1,009 impressions), the Detective Conan watch order and single-episode pages, not the homepage.
+- **Impressions without clicks.** The Eren Yeager character page had 1,931 impressions and a 0.2% CTR; "Saitama" 870 at 0.1%. On Bing, "anime airing in fall 2026" sits at **position 1.9 with 0 clicks** from 218 impressions. These titles and descriptions are the cheapest growth available: rewriting them needs no new pages.
+
+Google doesn't yet rank the Hindi dub pages for Hindi searches. The audience that Bing and ChatGPT send has no Google equivalent yet, which makes it the clearest SEO target.
+
+## Cleaning the data: GA4 with the bots removed
+
+Google Analytics reported **3,422 users and 8,557 page views** over 28 days. Before trusting that, I split it by country and checked engagement:
+
+| Country | Users | Engagement rate | Avg. time | Verdict |
+|---|---|---|---|---|
+| India | 1,225 | 70% | 54s | Real, the core audience |
+| China | 684 | **1%** | **0s** | Bots: almost all from one prefecture (Kashgar) |
+| United States | 226 | 46% | 16s | Mixed |
+| Pakistan | 175 | 82% | 55s | Real, the most engaged |
+| Bangladesh | 147 | 75% | 41s | Real |
+| Singapore | 87 | **1%** | **0s** | Bots: data-centre traffic |
+| Nepal | 48 | 78% | 39s | Real |
+
+<BarList data="anilumiGa4Countries" />
+
+Removing the two zero-engagement countries leaves about **2,650 real users in 28 days**: 22% of the reported total was bots. South Asia is around 60% of real users and engages most, which matches the Cloudflare and Bing data from a third independent source.
+
+What the clean data says:
+
+- **The Hindi dub list is the product's front door.** `/hindi-dub` had 995 views and its Hindi version another 354, together 16% of all views.
+- **"What anime is this?" is the only page where users act.** All 136 tracked actions happened there, from 528 users.
+- **Show pages hold attention.** Attack on Titan readers viewed 3.4 pages each and stayed 40 seconds, the best of any page.
+- **AI assistants are now a channel.** In the week of 7–13 November, ChatGPT referred 1,300 sessions, more than Direct (630) and Bing (177) combined. Part of that is likely automated browsing, so I treat it as a signal to watch, not a number to celebrate.
+
 
 ## Mistakes and what I learned
 
@@ -191,5 +227,6 @@ Bing moved the other way. It sent **140 clicks from 4,200 impressions (3.3% CTR)
 
 - Measure the release: LCP before and after, and whether the 56 new Hindi dub titles start earning search impressions.
 - Add a Hindi landing page per dubbed show, and alerts when a new dub drops.
-- Add Search Console data to see which questions bring people in, then build more pages like them.
+- Rewrite titles and descriptions for the high-impression, low-CTR pages (character pages, the fall 2026 schedule) and measure CTR after two weeks.
+- Report GA4 with China and Singapore excluded, so every decision uses real users only.
 - Turn on affiliate links (manga and merchandise) once traffic is steady, and measure revenue per visit.

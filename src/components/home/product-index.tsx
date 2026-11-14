@@ -38,7 +38,7 @@ export function ProductIndex() {
             {products.map((product, i) => (
               <li key={product.slug}>
                 <a
-                  href={"caseStudy" in product && product.caseStudy ? product.caseStudy : `/products#${product.slug}`}
+                  href={product.caseStudy}
                   onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
                   className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 border-b border-border py-6 md:grid-cols-[4rem_1fr_16rem_auto] md:py-8"
                 >

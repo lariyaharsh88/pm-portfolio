@@ -35,7 +35,7 @@ export const dailyCharts: Record<string, DailySeries> = {
   },
   anilumiBing: {
     title: "AniLumi on Bing, daily",
-    source: "Bing Webmaster Tools, 28 Oct – 8 Nov 2026",
+    source: "Bing Webmaster Tools, 28 Oct – 11 Nov 2026",
     metrics: [
       { key: "clicks", label: "Clicks" },
       { key: "impressions", label: "Impressions" },
@@ -45,6 +45,7 @@ export const dailyCharts: Record<string, DailySeries> = {
       day("2026-10-28", 0, 0), day("2026-10-29", 0, 6), day("2026-10-30", 0, 54), day("2026-10-31", 0, 62),
       day("2026-11-01", 2, 181), day("2026-11-02", 0, 197), day("2026-11-03", 4, 145), day("2026-11-04", 44, 781),
       day("2026-11-05", 35, 820), day("2026-11-06", 26, 705), day("2026-11-07", 15, 592), day("2026-11-08", 14, 662),
+      day("2026-11-09", 31, 775), day("2026-11-10", 46, 978), day("2026-11-11", 43, 941),
     ],
   },
   payhoursGoogle: {
@@ -108,16 +109,31 @@ export const dailyCharts: Record<string, DailySeries> = {
 export const barCharts: Record<string, BarSeries> = {
   anilumiBingQueries: {
     title: "Top Bing searches for AniLumi",
-    source: "Bing Webmaster Tools, last 3 months",
+    source: "Bing Webmaster Tools, 3 months to 11 Nov 2026",
     unit: "impressions",
     items: [
-      { label: "anime dub hindi", value: 182 },
-      { label: "anime airing in fall 2026", value: 145 },
-      { label: "anime hindi", value: 47 },
-      { label: "anime hindi dubbed", value: 44 },
+      { label: "anime dub hindi", value: 303 },
+      { label: "anime airing in fall 2026", value: 218 },
+      { label: "anime hindi dubbed", value: 101 },
+      { label: "anime in hindi", value: 80 },
+      { label: "anime hindi", value: 56 },
       { label: "sub dub anime", value: 42 },
-      { label: "anime in hindi", value: 32 },
-      { label: "what anime is this", value: 25 },
+      { label: "anime salt hindi dubbed", value: 39 },
+      { label: "what anime is this", value: 30 },
+    ],
+  },
+  anilumiGa4Countries: {
+    title: "AniLumi real users by country",
+    source: "Google Analytics 4, last 28 days to 13 Nov 2026, China and Singapore removed as bots",
+    unit: "users",
+    items: [
+      { label: "India", value: 1225 },
+      { label: "United States", value: 226 },
+      { label: "Pakistan", value: 175 },
+      { label: "Bangladesh", value: 147 },
+      { label: "Brazil", value: 58 },
+      { label: "Indonesia", value: 58 },
+      { label: "Nepal", value: 48 },
     ],
   },
   anilumiCountries: {
