@@ -10,6 +10,8 @@ export type Note = {
   tags: string[]
   status: "published" | "draft"
   cover?: string
+  /** Product slugs (src/content/products.ts) shown as CTAs at the end of the note. */
+  related: string[]
   readingMinutes: number
   content: string
 }
@@ -34,6 +36,7 @@ function readNote(fileName: string): Note {
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     status: data.status,
     cover: typeof data.cover === "string" ? data.cover : undefined,
+    related: Array.isArray(data.related) ? data.related.map(String) : [],
     readingMinutes: Math.max(1, Math.round(words / 220)),
     content,
   }

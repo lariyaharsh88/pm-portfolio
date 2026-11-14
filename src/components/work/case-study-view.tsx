@@ -9,6 +9,7 @@ import { CountUp } from "@/components/motion/CountUp"
 import { SplitText } from "@/components/motion/SplitText"
 import { Container } from "@/components/ui/Container"
 import { Tag } from "@/components/ui/Tag"
+import { products } from "@/content/products"
 import type { CaseStudyMeta } from "@/lib/case-studies"
 import { cn } from "@/lib/cn"
 
@@ -68,6 +69,19 @@ export function CaseStudyView({
             className="mt-4 max-w-4xl text-4xl text-balance text-fg md:text-6xl"
           />
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{study.summary}</p>
+          {(() => {
+            const product = products.find((item) => item.caseStudy === `/work/${study.slug}`)
+            return product ? (
+              <a
+                href={product.url}
+                target="_blank"
+                rel="noopener"
+                className="mt-6 inline-flex items-center rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-85"
+              >
+                Visit {product.urlLabel} ↗
+              </a>
+            ) : null
+          })()}
           <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-3xl border border-border bg-bg-elevated">
             <Image
               src={study.cover}

@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm"
 import { mdxComponents } from "@/components/mdx/mdx-components"
 import { Container } from "@/components/ui/Container"
 import { remarkStripMdxComments } from "@/lib/remark-sections"
+import { products } from "@/content/products"
 import { formatDate, getNote, getNotes } from "@/lib/writing"
 
 type Props = { params: Promise<{ slug: string }> }
@@ -29,6 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NotePage({ params }: Props) {
   const note = getNote((await params).slug)
   if (!note) notFound()
+  // Keep the site-wide product order (by impact), not the order listed in the note.
+  const related = products.filter((product) => note.related.includes(product.slug))
 
   return (
     <main className="pt-36 pb-24 md:pt-44">
@@ -59,6 +62,35 @@ export default async function NotePage({ params }: Props) {
             options={{ blockJS: false, mdxOptions: { remarkPlugins: [remarkGfm, remarkStripMdxComments] } }}
           />
         </article>
+        {related.length > 0 && (
+          <section className="mt-16 border-t border-border pt-10">
+            <p className="font-mono text-xs tracking-[0.14em] text-muted uppercase">Products in this post</p>
+            <ul className="mt-6 grid gap-4">
+              {related.map((product) => (
+                <li key={product.slug} className="rounded-2xl border border-border bg-bg-elevated p-5">
+                  <p className="text-lg font-medium text-fg">{product.name}</p>
+                  <p className="mt-1 font-mono text-sm text-accent-ink">{product.impact}</p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <Link
+                      href={product.caseStudy}
+                      className="inline-flex items-center rounded-full bg-fg px-4 py-2 text-sm font-medium text-bg transition-opacity hover:opacity-85"
+                    >
+                      View case study →
+                    </Link>
+                    <a
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="inline-flex items-center rounded-full border border-border px-4 py-2 text-sm font-medium text-fg transition-colors hover:border-accent/50 hover:bg-accent-soft"
+                    >
+                      Visit website ↗
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </Container>
     </main>
   )
