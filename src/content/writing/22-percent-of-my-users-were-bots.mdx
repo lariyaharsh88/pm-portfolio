@@ -1,0 +1,61 @@
+---
+title: "22% of my users were bots: how I learned to clean my analytics"
+slug: 22-percent-of-my-users-were-bots
+date: "2026-11-14"
+summary: "My hosting dashboard said 1.6 million requests. Google Analytics said 3,422 users. The real number was about 2,650. Here's how I found the gap, and the simple checks I now run before I trust any dashboard."
+tags: ["Analytics", "Growth", "Lessons"]
+cover: /writing/cleaning-analytics.svg
+status: published
+---
+
+The first time I opened the Cloudflare dashboard for [AniLumi](/work/anilumi), my anime site, it said **1.6 million requests**. For about ten seconds I was very happy.
+
+Then I opened Cloudflare Web Analytics, which only counts real browsers. It said a few hundred visits a day. Same site, same week. One of those numbers was a story I wanted to believe, and the other was the truth.
+
+This post is about how I learned to tell the difference.
+
+## Three dashboards, three different answers
+
+For AniLumi I now look at three sources:
+
+| Source | What it said (late Oct – mid Nov) | What it actually counts |
+|---|---|---|
+| Hosting dashboard | 1.6M requests | Every request, including my own server talking to itself, crawlers and image fetches |
+| Google Analytics 4 | 3,422 users in 28 days | Anyone who runs the GA script, including some bots |
+| Cloudflare Web Analytics | 255–367 visits a day | Real browsers, bots largely excluded |
+
+None of them is "wrong". They count different things. The mistake is picking whichever one makes you feel best.
+
+## How I found the bots in GA4
+
+GA4 looked healthy: 3,422 users, 54% engagement. But when I split it by country, two rows looked strange:
+
+| Country | Users | Engagement rate | Avg. time |
+|---|---|---|---|
+| India | 1,225 | 70% | 54s |
+| **China** | **684** | **1%** | **0s** |
+| Pakistan | 175 | 82% | 55s |
+| **Singapore** | **87** | **1%** | **0s** |
+
+Real people don't spend zero seconds on a page, 684 times in a row. When I checked cities, almost all the China traffic came from one place. Singapore was data-centre traffic.
+
+Take those two out and AniLumi has about **2,650 real users in 28 days**. So **22% of my "users" were bots.** Not a disaster, but enough to make every rate and ratio wrong.
+
+<Callout type="insight">
+The fastest bot check I know: sort by country or city, then look at engagement time. Humans are messy. Bots are suspiciously consistent, often 0 seconds and 1% engagement.
+</Callout>
+
+## The checks I run now
+
+Before I make a product decision from a number, I ask:
+
+1. **What does this tool actually count?** Requests, sessions, users and visits are different things.
+2. **Does the engagement look human?** Zero seconds, 100% bounce, one city sending hundreds of users: all red flags.
+3. **Do two independent sources agree?** For AniLumi, GA4 (after cleaning), Cloudflare and Bing's search queries all pointed to the same audience: phone users in India, Pakistan and Bangladesh looking for Hindi dubs. When three sources agree, I trust the finding.
+4. **Is the "new channel" real?** In one week ChatGPT showed up as AniLumi's biggest source, 1,300 sessions. Some of that is real people clicking links in answers. Some of it is probably automated browsing. I'm treating it as a signal to watch, not a win to celebrate yet.
+
+## Why this matters for a PM
+
+As a PM I've seen the same thing at work. A dashboard number gets shared in a meeting, someone builds a plan on it, and weeks later we find out it was counting the wrong thing.
+
+The lesson I keep relearning: **the number you plan from should be the boring, honest one.** Big numbers feel good. Clean numbers make good decisions.

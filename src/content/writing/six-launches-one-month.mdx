@@ -1,0 +1,67 @@
+---
+title: "Six launches in one month: what building alone taught me about product management"
+slug: six-launches-one-month
+date: "2026-11-12"
+summary: "Between October and November I launched six small products outside my day job. Most of what I learned wasn't about code. It was about saying no, waiting for data, and the boring discipline of shipping safely."
+tags: ["Product Management", "Lessons", "0→1"]
+cover: /writing/six-products-one-month.svg
+status: published
+---
+
+I've been a product manager for years, mostly on data platforms and growth at edtech companies. In October I decided to stop only planning products and start shipping my own, in the evenings and on weekends.
+
+In about a month I launched:
+
+- [Kundli Jyoti](/work/kundlijyoti), an honest Vedic astrology app
+- [AniLumi](/work/anilumi), an anime discovery site
+- [PayHours Calc](/work/payhourscalc), US payroll and time calculators
+- [RankFlowHQ Tools](/work/rankflowhq-tools), 15 free SEO tools
+- BillKaro, a free GST invoice generator
+- plus a rebuild of [HarshOnRoads](/work/harshonroads), my travel site
+
+AI coding tools made the building fast. Everything else was still hard. Here's what I learned. I wrote up how I chose and ranked these bets in [Choosing what to build](/work/product-strategy).
+
+## 1. Users will tell you who they are, if you let them
+
+I built AniLumi for "anime fans". The data said: phone users in South Asia looking for Hindi dubs. I built Kundli Jyoti for kundli matching. The most visited page was a Bhai Dooj date page I almost didn't make.
+
+In both cases the plan was reasonable and the users disagreed. **The roadmap should follow the users, not my first guess.**
+
+## 2. Saying no is most of the job
+
+My rule was simple: no new idea could take time from a product that was already working, unless it beat that product's next step.
+
+I also said no to things that felt productive:
+
+- **No payments before traction.** Kundli Jyoti's ₹199 report is built and switched off. If I charge before people come back, I'll never know whether they value it.
+- **No sign-ups unless needed.** Watchlists and family profiles live in the browser. Less friction for users, no database for me.
+
+## 3. Early numbers lie
+
+AniLumi and PayHours both spiked on Google in week one and then dropped. Analytics showed 1.6 million requests when real visits were a few hundred. About 22% of AniLumi's GA4 users were bots.
+
+I wrote separately about [cleaning analytics](/writing/22-percent-of-my-users-were-bots) and [why Bing mattered more than I expected](/writing/the-search-engine-i-ignored). The short version: **wait for clean data, and wait longer than feels comfortable.**
+
+## 4. Shipping safely is a product skill
+
+This one hurt. I moved AniLumi between three hosts in ten days during its most important week, and Google found hundreds of broken pages.
+
+And just today, while updating this very portfolio, a failed build deployed an empty site. My portfolio was down for a few minutes before I noticed. The fix was one line. The lesson is older than me: **never deploy something you haven't checked.** Now the deploy only runs if the build actually produced the site.
+
+At work, release discipline belongs to the engineering team. When you build alone, it's yours, and users don't care whose fault it was.
+
+## 5. Distribution is half the product
+
+[RankFlowHQ](/work/rankflowhq), my AI article writer, is the most technically complex thing I've built. Over 16 months, the product pages never appeared in Google once. Traffic came from blog and news pages instead.
+
+That's why the free tools exist: small, useful things people actually search for, which lead to the main product. **Building it was the easier half. Getting the right people to try it is the harder one.**
+
+## 6. Write it down, honestly
+
+Every product here has a case study with its real numbers, including the bad ones. Writing "Google traffic dropped and I'm partly to blame" is uncomfortable. But it forced me to understand why, and it's the part people seem to find most useful.
+
+## What's next
+
+Six bets is too many to keep feeding. After 60 days of clean data, each product gets a simple verdict: **keep, grow or stop**. Then I put my time behind the one or two that earned it.
+
+That is the same thing I'd tell a team at work. It's just much harder to do with your own products.
