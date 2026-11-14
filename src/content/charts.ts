@@ -48,6 +48,15 @@ export const dailyCharts: Record<string, DailySeries> = {
       day("2026-11-09", 31, 775), day("2026-11-10", 46, 978), day("2026-11-11", 43, 941),
     ],
   },
+  anilumiSignups: {
+    title: "AniLumi email sign-ups, daily",
+    source: "AniLumi production database, 28 Oct – 14 Nov 2026 (14 Nov partial), own tests removed",
+    metrics: [{ key: "signups", label: "Sign-ups" }],
+    events: [{ date: "2026-11-04", label: "Sticky bar and episode alerts" }],
+    points: [
+      { date: "2026-10-28", values: { signups: 0 } }, { date: "2026-10-29", values: { signups: 1 } }, { date: "2026-10-30", values: { signups: 1 } }, { date: "2026-10-31", values: { signups: 0 } }, { date: "2026-11-01", values: { signups: 1 } }, { date: "2026-11-02", values: { signups: 0 } }, { date: "2026-11-03", values: { signups: 0 } }, { date: "2026-11-04", values: { signups: 1 } }, { date: "2026-11-05", values: { signups: 3 } }, { date: "2026-11-06", values: { signups: 4 } }, { date: "2026-11-07", values: { signups: 1 } }, { date: "2026-11-08", values: { signups: 3 } }, { date: "2026-11-09", values: { signups: 0 } }, { date: "2026-11-10", values: { signups: 1 } }, { date: "2026-11-11", values: { signups: 5 } }, { date: "2026-11-12", values: { signups: 8 } }, { date: "2026-11-13", values: { signups: 9 } }, { date: "2026-11-14", values: { signups: 3 } },
+    ],
+  },
   payhoursGoogle: {
     title: "PayHours Calc on Google, daily",
     source: "Google Search Console, 21 Oct – 9 Nov 2026",
@@ -134,6 +143,18 @@ export const barCharts: Record<string, BarSeries> = {
       { label: "Brazil", value: 58 },
       { label: "Indonesia", value: 58 },
       { label: "Nepal", value: 48 },
+    ],
+  },
+  anilumiSignupSources: {
+    title: "Where AniLumi's sign-ups came from",
+    source: "AniLumi production database, to 14 Nov 2026, own tests removed",
+    unit: "sign-ups",
+    items: [
+      { label: "Sticky bar on show pages", value: 20 },
+      { label: "Footer weekly digest", value: 13 },
+      { label: "Episode alert", value: 4 },
+      { label: "My List alerts", value: 3 },
+      { label: "Filler guide", value: 1 },
     ],
   },
   anilumiCountries: {

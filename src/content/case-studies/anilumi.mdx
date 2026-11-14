@@ -207,9 +207,38 @@ What the clean data says:
 - **The Hindi dub list is the product's front door.** `/hindi-dub` had 995 views and its Hindi version another 354, together 16% of all views.
 - **"What anime is this?" is the only page where users act.** All 136 tracked actions happened there, from 528 users.
 - **Show pages hold attention.** Attack on Titan readers viewed 3.4 pages each and stayed 40 seconds, the best of any page.
-- **The first owned audience.** The production database holds 48 email sign-ups; after removing my own tests, about **42 are real**. The trend matters more than the total: 3 in the first week, 13 in the second, then **25 in just 11–14 November**, roughly 1.7% of daily visitors. Half come from a sticky bar that follows readers down show pages, and new watch-order and Hindi pages started converting within days of launch. The weak spot: only about 5% have clicked the confirmation email, so the next fix is the confirmation step, not more forms. Behind the pages sits a cache of **145,000 anime records**, so most pages load without waiting on the outside API.
+- **Behind the pages** sits a cache of **145,000 anime records**, so most pages load without waiting on the outside API.
 - **AI assistants are now a channel.** In the week of 7–13 November, ChatGPT referred 1,300 sessions, more than Direct (630) and Bing (177) combined. Part of that is likely automated browsing, so I treat it as a signal to watch, not a number to celebrate.
 
+
+## Email sign-ups: the first owned audience
+
+Search traffic can disappear overnight, as Google showed in November. An email list can't. So every page has a way to sign up: a sticky bar while reading, a weekly digest in the footer, and "tell me when the next episode is out" on episode pages.
+
+The production database holds **48 sign-ups**. After removing my own tests, about **41 are real**, all with an explicit consent tick.
+
+<DailyTrend data="anilumiSignups" />
+
+| Period | Real sign-ups | What changed |
+|---|---|---|
+| 28 Oct – 3 Nov | 3 | Footer form only, few visitors |
+| 4 – 10 Nov | 13 | Sticky bar and episode alerts live |
+| 11 – 14 Nov (4 days) | **25** | Watch-order and Hindi pages start converting |
+
+The last four days brought more sign-ups than the two weeks before them, about **1.7% of daily visitors**.
+
+<BarList data="anilumiSignupSources" />
+
+What the sign-ups say:
+
+- **The sticky bar does the work.** Half of all sign-ups (20 of 41) came from a bar that follows readers down a show page. The footer form brought 31%.
+- **Specific promises convert.** 7 people asked for something concrete: the next episode of a show they're watching, alerts for their list, or a filler guide.
+- **New pages convert fast.** Watch-order pages and Hindi pages produced sign-ups within days of going live.
+- **One big gap.** "What anime is this?" is the second most-viewed page but produced only one sign-up, because it only has the footer form. Adding the sticky bar there is the next experiment.
+
+<Callout type="tradeoff">
+**The leak I found:** only about 5% of sign-ups had confirmed their email. Confirmation emails were switched on after most people signed up, so 40 people were waiting for an email that never came. A one-time job now sends each of them a single confirmation. The lesson: measure the whole funnel, not just the form.
+</Callout>
 
 ## Mistakes and what I learned
 
