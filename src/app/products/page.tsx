@@ -31,7 +31,7 @@ export default function ProductsPage() {
           className="mt-4 max-w-4xl text-4xl text-balance text-fg sm:text-6xl"
         />
         <p className="mt-5 max-w-2xl text-lg text-muted">
-          Seven live products where I owned everything: the problem, positioning, scope, AI design and the build itself.
+          Seven live products where I owned everything: the problem, positioning, scope, AI design and the build itself. They are small on purpose: proof of method, not proof of scale. Each one tests a way of finding users, measuring honestly and deciding what to do next.
         </p>
         <nav aria-label="Products" className="mt-8 flex flex-wrap gap-2">
           {products.map((product) => (

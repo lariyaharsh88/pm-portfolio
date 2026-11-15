@@ -1,6 +1,7 @@
 "use client"
 
 import { Stagger, StaggerItem } from "@/components/motion/Stagger"
+import Link from "next/link"
 import { Container } from "@/components/ui/Container"
 
 const principles = [
@@ -50,6 +51,12 @@ export function HowIWork() {
             </StaggerItem>
           ))}
         </Stagger>
+        <Link
+          href="/how-i-work"
+          className="mt-10 inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg transition-colors hover:border-accent/50 hover:bg-accent-soft"
+        >
+          The full playbook, with evidence →
+        </Link>
       </Container>
     </section>
   )
