@@ -11,10 +11,10 @@ accent: "#db2777"
 cover: "/products/anilumi.webp"
 status: "published"
 metrics:
-  - { value: "351", label: "real visits in a day (11 Nov 2026), up from 255 on day one" }
-  - { value: "80%", label: "of visitors on mobile (11 Nov)" }
+  - { value: "~4.3K", label: "real users in 28 days (GA4, bots removed, to 17 Nov 2026)" }
+  - { value: "93", label: "real email sign-ups, 55 of them in 14–17 Nov" }
+  - { value: "908", label: "search clicks: 381 Google (28 days) + 527 Bing (3 months)" }
   - { value: "~80%", label: "of visitors from India, Pakistan and Bangladesh (10 Nov)" }
-  - { value: "~2.65K", label: "real users in 28 days (GA4, bots removed)" }
 ---
 
 ## Summary
@@ -166,78 +166,79 @@ In its first week on Google, AniLumi went from nothing to about **90 clicks and 
 
 <Figure src="/case-studies/consoles/anilumi-gsc-indexing.webp" alt="Search Console page indexing reasons for anilumi.in, including 316 pages with server errors (5xx)" caption="The indexing report explains the drop: 316 pages returned server errors (5xx) when Google tried to crawl them." />
 
-<Figure src="/case-studies/consoles/anilumi-bing.webp" alt="Bing Webmaster Tools for anilumi.in, last 3 months: 260 clicks, 6.9K impressions, 3.77% CTR, rising from 3 November to about 45 clicks a day" caption="Bing Webmaster Tools, last 3 months (to 11 November): 260 clicks from 6.9K impressions at a 3.8% click-through rate, led by Hindi dub searches." />
+<Figure src="/case-studies/consoles/anilumi-bing.webp" alt="Bing Webmaster Tools for anilumi.in, last 3 months: 527 clicks, 12.7K impressions, 4.16% CTR, rising from 3 November to 45–60 clicks a day" caption="Bing Webmaster Tools, last 3 months (to 16 November): 527 clicks from 12.7K impressions at a 4.2% click-through rate, led by Hindi dub searches." />
 
 <DailyTrend data="anilumiBing" />
 
 <BarList data="anilumiBingQueries" />
 
-Bing moved the other way. By 11 November it had sent **260 clicks from 6,900 impressions (3.8% CTR)**, steady at 40–46 clicks a day. Almost every top search is about Hindi dubs: "anime dub hindi", "anime hindi dubbed", "anime in hindi", and "hindi dubbed anime" converts at 26%. Bing and the analytics agree on who the audience is.
+Bing moved the other way. By 16 November it had sent **527 clicks from 12,700 impressions (4.2% CTR)**, now 45–60 clicks a day, and the click-through rate is still rising. Almost every top search is about Hindi dubs: "anime dub hindi" (478 impressions), "anime in hindi", "anime hindi dubbed", and "hindi dub anime" converts at 11%. Bing and the analytics agree on who the audience is.
 
 ### Google over 28 days: where the clicks hide
 
-Google has sent **356 clicks from 71,900 impressions** over the last 28 days, but the **CTR is only 0.5%** at an average position of 11. Three patterns stand out:
+Google has sent **381 clicks from 72,000 impressions** over the last 28 days (to 17 November), but the **CTR is only 0.5%** at an average position of 11. Three patterns stand out:
 
-- **Mobile ranks, desktop doesn't.** 77% of clicks come from phones, at an average position of 8.6. On desktop it's 16.8, page 2.
+- **Mobile ranks, desktop doesn't.** 78% of clicks come from phones, at an average position of 8.6. On desktop it's 16.8, page 2.
 - **The long tail works.** Clicks come from character birthday pages (31 October: 1,009 impressions), the Detective Conan watch order and single-episode pages, not the homepage.
-- **Impressions without clicks.** The Eren Yeager character page had 1,931 impressions and a 0.2% CTR; "Saitama" 870 at 0.1%. On Bing, "anime airing in fall 2026" sits at **position 1.9 with 0 clicks** from 218 impressions. These titles and descriptions are the cheapest growth available: rewriting them needs no new pages.
+- **Impressions without clicks.** The Eren Yeager character page had 1,931 impressions and a 0.2% CTR; "Saitama" 870 at 0.1%. On Bing, "anime airing in fall 2026" sits at **position 2.2 with 0 clicks** from 351 impressions. These titles and descriptions are the cheapest growth available: rewriting them needs no new pages.
 
 Google doesn't yet rank the Hindi dub pages for Hindi searches. The audience that Bing and ChatGPT send has no Google equivalent yet, which makes it the clearest SEO target.
 
 ## Cleaning the data: GA4 with the bots removed
 
-Google Analytics reported **3,422 users and 8,557 page views** over 28 days. Before trusting that, I split it by country and checked engagement:
+Google Analytics reported **5,140 users and 14,542 page views** over the 28 days to 17 November. Before trusting that, I split it by country and checked engagement:
 
 | Country | Users | Engagement rate | Avg. time | Verdict |
 |---|---|---|---|---|
-| India | 1,225 | 70% | 54s | Real, the core audience |
-| China | 684 | **1%** | **0s** | Bots: almost all from one prefecture (Kashgar) |
-| United States | 226 | 46% | 16s | Mixed |
-| Pakistan | 175 | 82% | 55s | Real, the most engaged |
-| Bangladesh | 147 | 75% | 41s | Real |
-| Singapore | 87 | **1%** | **0s** | Bots: data-centre traffic |
-| Nepal | 48 | 78% | 39s | Real |
+| India | 2,188 | 74% | 58s | Real, the core audience |
+| China | 686 | **1%** | **0s** | Bots: almost all from one prefecture (Kashgar) |
+| Pakistan | 311 | 81% | 1m 07s | Real, the most engaged |
+| United States | 308 | 50% | 19s | Mixed |
+| Bangladesh | 259 | 78% | 49s | Real |
+| Singapore | 161 | **1%** | **0s** | Bots: data-centre traffic |
+| Nepal | 88 | 76% | 47s | Real |
 
 <BarList data="anilumiGa4Countries" />
 
-Removing the two zero-engagement countries leaves about **2,650 real users in 28 days**: 22% of the reported total was bots. South Asia is around 60% of real users and engages most, which matches the Cloudflare and Bing data from a third independent source.
+Removing the two zero-engagement countries leaves about **4,300 real users in 28 days**: 16% of the reported total was bots (22% a week earlier, because the bot traffic stopped growing while real users kept coming). South Asia is around 66% of real users and engages most, which matches the Cloudflare and Bing data from a third independent source.
 
 What the clean data says:
 
-- **The Hindi dub list is the product's front door.** `/hindi-dub` had 995 views and its Hindi version another 354, together 16% of all views.
-- **"What anime is this?" is the only page where users act.** All 136 tracked actions happened there, from 528 users.
-- **Show pages hold attention.** Attack on Titan readers viewed 3.4 pages each and stayed 40 seconds, the best of any page.
+- **The Hindi dub list is the product's front door.** `/hindi-dub` had 1,766 views and its Hindi version another 578, together 16% of all views. A new Hindi dub release schedule already has 141.
+- **"What anime is this?" is where users act.** 292 of 328 tracked actions (89%) happened there, from 628 users.
+- **Show pages hold attention.** Attack on Titan readers viewed 2.5 pages each, more than any other top page.
 - **Behind the pages** sits a cache of **145,000 anime records**, so most pages load without waiting on the outside API.
-- **AI assistants are now a channel.** In the week of 7–13 November, ChatGPT referred 1,300 sessions, more than Direct (630) and Bing (177) combined. Part of that is likely automated browsing, so I treat it as a signal to watch, not a number to celebrate.
+- **AI assistants are now a channel.** In the week to 17 November, ChatGPT referred 2,100 sessions, far more than Direct (298), Bing (252) and Google (48) combined. Part of that is likely automated browsing, so I treat it as a signal to watch, not a number to celebrate.
 
 
 ## Email sign-ups: the first owned audience
 
 Search traffic can disappear overnight, as Google showed in November. An email list can't. So every page has a way to sign up: a sticky bar while reading, a weekly digest in the footer, and "tell me when the next episode is out" on episode pages.
 
-Up to 13 November the production database held **45 sign-ups**. After removing my own tests, about **38 are real**, all with an explicit consent tick.
+Up to 17 November the production database held **98 sign-ups**. After removing my own tests, **93 are real**, all with an explicit consent tick.
 
 <DailyTrend data="anilumiSignups" />
 
 | Period | Real sign-ups | What changed |
 |---|---|---|
-| 28 Oct – 3 Nov | 3 | Footer form only, few visitors |
+| 28 Oct – 3 Nov | 2 | Footer form only, few visitors |
 | 4 – 10 Nov | 13 | Sticky bar and episode alerts live |
-| 11 – 13 Nov (3 days) | **22** | Watch-order and Hindi pages start converting |
+| 11 – 13 Nov (3 days) | 23 | Watch-order and Hindi pages start converting |
+| 14 – 17 Nov (4 days) | **55** | Best days: 18 on 14 Nov, 21 on 15 Nov |
 
-The last three days brought more sign-ups than the two weeks before them, about **2% of daily visitors**.
+The last four days brought more sign-ups than everything before them combined, about **14 a day**.
 
 <BarList data="anilumiSignupSources" />
 
 What the sign-ups say:
 
-- **The sticky bar does the work.** Half of all sign-ups (18 of 38) came from a bar that follows readers down a show page. The footer form brought 32%.
-- **Specific promises convert.** 7 people asked for something concrete: the next episode of a show they're watching, alerts for their list, or a filler guide.
-- **New pages convert fast.** Watch-order and Hindi pages produced sign-ups within days of going live.
+- **The sticky bar does the work.** Just over half of all sign-ups (49 of 95) came from a bar that follows readers down a show page. The footer form brought a third.
+- **Specific promises convert.** 13 people asked for something concrete: the next episode of a show they're watching, alerts for their list, Hindi dub news or a filler guide.
+- **New pages convert fast.** Watch-order pages (15 sign-ups) and Hindi pages (12) went from zero to a quarter of all sign-ups within a week of going live.
 - **One big gap.** "What anime is this?" is the second most-viewed page but produced only one sign-up, because it only has the footer form. Adding the sticky bar there is the next experiment.
 
 <Callout type="tradeoff">
-**The leak I found:** only about 5% of sign-ups had confirmed their email. Confirmation emails were switched on after most people signed up, so 40 people were waiting for an email that never came. A one-time job now sends each of them a single confirmation. The lesson: measure the whole funnel, not just the form.
+**The leak I found:** on 14 November only about 5% of sign-ups had confirmed their email. Confirmation emails were switched on after most early sign-ups, so dozens of people were waiting for an email that never came. With confirmation now sent straight away, the confirmed share has risen to **18% (17 of 95)**, and the rest are next. The lesson: measure the whole funnel, not just the form.
 </Callout>
 
 ## Mistakes and what I learned
